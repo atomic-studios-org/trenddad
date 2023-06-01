@@ -1,11 +1,11 @@
 import {
-  int,
   mysqlEnum,
   mysqlTable,
   serial,
   uniqueIndex,
   varchar,
 } from "drizzle-orm/mysql-core";
+import { createInsertSchema } from "drizzle-zod";
 
 // declaring enum in database
 export const countries = mysqlTable(
@@ -24,3 +24,4 @@ export const cities = mysqlTable("cities", {
   name: varchar("name", { length: 256 }),
   popularity: mysqlEnum("popularity", ["unknown", "known", "popular"]),
 });
+export const citySchema = createInsertSchema(cities);

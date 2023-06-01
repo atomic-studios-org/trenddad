@@ -1,5 +1,5 @@
 <template>
   <div>
-    <Drizzle />
+    <NuxtPage />
   </div>
 </template>
