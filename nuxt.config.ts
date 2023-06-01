@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   modules: ["@unocss/nuxt"],
   routeRules: {
-    "/": { static: true },
+    "/": { prerender: true },
+    "/db": { swr: true },
   },
 });
