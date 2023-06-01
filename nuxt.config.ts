@@ -2,6 +2,6 @@
 export default defineNuxtConfig({
   modules: ["@unocss/nuxt"],
   routeRules: {
-    "/": { isr: true },
+    "/": { static: true },
   },
 });
