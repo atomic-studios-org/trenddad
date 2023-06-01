@@ -1,10 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ["@unocss/nuxt", "@nuxtjs/i18n", "@sidebase/nuxt-auth"],
-  routeRules: {
-    "/": { prerender: false },
-    "/db": { swr: false },
-  },
+ 
   components: {
     dirs: ["~/components"],
     global: true,
