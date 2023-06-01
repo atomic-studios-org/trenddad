@@ -3,8 +3,8 @@ const { locale } = useI18n();
 </script>
 
 <template>
-  <select v-model="locale">
-    <option value="en">en</option>
-    <option value="nl">nl</option>
+  <select class="border-none" v-model="locale">
+    <option value="en">English</option>
+    <option value="nl">Dutch</option>
   </select>
 </template>

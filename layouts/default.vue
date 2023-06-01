@@ -1,11 +1,15 @@
 <script lang="ts" setup>
 import "normalize.css";
-import Header from "../components/header.vue";
+import Upheader from "~/components/headers/upheader.vue";
+import Downheader from "~/components/headers/downheader.vue";
 </script>
 
 <template>
-  <div class="min-h-screen">
-    <Header />
+  <div class="min-h-screen font-inter w-screen">
+    <div>
+      <Upheader />
+      <Downheader />
+    </div>
     <slot />
   </div>
 </template>

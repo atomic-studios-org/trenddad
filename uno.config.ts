@@ -5,7 +5,9 @@ import {
   presetTypography,
   presetUno,
   presetWebFonts,
+  presetIcons
 } from "unocss";
+
 
 type WebFontsProviders = "google" | "bunny" | "fontshare" | "none";
 interface WebFontMeta {
@@ -22,6 +24,7 @@ interface WebFontMeta {
 //in here we may define brand themes to scale large applications
 export default defineConfig({
   presets: [
+    presetIcons({}),
     presetAttributify(), // required when using attributify mode
     presetUno(), // required
     presetTypography(),

@@ -11,6 +11,7 @@
     "push-drizzle": "drizzle-kit push:mysql"
   },
   "devDependencies": {
+    "@iconify/json": "^2.2.72",
     "@nuxtjs/i18n": "8.0.0-beta.12",
     "@sidebase/nuxt-auth": "0.6.0-beta.2",
     "@types/node": "^18",

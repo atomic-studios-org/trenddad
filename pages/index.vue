@@ -7,7 +7,5 @@ definePageMeta({
 </script>
 
 <template>
-  <div>
-    <Drizzle />
-  </div>
+  <div></div>
 </template>
