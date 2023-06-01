@@ -1,4 +1,5 @@
 // file: ~/server/api/auth/[...].ts
+//@ts-ignore
 import { NuxtAuthHandler } from '#auth'
 import DiscordProvider from 'next-auth/providers/discord'
 
