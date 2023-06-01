@@ -33,7 +33,7 @@ const addUser = async (): Promise<void> => {
 <template>
   <div>
     <div>
-      <h1>Drizzle planetscale db connection</h1>
+      <h1 class="font-switzer">Drizzle planetscale db connection</h1>
     </div>
     <div v-for="error in typeErrorMsgs">
       <span>{{ error }}</span>
@@ -71,7 +71,7 @@ const addUser = async (): Promise<void> => {
                               <span
                                 class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200"
                               >
-                                Name
+                                <div>{{ $t("name") }}</div>
                               </span>
                               <div
                                 class="flex justify-center items-center w-5 h-5 border border-gray-200 group-hover:bg-gray-200 text-gray-400 rounded dark:border-gray-700 dark:group-hover:bg-gray-700 dark:text-gray-400"
@@ -105,7 +105,7 @@ const addUser = async (): Promise<void> => {
                               <span
                                 class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200"
                               >
-                                Popularity
+                                {{ $t("popularity") }}
                               </span>
                               <div
                                 class="flex justify-center items-center w-5 h-5 border border-gray-200 group-hover:bg-gray-200 text-gray-400 rounded dark:border-gray-700 dark:group-hover:bg-gray-700 dark:text-gray-400"

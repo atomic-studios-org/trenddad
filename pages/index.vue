@@ -5,8 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <div>
-    <NuxtLink href="/">Home</NuxtLink><NuxtLink href="/db">DB</NuxtLink
-    ><Drizzle />
-  </div>
+  <div><Drizzle /></div>
 </template>
