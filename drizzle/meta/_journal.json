@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1685604491393,
+      "tag": "0000_flat_the_twelve",
+      "breakpoints": false
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1685608214003,
+      "tag": "0001_quick_lightspeed",
+      "breakpoints": false
+    }
+  ]
+}
