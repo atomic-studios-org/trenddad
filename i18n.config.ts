@@ -7,6 +7,7 @@ export default defineI18nConfig(() => ({
   locale: "en",
   messages: {
     en: {
+      "popularity": "popularity",
         "name": "name",
         "welcome": "Kippie Storefront Session Information",
         "currency": "Currency",
