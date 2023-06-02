@@ -15,21 +15,21 @@ const handleSignOut = async () => {
   <div
     class="h-10 flex bg-white md:w-4/6 w-full mx-auto justify-between items-center text-black mb-1"
   >
-    <div class="flex items-center md:space-x-4 space-x-1 ml-2">
+    <div class="flex items-center md:space-x-4 ml-2">
       <div>
         <div
           @click="
             isOpenCollections = !isOpenCollections;
             isOpenShop = false;
           "
-          class="group flex"
+          class="group flex items-center"
         >
           <button
             class="bg-white md:text-md lg:text-xl text-sm text-black border-none cursor-pointer group-hover:text-gray-600"
           >
             Collections
           </button>
-          <i class="i-mdi-chevron-down group-hover:text-gray-600" />
+          <i class="-ml-2 i-mdi-chevron-down group-hover:text-gray-600" />
         </div>
         <!-- Dropdown menu -->
         <div
@@ -85,14 +85,14 @@ const handleSignOut = async () => {
             isOpenShop = !isOpenShop;
             isOpenCollections = false;
           "
-          class="group flex"
+          class="group flex items-center"
         >
           <button
             class="bg-white text-black border-none cursor-pointer md:text-md lg:text-xl text-sm group-hover:text-gray-600"
           >
             Shop
           </button>
-          <i class="i-mdi-chevron-down group-hover:text-gray-600" />
+          <i class="-ml-2 i-mdi-chevron-down group-hover:text-gray-600" />
         </div>
         <!-- Dropdown menu -->
         <div
