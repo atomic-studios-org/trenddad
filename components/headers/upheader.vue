@@ -25,7 +25,7 @@ const store = useCartStore();
           <span class="group hover:text-gray-600">
             Bag<span
               class="bg-sky-900 group-hover:bg-sky-800 text-white rounded-full px-1"
-              >{{ store.cart.length }}</span
+              >{{ store.getCart.length }}</span
             ></span
           >
         </NuxtLink>

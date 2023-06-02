@@ -19,9 +19,9 @@ export const countries = mysqlTable(
   })
 );
 
-export const cities = mysqlTable("cities", {
+export const products = mysqlTable("products", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 256 }),
   popularity: mysqlEnum("popularity", ["unknown", "known", "popular"]),
 });
-export const citySchema = createInsertSchema(cities);
+export const productSchema = createInsertSchema(products);

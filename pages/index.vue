@@ -5,22 +5,34 @@ const store = useCartStore();
 definePageMeta({
   layout: "default",
 });
-const data = [
-  {
-    id: 1,
-    name: "first",
-  },
-  { id: 2, name: "seconds" },
-  {
-    id: 3,
-    name: "third",
-  },
-  { id: 4, name: "fourth" },
-];
 
-const handleAddToCart = (item: never) => {
-  store.addToCart(item);
+const { data, pending, error, refresh } = await useAsyncData(
+  "getProducts",
+  () =>
+    $fetch("/api/getProducts", {
+      method: "POST",
+      body: {
+        cartItems: [],
+      },
+    })
+);
+const products = data.value?.data;
+const handleAddToCart = (id: number) => {
+  store.addToCart(id);
 };
+
+// const addProduct = async (): Promise<void> => {
+//   try {
+//     await $fetch("/api/addProduct", {
+//       method: "POST",
+//       body: { name: "Waaier" },
+//     });
+//     await refresh();
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// await addProduct();
 </script>
 
 <template>
@@ -38,7 +50,7 @@ const handleAddToCart = (item: never) => {
         <div
           class="flex items-center justify-center bg-gray-100 h-80 w-80"
           :key="i"
-          v-for="(item, i) in data"
+          v-for="(item, i) in products"
         >
           <div class="flex flex-col">
             <span>{{ item.name }}</span>
@@ -52,7 +64,7 @@ const handleAddToCart = (item: never) => {
         <div
           class="flex items-center mt-6 justify-center bg-gray-100 h-80 w-80"
           :key="i"
-          v-for="(item, i) in data"
+          v-for="(item, i) in products"
         >
           <div class="flex flex-col">
             <span>{{ item.name }}</span>
