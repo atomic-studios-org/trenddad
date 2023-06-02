@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@unocss/nuxt", "@nuxtjs/i18n", "@sidebase/nuxt-auth"],
+  modules: ["@unocss/nuxt", "@nuxtjs/i18n", "@sidebase/nuxt-auth",  '@pinia/nuxt'],
  
   components: {
     dirs: ["~/components"],

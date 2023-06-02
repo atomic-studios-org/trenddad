@@ -13,9 +13,9 @@ const handleSignOut = async () => {
 
 <template>
   <div
-    class="h-10 flex bg-white w-4/6 mx-auto justify-between items-center text-black"
+    class="h-10 flex bg-white md:w-4/6 w-full mx-auto justify-between items-center text-black mb-1"
   >
-    <div class="flex items-center space-x-4">
+    <div class="flex items-center md:space-x-4 space-x-1 ml-2">
       <div>
         <div
           @click="
@@ -25,7 +25,7 @@ const handleSignOut = async () => {
           class="group flex"
         >
           <button
-            class="bg-white text-black border-none cursor-pointer group-hover:text-gray-600"
+            class="bg-white md:text-md lg:text-xl text-sm text-black border-none cursor-pointer group-hover:text-gray-600"
           >
             Collections
           </button>
@@ -64,7 +64,7 @@ const handleSignOut = async () => {
       <div>
         <NuxtLink href="/"
           ><button
-            class="bg-white border-none hover:text-gray-600 cursor-pointer"
+            class="bg-white border-none md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
           >
             Trending
           </button></NuxtLink
@@ -73,9 +73,9 @@ const handleSignOut = async () => {
       <div>
         <NuxtLink href="/"
           ><button
-            class="bg-white border-none hover:text-gray-600 cursor-pointer"
+            class="bg-white border-none md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
           >
-            My Orders
+            Orders
           </button></NuxtLink
         >
       </div>
@@ -88,7 +88,7 @@ const handleSignOut = async () => {
           class="group flex"
         >
           <button
-            class="bg-white text-black border-none cursor-pointer group-hover:text-gray-600"
+            class="bg-white text-black border-none cursor-pointer md:text-md lg:text-xl text-sm group-hover:text-gray-600"
           >
             Shop
           </button>
@@ -127,21 +127,30 @@ const handleSignOut = async () => {
         </div>
       </div>
     </div>
-    <div>
-      <button
-        class="cursor-pointer bg-black text-white px-4 py-1 hover:bg-gray-800"
-        @click="handleSignOut"
-        v-if="data?.user?.email"
-      >
-        Sign Out
-      </button>
-      <button
-        class="cursor-pointer bg-black text-white px-4 py-1 hover:bg-gray-800"
-        @click="handleSignIn"
-        v-if="!data?.user?.email"
-      >
-        Sign In
-      </button>
+
+    <div class="flex items-end space-x-4 md:mr-0 mr-2">
+      <div class="xl:flex xl:flex-col hidden">
+        <span class="font-bold text-sm underline cursor-pointer"
+          >Order history</span
+        >
+        <span class="text-sm">{{ data.user.email }}</span>
+      </div>
+      <div>
+        <button
+          class="cursor-pointer bg-black md:text-lg text-sm text-white md:px-5 px-2 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none mb-1"
+          @click="handleSignOut"
+          v-if="data?.user?.email"
+        >
+          Sign Out
+        </button>
+        <button
+          class="cursor-pointer md:text-lg text-sm bg-black text-white md:px-5 px-2 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
+          @click="handleSignIn"
+          v-if="!data?.user?.email"
+        >
+          Sign In
+        </button>
+      </div>
     </div>
   </div>
 </template>
