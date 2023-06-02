@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { citySchema as userSchema } from "../drizzle/schema";
+import { productSchema } from "../drizzle/schema";
 const nameInput: Ref<string> = ref("");
 const typeErrorMsgs = ref();
 
@@ -8,7 +8,7 @@ const { data, pending, error, refresh } = await useAsyncData("getUsers", () =>
 );
 
 //validate with zod like we did in prisma
-const isValidUserSchema = userSchema.safeParse({
+const isValidUserSchema = productSchema.safeParse({
   name: nameInput.value,
 });
 
