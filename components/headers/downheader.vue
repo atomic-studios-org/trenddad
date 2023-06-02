@@ -15,7 +15,7 @@ const handleSignOut = async () => {
   <div
     class="h-10 flex bg-white md:w-4/6 w-full mx-auto justify-between items-center text-black mb-1"
   >
-    <div class="flex items-center md:space-x-4 ml-2">
+    <div class="flex items-center md:space-x-4 ml-1">
       <div>
         <div
           @click="
@@ -128,8 +128,8 @@ const handleSignOut = async () => {
       </div>
     </div>
 
-    <div class="flex items-end space-x-4 md:mr-0 mr-2">
-      <div class="xl:flex xl:flex-col hidden">
+    <div class="flex items-end space-x-2 md:mr-0 mr-1">
+      <div v-if="data?.user.email" class="xl:flex xl:flex-col hidden">
         <span class="font-bold text-sm underline cursor-pointer"
           >Order history</span
         >
@@ -137,14 +137,14 @@ const handleSignOut = async () => {
       </div>
       <div>
         <button
-          class="cursor-pointer bg-black md:text-lg text-sm text-white md:px-5 px-2 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none mb-1"
+          class="cursor-pointer bg-black md:text-lg text-xs text-white md:px-5 px-1 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
           @click="handleSignOut"
           v-if="data?.user?.email"
         >
           Sign Out
         </button>
         <button
-          class="cursor-pointer md:text-lg text-sm bg-black text-white md:px-5 px-2 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
+          class="cursor-pointer md:text-lg text-xs bg-black text-white md:px-5 px-1 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
           @click="handleSignIn"
           v-if="!data?.user?.email"
         >
