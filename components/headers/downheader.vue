@@ -133,7 +133,7 @@ const handleSignOut = async () => {
         <span class="font-bold text-sm underline cursor-pointer"
           >Order history</span
         >
-        <span class="text-sm">{{ data.user.email }}</span>
+        <span class="text-sm">{{ data?.user.email }}</span>
       </div>
       <div>
         <button
