@@ -1,18 +1,22 @@
 import { products } from "../../drizzle/schema";
 import db from "../../drizzle/db";
-import { eq, and, not, or } from "drizzle-orm";
+import { eq } from "drizzle-orm";
+
+// Define the function to fetch cart items
+const fetchCartItems = async (cartItems: number[]) => {
+  const promises = cartItems.map((itemId) =>
+    db.select().from(products).where(eq(products.id, itemId))
+  );
+
+  const allCartItems = await Promise.all(promises);
+
+  return allCartItems;
+};
 export default defineEventHandler(async (event) => {
   const { cartItems } = await readBody(event);
 
   try {
-    let allCartItems = [];
-    for (let i = 0; i < cartItems.length; i++)
-      allCartItems.push(
-        await db.select().from(products).where(eq(products.id, cartItems[i]))
-      );
-    // .orderBy(products.popularity)
-    // .limit(10)
-    // .where(or(eq(products.name, "Rudy"), eq(products.popularity, "known")));
+    const allCartItems = await fetchCartItems(cartItems);
 
     return { data: allCartItems };
   } catch (error) {

@@ -17,7 +17,7 @@ console.log(data.value?.data);
 </script>
 
 <template>
-  <div :key="item.i" v-for="(item, i) in data?.data">
+  <div :key="i" v-for="(item, i) in data?.data">
     {{ item[0].name }}{{ item[0].id }}
   </div>
 </template>
