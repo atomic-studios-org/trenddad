@@ -6,37 +6,22 @@ definePageMeta({
   layout: "default",
 });
 
-const { data, pending, error, refresh } = await useAsyncData(
-  "getProducts",
-  () =>
-    $fetch("/api/getProducts", {
-      method: "POST",
-      body: {
-        cartItems: [],
-      },
-    })
+const { data, error, refresh } = await useAsyncData("getProducts", () =>
+  $fetch("/api/getProducts", {
+    method: "POST",
+    body: {
+      cartItems: [],
+    },
+  })
 );
 const products = data.value?.data;
 const handleAddToCart = (id: number) => {
   store.addToCart(id);
 };
-
-// const addProduct = async (): Promise<void> => {
-//   try {
-//     await $fetch("/api/addProduct", {
-//       method: "POST",
-//       body: { name: "Waaier" },
-//     });
-//     await refresh();
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// await addProduct();
 </script>
 
 <template>
-  <div>
+  <div v-if="item">
     <div class="relative h-80 bg-sky-700 flex items-center justify-center">
       <div>Banner foto</div>
       <div

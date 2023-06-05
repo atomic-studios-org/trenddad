@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 import { useCartStore } from "../stores/cart-store";
 const store = useCartStore();
-let arr: number[] = [];
-arr.push(...store.cart);
+
+let cartItems: number[] = [];
+cartItems.push(...store.cart);
 const { data, pending, error, refresh } = await useAsyncData(
   "getProducts",
   () =>
     $fetch("/api/getCartItems", {
       method: "POST",
       body: {
-        cartItems: arr,
+        cartItems: cartItems,
       },
     })
 );
-console.log(data.value?.data);
 </script>
 
 <template>
