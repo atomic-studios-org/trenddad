@@ -12,7 +12,6 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.72",
-    "@nuxtjs/i18n": "8.0.0-beta.12",
     "@sidebase/nuxt-auth": "0.6.0-beta.2",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
