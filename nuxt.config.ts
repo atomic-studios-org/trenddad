@@ -10,6 +10,9 @@ export default defineNuxtConfig({
     "/": {
       isr: true,
     },
+    "/cart": {
+      isr: true,
+    },
   },
   components: {
     dirs: ["~/components"],
