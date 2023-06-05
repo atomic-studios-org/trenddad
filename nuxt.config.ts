@@ -1,8 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  nitro: {
-    static: true,
-  },
   modules: [
     "@unocss/nuxt",
     "@nuxtjs/i18n",
@@ -10,10 +7,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
   ],
   routeRules: {
-    "/": {
-      isr: true,
-    },
-    "/cart": {
+    "/**": {
       isr: true,
     },
   },
