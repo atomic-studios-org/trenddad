@@ -1,7 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@unocss/nuxt", "@nuxtjs/i18n", "@sidebase/nuxt-auth",  '@pinia/nuxt'],
- 
+  modules: [
+    "@unocss/nuxt",
+    "@nuxtjs/i18n",
+    "@sidebase/nuxt-auth",
+    "@pinia/nuxt",
+  ],
+  routeRules: {
+    "/": {
+      swr: true,
+    },
+  },
   components: {
     dirs: ["~/components"],
     global: true,

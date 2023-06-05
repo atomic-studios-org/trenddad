@@ -6,7 +6,7 @@ arr.push(...store.cart);
 const { data, pending, error, refresh } = await useAsyncData(
   "getProducts",
   () =>
-    $fetch("/api/getProducts", {
+    $fetch("/api/getCartItems", {
       method: "POST",
       body: {
         cartItems: arr,
