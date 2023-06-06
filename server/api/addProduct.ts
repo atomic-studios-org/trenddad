@@ -1,18 +1,16 @@
 import { products } from "../../drizzle/schema";
 import db from "../../drizzle/db";
-const addProduct = async (name: string) => {
-  const response = await db.insert(products).values({ name: name });
+const addProduct = async (name: string, collection: string, image: string) => {
+  const response = await db.insert(products).values({ name: name, collection: collection, image: image });
   return response;
 };
 
 export default defineEventHandler(async (event) => {
-  const { name } = await readBody(event);
+  const { name, collection, image } = await readBody(event);
   try {
-    await addProduct(name);
+    await addProduct(name, collection, image);
   } catch (error) {
-    return new Error(
-      "Oops, failed to add data to the application, please check your internet connection."
-    );
+    console.log(error)
   }
 
   return event.node.res.end();

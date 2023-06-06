@@ -16,53 +16,52 @@ const handleSignOut = async () => {
     class="h-10 flex bg-white md:w-4/6 w-full mx-auto justify-between items-center text-black mb-1"
   >
     <div class="flex items-center md:space-x-4 ml-1">
-      <div>
-        <div
-          @click="
-            isOpenCollections = !isOpenCollections;
-            isOpenShop = false;
-          "
-          class="group flex items-center"
+      <div
+        @click="
+          isOpenCollections = !isOpenCollections;
+          isOpenShop = false;
+        "
+        class="group flex items-center"
+      >
+        <button
+          class="bg-white md:text-md lg:text-xl text-sm text-black border-none cursor-pointer group-hover:text-gray-600"
         >
-          <button
-            class="bg-white md:text-md lg:text-xl text-sm text-black border-none cursor-pointer group-hover:text-gray-600"
-          >
-            Collections
-          </button>
-          <i class="-ml-2 i-mdi-chevron-down group-hover:text-gray-600" />
-        </div>
-        <!-- Dropdown menu -->
-        <div
-          v-if="isOpenCollections"
-          class="fixed z-10 p-2 top-20 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
-        >
-          <NuxtLink
-            href="#"
-            class="block text-black decoration-none px-4 py-2 hover:bg-gray-100"
-            >Collection 1</NuxtLink
-          >
-
-          <NuxtLink
-            href="#"
-            class="block text-black decoration-none px-4 py-2 hover:bg-gray-100"
-            >Collection 2</NuxtLink
-          >
-
-          <NuxtLink
-            href="#"
-            class="block text-black decoration-none px-4 py-2 hover:bg-gray-100"
-            >Collection 3</NuxtLink
-          >
-
-          <NuxtLink
-            href="#"
-            class="block text-black decoration-none px-4 py-2 hover:bg-gray-100"
-            >Collection 4</NuxtLink
-          >
-        </div>
+          Collections
+        </button>
+        <i class="-ml-2 i-mdi-chevron-down group-hover:text-gray-600" />
       </div>
+      <!-- Dropdown menu -->
+      <div
+        v-if="isOpenCollections"
+        class="fixed z-30 p-2 top-22 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+      >
+        <NuxtLink
+          href="/collections/fans"
+          class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          >Fans</NuxtLink
+        >
+
+        <NuxtLink
+          href="/collections/hats"
+          class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          >Hats</NuxtLink
+        >
+
+        <NuxtLink
+          href="/collections/effects"
+          class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          >Effects</NuxtLink
+        >
+
+        <NuxtLink
+          href="/collections/bearfans"
+          class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          >Bearfans</NuxtLink
+        >
+      </div>
+
       <div>
-        <NuxtLink href="/"
+        <NuxtLink href="/trending"
           ><button
             class="bg-white border-none md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
           >
@@ -71,7 +70,7 @@ const handleSignOut = async () => {
         >
       </div>
       <div>
-        <NuxtLink href="/"
+        <NuxtLink href="/account/orders"
           ><button
             class="bg-white border-none md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
           >
@@ -79,59 +78,14 @@ const handleSignOut = async () => {
           </button></NuxtLink
         >
       </div>
-      <div>
-        <div
-          @click="
-            isOpenShop = !isOpenShop;
-            isOpenCollections = false;
-          "
-          class="group flex items-center"
-        >
-          <button
-            class="bg-white text-black border-none cursor-pointer md:text-md lg:text-xl text-sm group-hover:text-gray-600"
-          >
-            Shop
-          </button>
-          <i class="-ml-2 i-mdi-chevron-down group-hover:text-gray-600" />
-        </div>
-        <!-- Dropdown menu -->
-        <div
-          v-if="isOpenShop"
-          class="fixed z-10 p-2 top-20 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
-        >
-          <NuxtLink
-            href="#"
-            class="block text-black decoration-none px-4 py-2 hover:bg-gray-100"
-            >Dashboard</NuxtLink
-          >
-
-          <NuxtLink
-            href="#"
-            class="block text-black decoration-none px-4 py-2 hover:bg-gray-100"
-            >Settings</NuxtLink
-          >
-
-          <NuxtLink
-            href="#"
-            class="block text-black decoration-none px-4 py-2 hover:bg-gray-100"
-            >Earnings</NuxtLink
-          >
-
-          <div class="py-1">
-            <NuxtLink
-              href="#"
-              class="block px-4 py-2 text-sm text-black decoration-none text-gray-700 hover:bg-gray-100"
-              >Sign out</NuxtLink
-            >
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="flex items-end space-x-2 md:mr-0 mr-1">
-      <div v-if="data?.user.email" class="xl:flex xl:flex-col hidden">
-        <span class="font-bold text-sm underline cursor-pointer"
-          >Order history</span
+      <div v-if="data?.user?.email" class="xl:flex xl:flex-col hidden">
+        <NuxtLink href="/account" class="text-black"
+          ><span class="font-bold text-sm underline cursor-pointer"
+            >My Account</span
+          ></NuxtLink
         >
         <span class="text-sm">{{ data?.user.email }}</span>
       </div>

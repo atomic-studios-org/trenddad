@@ -22,6 +22,8 @@ export const countries = mysqlTable(
 export const products = mysqlTable("products", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 256 }),
-  popularity: mysqlEnum("popularity", ["unknown", "known", "popular"]),
+  collection: varchar("collection", {length: 256}),
+  image: varchar("image", {length: 256})
+  // popularity: mysqlEnum("popularity", ["unknown", "known", "popular"]),
 });
 export const productSchema = createInsertSchema(products);

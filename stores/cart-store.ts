@@ -14,6 +14,10 @@ export const useCartStore = defineStore('cart-store', {
       addToCart(item: number) {
         this.cart.push(item)
       },
+      removeFromCart(index: number) {
+        const indexCart = this.cart.indexOf(index);
+        this.cart.splice(indexCart, 1);
+      },
       
     },
   })

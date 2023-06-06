@@ -3,8 +3,8 @@ import db from "../../drizzle/db";
 import { eq } from "drizzle-orm";
 
 // Define the function to fetch cart items
-const fetchCartItems = async (cartItems: number[]) => {
-  const promises = cartItems.map((itemId) =>
+const fetchCartItems = async (cartItems: any) => {
+  const promises = cartItems.map((itemId: any) =>
     db.select().from(products).where(eq(products.id, itemId))
   );
 

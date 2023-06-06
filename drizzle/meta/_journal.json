@@ -5,8 +5,15 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1685728360234,
-      "tag": "0000_tough_vargas",
+      "when": 1686045355572,
+      "tag": "0000_complete_the_liberteens",
+      "breakpoints": false
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1686048306639,
+      "tag": "0001_good_scarecrow",
       "breakpoints": false
     }
   ]
