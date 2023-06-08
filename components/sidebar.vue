@@ -1,9 +1,11 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="flex flex-col">
-    <NuxtLink class="text-black" href="/account">Account</NuxtLink>
-    <NuxtLink class="text-black" href="/account/orders">Orders</NuxtLink>
-    <NuxtLink class="text-black" href="/account/settings">Settings</NuxtLink>
+  <div class="flex flex-col ml-2 mt-10">
+    <NuxtLink class="text-black my-2" href="/account">Account</NuxtLink>
+    <NuxtLink class="text-black my-2" href="/account/orders">Orders</NuxtLink>
+    <NuxtLink class="text-black my-2" href="/account/settings"
+      >Shipping Data</NuxtLink
+    >
   </div>
 </template>
