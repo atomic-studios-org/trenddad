@@ -15,10 +15,19 @@ const { data: userData } = await useAsyncData("getUser", () =>
   })
 );
 
-const zipcodeInput = ref(userData.value?.data[0].zipcode ?? "");
-const countryInput = ref(userData.value?.data[0].country ?? "");
-const numberInput = ref(userData.value?.data[0].number ?? "");
-const streetInput = ref(userData.value?.data[0].street ?? "");
+const zipcodeInput = ref("");
+const countryInput = ref("");
+const numberInput = ref("");
+const streetInput = ref("");
+
+onMounted(() => {
+  if (userData) {
+    zipcodeInput.value = userData.value?.data[0].zipcode!;
+    countryInput.value = userData.value?.data[0].country!;
+    numberInput.value = userData.value?.data[0].number!;
+    streetInput.value = userData.value?.data[0].street!;
+  }
+});
 
 const createUser = async () => {
   function generateUUID() {
