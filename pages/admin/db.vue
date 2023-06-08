@@ -25,7 +25,7 @@ const addProduct = async () => {
 
   reloadNuxtApp();
 };
-const deleteItem = async (name: string) => {
+const deleteItem = async (name: any) => {
   await useAsyncData("deleteProduct", () =>
     $fetch("/api/deleteProduct", {
       method: "POST",
@@ -34,7 +34,7 @@ const deleteItem = async (name: string) => {
       },
     })
   );
-  reloadNuxtApp();
+  await refreshNuxtData();
 };
 const products = data.value?.data;
 </script>

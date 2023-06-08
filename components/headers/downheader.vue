@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const isOpenCollections = ref(false);
-const isOpenShop = ref(false);
 
 const { status, data, signIn, signOut } = useAuth();
 const handleSignIn = async () => {
@@ -17,10 +16,7 @@ const handleSignOut = async () => {
   >
     <div class="flex items-center md:space-x-4 ml-1">
       <div
-        @click="
-          isOpenCollections = !isOpenCollections;
-          isOpenShop = false;
-        "
+        @click="isOpenCollections = !isOpenCollections"
         class="group flex items-center"
       >
         <button
@@ -36,24 +32,28 @@ const handleSignOut = async () => {
         class="fixed z-30 p-2 top-22 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
       >
         <NuxtLink
+          @click="isOpenCollections = false"
           href="/collections/fans"
           class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
           >Fans</NuxtLink
         >
 
         <NuxtLink
+          @click="isOpenCollections = false"
           href="/collections/hats"
           class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
           >Hats</NuxtLink
         >
 
         <NuxtLink
+          @click="isOpenCollections = false"
           href="/collections/effects"
           class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
           >Effects</NuxtLink
         >
 
         <NuxtLink
+          @click="isOpenCollections = false"
           href="/collections/bearfans"
           class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
           >Bearfans</NuxtLink
@@ -61,7 +61,7 @@ const handleSignOut = async () => {
       </div>
 
       <div>
-        <NuxtLink href="/trending"
+        <NuxtLink @click="isOpenCollections = false" href="/trending"
           ><button
             class="bg-white border-none md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
           >
@@ -70,7 +70,7 @@ const handleSignOut = async () => {
         >
       </div>
       <div>
-        <NuxtLink href="/account/orders"
+        <NuxtLink @click="isOpenCollections = false" href="/account/orders"
           ><button
             class="bg-white border-none md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
           >
