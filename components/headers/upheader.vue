@@ -8,8 +8,8 @@ const store = useCartStore();
     class="h-10 flex bg-white md:w-4/6 w-full mx-auto justify-between items-center text-black"
   >
     <NuxtLink href="/" class="decoration-none ml-4"
-      ><h1 class="font-bespokestencil text-black md:text-4xl text-xl">
-        TEST
+      ><h1 class="font-melodrama text-black md:text-4xl text-xl">
+        LA BOILERPLATE
       </h1></NuxtLink
     >
     <div class="flex items-center gap-2 mr-2">

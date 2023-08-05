@@ -78,7 +78,7 @@ const createUser = async () => {
 <template>
   <div v-if="user" class="flex md:w-4/6 w-full mx-auto h-screen mt-10">
     <sidebar />
-    <div class="md:ml-20 ml-2">
+    <div class="md:ml-20 md:max-w-full max-w-76 mr-4">
       <h1>Your Shipping Data</h1>
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Zipcode</label>
@@ -86,34 +86,34 @@ const createUser = async () => {
           placeholder="Your zipcode"
           v-model="zipcodeInput"
           type="text"
-          class="py-1.5 px-4 rounded-full hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
+          class="py-1.5 px-4 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
       </div>
       <div class="space-y-2 mt-4 flex flex-col">
-        <label>Street</label>
-        <input
-          placeholder="Your street"
-          v-model="streetInput"
-          type="text"
-          class="py-1.5 px-4 rounded-full hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
-        />
+        <label>Street + housenumber</label>
+        <div class="flex gap-2">
+          <input
+            placeholder="Your street"
+            v-model="streetInput"
+            type="text"
+            class="py-1.5 px-4 w-46 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
+          />
+          <input
+            placeholder="Nr."
+            v-model="numberInput"
+            type="text"
+            class="py-1.5 px-4 w-10 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
+          />
+        </div>
       </div>
-      <div class="space-y-2 mt-4 flex flex-col">
-        <label>Housenumber</label>
-        <input
-          placeholder="Your housenumber"
-          v-model="numberInput"
-          type="text"
-          class="py-1.5 px-4 rounded-full hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
-        />
-      </div>
+
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Country</label>
         <input
           placeholder="Your country"
           v-model="countryInput"
           type="text"
-          class="py-1.5 px-4 rounded-full hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
+          class="py-1.5 px-4 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
       </div>
       <button
