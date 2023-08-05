@@ -5,6 +5,7 @@ import DiscordProvider from 'next-auth/providers/discord'
 
 export default NuxtAuthHandler({
     secret: '2389u234jfn49i38rh234n293e8u19ew12bn80dyghb23',
+    origin: process.env.AUTH_ORIGIN,
     providers: [
         // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
         DiscordProvider.default({
