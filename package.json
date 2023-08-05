@@ -7,8 +7,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "migrate-drizzle": "drizzle-kit generate:mysql",
-    "push-drizzle": "drizzle-kit push:mysql"
+    "migrate-drizzle": "drizzle-kit generate:mysql --config=drizzle.config.ts",
+    "push-drizzle": "drizzle-kit push:mysql --config=drizzle.config.ts"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.72",
@@ -17,7 +17,7 @@
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
     "@unocss/nuxt": "^0.52.7",
-    "drizzle-kit": "^0.18.1",
+    "drizzle-kit": "^0.19.12",
     "eslint": "^8.41.0",
     "eslint-plugin-vue": "^9.14.1",
     "jsdom": "^21.1.2",
