@@ -6,7 +6,7 @@ import Downheader from "~/components/headers/downheader.vue";
 
 <template>
   <div class="min-h-screen font-inter w-screen">
-    <Upheader />
+    <ClientOnly><Upheader /></ClientOnly>
     <Downheader />
     <slot />
     <Footer />
