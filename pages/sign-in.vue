@@ -1,12 +1,15 @@
 <script lang="ts" setup>
 const { status, data, signIn, signOut } = useAuth();
+
+
 const handleSignIn = async () => {
   await signIn("discord");
 };
 
+
 onMounted(() => {
   if (status.value === "authenticated") {
-    navigateTo("/shipping");
+    navigateTo("/");
   }
 });
 </script>

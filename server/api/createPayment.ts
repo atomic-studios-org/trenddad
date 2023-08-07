@@ -6,22 +6,37 @@ const stripe = new Stripe(
 );
 
 export default defineEventHandler(async (event) => {
-  const { referenceId, email } = await readBody(event);
-  const response = await createPayment(referenceId, email);
+  const { referenceId, email, allitems } = await readBody(event);
+  const response = await createPayment(referenceId, email, allitems);
   return { data: response.url };
 });
 
-const createPayment = async (referenceId: string, email: string) => {
+const createPayment = async (referenceId: string, email: string, allitems: number[]) => {
+  const items = []
+  for(let i = 0; i < allitems.length; i++){
+    items.push(
+      {
+        price_data: {
+          currency: "eur",
+          product_data: {
+            name: "item",
+          },
+          unit_amount: allitems[i] * 100,
+        },
+        quantity: 1,
+      })
+  }
+  console.log(items)
   const response = await stripe.checkout.sessions.create({
     shipping_options: [
       {
         shipping_rate_data: {
           type: "fixed_amount",
           fixed_amount: {
-            amount: 0,
+            amount: 4.50 * 100,
             currency: "eur",
           },
-          display_name: "Free shipping",
+          display_name: "Estimated delivery",
           delivery_estimate: {
             minimum: {
               unit: "business_day",
@@ -38,29 +53,8 @@ const createPayment = async (referenceId: string, email: string) => {
     mode: "payment",
     client_reference_id: referenceId,
     customer_email: email,
-    line_items: [
-      {
-        price_data: {
-          currency: "eur",
-          product_data: {
-            name: "testitem",
-          },
-          unit_amount: 100 * 100,
-        },
-        quantity: 1,
-      },
-      {
-        price_data: {
-          currency: "eur",
-          product_data: {
-            name: "testitemtwo",
-          },
-          unit_amount: 300 * 100,
-        },
-        quantity: 2,
-      },
-    ],
-    success_url: "http://localhost:3000/success",
+    line_items: items,
+    success_url: `${process.env.AUTH_ORIGIN}/success`,
   });
   return response;
 };

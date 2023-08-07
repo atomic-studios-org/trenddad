@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import { useCartStore } from "../../stores/cart-store";
 const store = useCartStore();
+const {data} = useAuth()
+const user = data.value?.user;
+
 </script>
 
 <template>
@@ -18,7 +21,10 @@ const store = useCartStore();
           <NuxtLink href="/help"
             ><div class="i-mdi-help-circle-outline text-2xl text-black"
           /></NuxtLink>
-          <NuxtLink href="/account"
+          <NuxtLink v-if="user" href="/account"
+            ><div class="i-mdi-account-outline text-2xl text-black"
+          /></NuxtLink>
+          <NuxtLink v-else href="/sign-in"
             ><div class="i-mdi-account-outline text-2xl text-black"
           /></NuxtLink>
           <!-- <div class="i-mdi-cards-heart-outline text-2xl text-black" /> -->

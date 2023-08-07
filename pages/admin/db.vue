@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useCartStore } from "../../stores/cart-store";
 const productName = ref("");
 const collectionName = ref("");
 const imageName = ref("");
@@ -70,7 +69,7 @@ const products = data.value?.data;
             <span>{{ product.name }}</span>
             <span>{{ product.collection }}</span>
             <span>{{ product.image }}</span>
-            <button class="bg-red rounded" @click="deleteItem(product.name)">
+            <button class="bg-red rounded cursor-pointer" @click="deleteItem(product.name)">
               X
             </button>
           </div>

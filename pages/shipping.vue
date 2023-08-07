@@ -1,14 +1,40 @@
 <script lang="ts" setup>
-import dayJs from "dayjs";
+import { useCartStore } from "../stores/cart-store";
+const store = useCartStore();
+const cartItems: Ref<number[]> = ref([]);
+const total = ref(500)
+const totalShippingCosts = ref(4.50)
+const totalToPay = ref(0)
+cartItems.value.push(...store.cart);
+const { data:cartItemsAll, pending, error, refresh } = await useAsyncData(
+  "getProducts",
+  () =>
+    $fetch("/api/getCartItems", {
+      method: "POST",
+      body: {
+        cartItems: cartItems.value,
+      },
+    })
+);
+
+const allPrices = cartItemsAll.value?.data.map((item) => {
+  return item[0].price
+})
+console.log(allPrices)
+total.value = allPrices?.reduce((a:number,b:number) => a+b, 0)
+
+totalToPay.value = total.value + totalShippingCosts.value
 
 const email = ref();
-const url = ref();
 const { data } = useAuth();
 const user = data.value?.user;
 const referenceId = ref("");
 
 if (!user) {
   navigateTo("/sign-in");
+}
+if (cartItems.value.length === 0) {
+  navigateTo("/");
 }
 
 onMounted(() => {
@@ -22,6 +48,7 @@ const createPaymentGeneratedContent = async () => {
       body: {
         referenceId: referenceId.value,
         email: email.value,
+        allitems: allPrices as number[]
       },
     });
   });
@@ -108,9 +135,9 @@ const createUser = async () => {
     <div class="md:w-3/12 w-5/6 mt-20">
       <div class="flex flex-col gap-2">
         <label>Name:</label>
-        <span>{{ user.name }}</span>
+        <span>{{ user?.name }}</span>
         <label>Email:</label>
-        <span>{{ user.email }}</span>
+        <span>{{ user?.email }}</span>
       </div>
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Zipcode:</label>

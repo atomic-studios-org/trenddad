@@ -3,7 +3,7 @@ import dayJs from "dayjs";
 const { data } = useAuth();
 const user = data.value?.user;
 if (!user) {
-  navigateTo("/");
+  navigateTo("/sign-in");
 }
 const email = ref(data.value?.user?.email);
 const referenceId = ref(`${data.value?.user?.email}${data.value?.user?.name}`);
@@ -59,16 +59,16 @@ const { data: payments } = await useAsyncData("getPayments", async () => {
 
               <th>
                 <span class="font-medium"
-                  >€ {{ (payment?.amount_total ?? 0) / 100 }}</span
+                  >€ {{ ((payment?.amount_total ?? 0) / 100).toFixed(2) }}</span
                 >
               </th>
               <th
                 scope="row"
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                <NuxtLink :href="`/orders/${payment.id}`">{{
-                  payment.id
-                }}</NuxtLink>
+                <NuxtLink :href="`/orders/${payment.id}`">
+                  Check details
+                </NuxtLink>
               </th>
             </tr>
           </tbody>

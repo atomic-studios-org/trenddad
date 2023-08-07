@@ -3,8 +3,18 @@ const { data } = useAuth();
 const user = data.value?.user;
 
 if (!user) {
-  navigateTo("/");
+  navigateTo("/account/settings");
 }
+
+const { data: userData } = await useAsyncData("getUser", () =>
+  $fetch("/api/getUser", {
+    method: "POST",
+    body: {
+      name: user?.name,
+      email: user?.email,
+    },
+  })
+);
 </script>
 
 <template>
@@ -12,27 +22,57 @@ if (!user) {
     <sidebar />
     <div class="md:ml-20 ml-2">
       <h1>Your Account</h1>
-      <div>
-        <span>Welcome back, {{ user?.name }}</span>
+      <div
+        class="py-10 flex flex-col gap-2 px-4 bg-gray-800 text-white font-bold"
+      >
+        <span class="text-md lg:text-2xl">Hello {{ user?.name }},</span>
+        <span class="md:text-sm text-xs"
+          >Here, you'll find all the relevant information about your
+          account</span
+        >
       </div>
-      <div class="mt-10">
-        <span class="font-semibold">Basic Account information</span>
+      <div class="mt-2">
+        <span class="font-bold text-lg">Credentials & Settings</span>
+        <div class="border flex border-groove border-1 border-black py-6 px-2">
+          <div>
+            <span class="font-bold text-md">This is you</span>
+            <div class="gap-1 flex flex-col mt-2">
+              <span>{{ user.name }}</span>
+              <div>
+                <span>{{ userData?.data[0].street }}</span>
+                <span>{{ userData?.data[0].number }}</span>
+              </div>
+              <div class="flex gap-1">
+                <span>{{ userData?.data[0].zipcode }}</span>
+                <span>{{ userData?.data[0].country }}</span>
+              </div>
+              <div class="flex gap-1">
+                <span>Customer-id:</span>
+                <span>{{ userData?.data[0].id?.split("-")[0] }}</span>
+              </div>
+              <span class="mt-4">{{ userData?.data[0].email }}</span>
+            </div>
+          </div>
+          <div>
+            <img
+              v-if="user?.image"
+              :src="user?.image"
+              class="h-20 w-20 rounded-full"
+            />
+          </div>
+        </div>
+        <NuxtLink to="/account/settings">Manage your settings</NuxtLink>
       </div>
-      <div class="pt-10">
-        <label class="font-bold">Name:</label>
-        <span class="rounded-sm py-1.5 px-3 border-2">{{ user?.name }}</span>
-      </div>
-      <div class="pt-10">
-        <label class="font-bold">Email Address:</label>
-        <span class="rounded-sm py-1.5 px-3 border-2">{{ user?.email }}</span>
-      </div>
-      <div class="pt-3 items-center flex space-x-4">
-        <label class="font-bold">Profile picture:</label>
-        <img
-          v-if="user?.image"
-          :src="user?.image"
-          class="h-20 w-20 rounded-full"
-        />{{}}
+      <div class="mt-6">
+        <span class="font-bold text-lg">Vouchers & Credits</span>
+        <div class="border border-groove border-1 border-black py-6 pb-16 px-2">
+          <div class="flex flex-col">
+            <span class="font-bold text-md">Received voucher?</span>
+            <span class="mt-2">Check the amount and add it into your account.</span>
+          </div>
+          
+        </div>
+        <NuxtLink to="/account/vouchers">Check the overview</NuxtLink>
       </div>
     </div>
   </div>

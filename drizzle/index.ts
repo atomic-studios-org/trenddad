@@ -1,4 +1,4 @@
-import { migrate } from "drizzle-orm/planetscale-serverless/migrator";
+import { migrate } from "drizzle-orm/neon-http/migrator";
 import db from "./db";
 
 // this will automatically run needed migrations on the database
