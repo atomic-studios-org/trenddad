@@ -42,8 +42,8 @@ console.log(cartItems.value.length === 0)
         <h1>Cart items</h1>
       </div>
 
-    <div class="flex gap-2">
-      <div class="flex flex-col gap-2 w-screen w-7/12">
+    <div class="md:flex grid grid-cols-1 gap-2">
+      <div class="flex flex-col gap-2 md:w-screen w-full md:w-7/12 w-11/12">
         <div class="" :key="i" v-for="(item, i) in data?.data">
           <div
             class="relative border border-groove border-1 border-gray-200 flex"
@@ -82,7 +82,7 @@ console.log(cartItems.value.length === 0)
         </div>
         
       </div>
-      <div class="w-5/12 border h-80 border-groove border-1 border-gray-200">
+      <div class="md:w-5/12 w-11/12 border h-80 border-groove border-1 border-gray-200">
        <div class="p-4 flex flex-col gap-1">
         <span class="font-bold">Overview</span>
         <div class="flex justify-between">
@@ -104,7 +104,7 @@ console.log(cartItems.value.length === 0)
         <NuxtLink to="/shipping">
         <button 
         :disabled="cartItems.length === 0"
-        class="bg-black no-underline py-4 text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer disabled:cursor-default hover:bg-gray-900"
+        class="bg-black no-underline w-full py-4 text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer disabled:cursor-default hover:bg-gray-900"
         
       >
        {{ cartItems.length === 0 ? "No items in cart": "Continue with payment" }}

@@ -64,7 +64,8 @@ const createPayment = async (referenceId: string, email: string, allitems: numbe
     client_reference_id: referenceId,
     customer_email: email,
     line_items: items,
-    success_url: `${process.env.AUTH_ORIGIN}/success`,
+    success_url: `https://drizzleorm.vercel.app/success`,
+    cancel_url: `https://drizzleorm.vercel.app/cancel`,
   });
   return response;
 };
