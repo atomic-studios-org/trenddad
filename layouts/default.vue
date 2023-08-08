@@ -2,6 +2,7 @@
 import "normalize.css";
 import Upheader from "~/components/headers/upheader.vue";
 import Downheader from "~/components/headers/downheader.vue";
+import Tsxbar from "@/components/tsxbar.vue";
 </script>
 
 <template>
@@ -10,5 +11,6 @@ import Downheader from "~/components/headers/downheader.vue";
     <Downheader />
     <slot />
     <Footer />
+    <Tsxbar />
   </div>
 </template>

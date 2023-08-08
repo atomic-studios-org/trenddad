@@ -48,7 +48,7 @@ const createPaymentGeneratedContent = async () => {
       body: {
         referenceId: referenceId.value,
         email: email.value,
-        allitems: allPrices as number[]
+        allitems: cartItems.value
       },
     });
   });
@@ -127,7 +127,7 @@ const createUser = async () => {
 };
 </script>
 <template>
-  <div class="w-screen min-h-screen flex flex-col items-center justify-center">
+  <form @submit.prevent="createUser" class="w-screen min-h-screen flex flex-col items-center justify-center">
     <h1>Shipping</h1>
     <span class="text-gray-600"
       >Please check your credentials carefully before you continue.</span
@@ -142,6 +142,7 @@ const createUser = async () => {
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Zipcode:</label>
         <input
+        required
           placeholder="Your zipcode"
           v-model="zipcodeInput"
           type="text"
@@ -152,12 +153,14 @@ const createUser = async () => {
         <label>Street + housenumber:</label>
         <div class="flex gap-2 w-full">
           <input
+          required
             placeholder="Your street"
             v-model="streetInput"
             type="text"
             class="py-1.5 px-4 rounded-md hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
           />
           <input
+          required
             placeholder="Your housenumber"
             v-model="numberInput"
             type="text"
@@ -169,6 +172,7 @@ const createUser = async () => {
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Country</label>
         <input
+        required
           placeholder="Your country"
           v-model="countryInput"
           type="text"
@@ -178,10 +182,10 @@ const createUser = async () => {
       <button
         :disabled="isLoading"
         class="bg-black text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer hover:bg-gray-900"
-        @click="createUser"
+        type="submit"
       >
         {{ isLoading ? "Loading.." : "Continue payment" }}
       </button>
     </div>
-  </div>
+  </form>
 </template>

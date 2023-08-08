@@ -1,7 +1,6 @@
 import Stripe from "stripe";
-
 const stripe = new Stripe(
-  "sk_test_51L34nrJ0Tu9paWkW9sF0gCPGB55l3fncgRlFJmF2Lcr4xEUdCMuUtQnYang1GsxdZAmw9AaTC6vHgJHPhNMAsDDA000WqYNd73",
+  process.env.STRIPE_TEST_KEY!,
   { apiVersion: "2022-11-15" }
 );
 
@@ -12,8 +11,20 @@ export default defineEventHandler(async (event) => {
 });
 
 const createPayment = async (referenceId: string, email: string, allitems: number[]) => {
+ 
+    const cartItemsAll = await $fetch("/api/getCartItems", {
+        method: "POST",
+        body: {
+          cartItems: allitems,
+        },
+      })
+
+  const allPrices = cartItemsAll?.data.map((item) => {
+    return item[0].price
+  })
+ 
   const items = []
-  for(let i = 0; i < allitems.length; i++){
+  for(let i = 0; i < allPrices.length; i++){
     items.push(
       {
         price_data: {
@@ -21,12 +32,11 @@ const createPayment = async (referenceId: string, email: string, allitems: numbe
           product_data: {
             name: "item",
           },
-          unit_amount: allitems[i] * 100,
+          unit_amount: allPrices[i] * 100,
         },
         quantity: 1,
       })
   }
-  console.log(items)
   const response = await stripe.checkout.sessions.create({
     shipping_options: [
       {

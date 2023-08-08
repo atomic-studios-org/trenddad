@@ -24,38 +24,39 @@ const handleSignOut = async () => {
         >
           Collections
         </button>
-        <i class="-ml-2 i-mdi-chevron-down group-hover:text-gray-600" />
+        <i class="-ml-2 cursor-pointer i-mdi-chevron-down group-hover:text-gray-600" />
       </div>
       <!-- Dropdown menu -->
       <div
+   
         v-if="isOpenCollections"
-        class="fixed z-30 p-2 top-22 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+        class="absolute z-30 p-2 top-21 font-normal bg-white divide-y divide-gray-100  shadow w-44"
       >
         <NuxtLink
           @click="isOpenCollections = false"
           href="/collections/fans"
-          class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
           >Fans</NuxtLink
         >
 
         <NuxtLink
           @click="isOpenCollections = false"
           href="/collections/hats"
-          class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
           >Hats</NuxtLink
         >
 
         <NuxtLink
           @click="isOpenCollections = false"
           href="/collections/effects"
-          class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
           >Effects</NuxtLink
         >
 
         <NuxtLink
           @click="isOpenCollections = false"
           href="/collections/bearfans"
-          class="block text-black hover:text-gray-600 decoration-none px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
           >Bearfans</NuxtLink
         >
       </div>

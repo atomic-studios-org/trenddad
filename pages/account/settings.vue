@@ -71,7 +71,7 @@ const createUser = async () => {
     })
   );
   isLoading.value = false;
-  await navigateTo("/account");
+  await navigateTo("/");
 };
 </script>
 

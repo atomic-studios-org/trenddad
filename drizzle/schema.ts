@@ -10,6 +10,7 @@ export const products = pgTable("products", {
 });
 
 export const user = pgTable("user", {
+  _id: serial("id").primaryKey(),
   id: varchar("id", { length: 256 }),
   name: varchar("name", { length: 256 }),
   email: varchar("email", {length: 256}),

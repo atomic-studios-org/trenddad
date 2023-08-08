@@ -30,18 +30,19 @@ const handleAddToCart = (id: number) => {
         class="absolute h-80 z-10 w-screen bg-gradient-to-t from-white to-transparent"
       ></div>
     </div>
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col p-2 items-center">
       <div
         class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6"
       >
         <div
-          class="flex items-center justify-center bg-gray-100 h-80 w-80"
+          class="flex relative items-center justify-center h-80 w-80"
           :key="i"
           v-for="(item, i) in products"
         >
-          <div class="flex flex-col">
-            <span>{{ item.name }}</span>
-            <button @click="handleAddToCart(item.id)">Add to cart</button>
+        <img class="relative absolute h-80 w-80 object-cover" :src="`/${item.image}.png`" alt="image" />
+          <div class="absolute bottom-4 bg-black p-2 rounded-lg left-4 flex flex-col text-white">
+            <span class="font-melodrama font-bold text-lg">{{ item.name }}</span>
+            <button class="py-1.5 hover:bg-white hover:text-black hover:border-black transition px-4 border-white border-groove bg-black text-white cursor-pointer" @click="handleAddToCart(item.id)">Add to cart</button>
           </div>
         </div>
       </div>
