@@ -129,7 +129,7 @@ const createUser = async () => {
 <template>
   <form @submit.prevent="createUser" class="w-screen min-h-screen flex flex-col items-center justify-center">
     <h1>Shipping</h1>
-    <span class="text-gray-600"
+    <span class="text-gray-600 px-6"
       >Please check your credentials carefully before you continue.</span
     >
     <div class="md:w-3/12 w-5/6 mt-20">
