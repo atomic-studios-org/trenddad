@@ -13,12 +13,12 @@ defineProps<Props>();
     <div class="flex flex-col">
       <NuxtLink :href="`/collections/${name}`">
         <img
-          class="md:h-80 h-40 object-cover md:w-80 xl:w-150 w-screen object-top group-hover:scale-99 transition duration-400 rounded"
+          class="md:h-80 h-40 object-cover md:w-80 xl:w-150 w-screen object-top md:group-hover:scale-99 md:transition md:duration-400 "
           :src="image"
           alt=""
         />
         <span
-          class="absolute md:bottom-6 left-6 bottom-2 font-melodrama group-hover:scale-110 transition duration-400 uppercase text-white font-bold text-2xl z-10"
+          class="absolute md:bottom-6 left-6 bottom-2 font-melodrama md:group-hover:scale-110 md:transition md:duration-400 uppercase text-white font-bold text-2xl z-10"
           >{{ name }}</span
         >
       </NuxtLink>

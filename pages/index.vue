@@ -19,7 +19,7 @@ definePageMeta({
       ></div>
     </div>
     <div class="flex flex-col items-center">
-      <div class="grid md:grid-cols-2 grid-cols-1 md:gap-6 md:mt-6">
+      <div class="grid md:grid-cols-2 grid-cols-1 mt-0.5 md:gap-6 md:mt-6">
         <collection-block name="fans" image="/collection.jpg" />
         <collection-block name="hats" image="/du.png" />
         <collection-block name="effects" image="/renais.png" />

@@ -92,14 +92,14 @@ const handleSignOut = async () => {
       </div>
       <div>
         <button
-          class="cursor-pointer bg-black md:text-lg text-xs text-white md:px-5 px-1 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
+          class="cursor-pointer bg-black md:text-lg text-xs text-white md:px-5 px-3 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
           @click="handleSignOut"
           v-if="data?.user?.email"
         >
           Sign Out
         </button>
         <button
-          class="cursor-pointer md:text-lg text-xs bg-black text-white md:px-5 px-1 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
+          class="cursor-pointer md:text-lg text-xs bg-black text-white md:px-5 px-3 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
           @click="handleSignIn"
           v-if="!data?.user?.email"
         >

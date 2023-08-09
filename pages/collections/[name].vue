@@ -26,11 +26,17 @@ const handleAddToCart = (id: number) => {
   <div v-if="products">
     <div class="relative h-80 bg-purple-400 flex items-center justify-center">
       <div>Banner foto</div>
+      <img
+      src="/collection.jpg"
+      alt="dalle"
+        class="object-cover object-center absolute h-80 z-10 w-screen bg-gradient-to-t from-white to-transparent"
+      />
       <div
-        class="absolute h-80 z-10 w-screen bg-gradient-to-t from-white to-transparent"
-      ></div>
+        class="absolute h-80 z-10 flex items-center justify-center w-screen bg-gradient-to-t from-white/90 to-transparent"
+      ><span class="font-melodrama text-5xl uppercase tracking-6 text-black  text-shadow  ">{{params.name}}</span></div>
+    
     </div>
-    <div class="flex flex-col p-2 items-center">
+    <div class="flex flex-col p-2 mt-6 items-center">
       <div
         class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6"
       >
