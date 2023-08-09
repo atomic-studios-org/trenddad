@@ -4,7 +4,7 @@
   <footer class="bg-white rounded-lg shadow dark:bg-gray-900 p-4">
     <div class="w-full max-w-screen-xl mx-auto md:py-8">
       <div class="sm:flex sm:items-center sm:justify-between">
-        <h1 class="font-melodrama">TREND DAD</h1>
+        <img class="md:h-16 h-10 w-auto" src="/trenddadlogo.png" alt ="" />
         <ul
           class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400"
         >

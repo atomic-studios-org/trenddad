@@ -7,7 +7,7 @@ const user = data.value?.user;
 </script>
 
 <template>
-  <NuxtLink href="/" class="fixed top-2 md:left-24 lef-2 decoration-none ml-4"
+  <NuxtLink href="/" class="absolute top-2 md:left-8 lg:left-16 lef-2 decoration-none ml-4"
       ><img class="md:h-16 h-10 w-auto" src="/trenddadlogo.png" alt ="" /></NuxtLink
     >
   <div
