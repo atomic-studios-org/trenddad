@@ -12,7 +12,7 @@ const user = data.value?.user;
   >
     <NuxtLink href="/" class="decoration-none ml-4"
       ><h1 class="font-melodrama text-black md:text-4xl text-xl">
-        LA BOILERPLATE
+        TREND DAD
       </h1></NuxtLink
     >
     <div class="flex items-center gap-2 mr-2">
