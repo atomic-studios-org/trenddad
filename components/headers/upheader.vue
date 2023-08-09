@@ -7,14 +7,13 @@ const user = data.value?.user;
 </script>
 
 <template>
+  <NuxtLink href="/" class="fixed top-2 left-24 decoration-none ml-4"
+      ><img class="h-16 w-auto" src="/trenddadlogo.png" alt ="" /></NuxtLink
+    >
   <div
     class="h-10 flex bg-white md:w-4/6 w-full mx-auto justify-between items-center text-black"
   >
-    <NuxtLink href="/" class="decoration-none ml-4"
-      ><h1 class="font-melodrama text-black md:text-4xl text-xl">
-        TREND DAD
-      </h1></NuxtLink
-    >
+    <div></div>
     <div class="flex items-center gap-2 mr-2">
       <div class="flex items-center space-x-2">
         <div class="md:flex items-center space-x-2 hidden">
