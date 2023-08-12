@@ -9,7 +9,7 @@ if (!user) {
 }
 
 const checkVoucher = () => {
-  console.log("checking voucher");
+
   isLoading.value = true;
   setTimeout(() => {
     isLoading.value = false;

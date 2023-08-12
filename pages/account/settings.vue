@@ -14,7 +14,6 @@ const { data: userData } = await useAsyncData("getUser", () =>
     },
   })
 );
-console.log(data.value)
 const zipcodeInput = ref("");
 const countryInput = ref("");
 const numberInput = ref("");
