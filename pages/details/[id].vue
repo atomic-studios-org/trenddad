@@ -28,50 +28,6 @@ const handleAddToCart = (id: number) => {
 </script>
 
 <template>
-  <div class="fixed md:hidden top-12 left-6 z-40 flex gap-4">
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/"
-      >Home
-    </NuxtLink>
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/cart"
-      >Cart
-    </NuxtLink>
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/account"
-      >My Account
-    </NuxtLink>
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/account/orders"
-      >Orders
-    </NuxtLink>
-  </div>
-  <div class="fixed hidden sm:top-0 lg:top-130 lg:bottom-12 lg:right-6 z-40 flex gap-4">
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/"
-      >Home
-    </NuxtLink>
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/cart"
-      >Cart
-    </NuxtLink>
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/account"
-      >My Account
-    </NuxtLink>
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/account/orders"
-      >Orders
-    </NuxtLink>
-  </div>
   <div class="w-screen flex justify-center items-center min-h-screen">
     <div class="w-11/12 md:flex md:mb-10 mb-40 grid md:mt-0 mt-20 grid-cols-1 gap-20 md:gap-0">
       <div class="">
