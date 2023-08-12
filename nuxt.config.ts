@@ -2,9 +2,9 @@
 export default defineNuxtConfig({
   modules: ["@unocss/nuxt", "@sidebase/nuxt-auth", "@pinia/nuxt"],
   routeRules:{
-    "/": {swr: true},
-    "/trending": {swr: true},
-    "/collections": {swr: true},
+    "/": {isr: true},
+    "/trending": {isr: true},
+    "/collections/*": {isr: true},
     "/cart": {ssr: false},
     "/shipping": {ssr: false}
   },
