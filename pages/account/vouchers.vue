@@ -2,6 +2,7 @@
 const { data } = useAuth();
 const user = data.value?.user;
 const voucherInput = ref("");
+const correctVoucher = "DADDY10"
 const isCorrectVoucher = ref("unknown");
 const isLoading = ref(false);
 if (!user) {
@@ -13,10 +14,16 @@ const checkVoucher = () => {
   isLoading.value = true;
   setTimeout(() => {
     isLoading.value = false;
+    if(voucherInput.value === correctVoucher){
+      isCorrectVoucher.value = "correct";
+    }
+   else{
     isCorrectVoucher.value = "incorrect";
     setTimeout(() => {
       isCorrectVoucher.value = "unknown";
     }, 3000);
+   }
+    
   }, 1000);
 };
 
@@ -41,10 +48,13 @@ const { data: userData } = await useAsyncData("getUser", () =>
         class="space-y-2 mt-4 flex flex-col"
       >
         <label>Voucher-code</label>
-        <span class="text-red-400">
-          {{
-            isCorrectVoucher === "incorrect" ? "The code is incorrect." : ""
-          }}</span
+        <span v-if="isCorrectVoucher === 'incorrect'" class="text-red-400">
+          Your code was incorrect.
+          </span
+        >
+        <span v-if="isCorrectVoucher === 'correct'" class="text-purple-400">
+         Well done, you've actived the discount for 24 hours.
+          </span
         >
         <input
           required

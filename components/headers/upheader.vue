@@ -7,8 +7,8 @@ const user = data.value?.user;
 </script>
 
 <template>
-  <div className="absolute z-20 flex top-0 h-6 w-screen items-center justify-center bg-black text-xs text-white">
-        
+  <div className="absolute z-20 flex top-0 h-6 w-screen items-center justify-center bg-purple-400 text-xs text-white">
+        <span>Get 10% off with code ' DADDY10 '</span>
       </div>
   <NuxtLink href="/" class="absolute top-8 md:top-4 md:left-8 lg:left-16 lef-2 decoration-none ml-4"
       ><img class="md:h-16 h-10 w-auto" src="/trend-dad.png" alt ="" /></NuxtLink

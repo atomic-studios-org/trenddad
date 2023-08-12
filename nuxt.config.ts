@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   routeRules:{
     "/": {isr: true},
     "/trending": {isr: true},
-    "/collections/*": {isr: true},
+    "/collections/Kitchen": {isr: true},
+    "/details/**": {isr: true},
     "/cart": {ssr: false},
     "/shipping": {ssr: false}
   },
