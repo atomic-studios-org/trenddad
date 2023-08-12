@@ -38,22 +38,6 @@ const handleSigninCredentials = async () =>{
 </script>
 
 <template>
-  <div class="fixed md:hidden top-12 left-6 z-40 flex gap-4">
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/"
-      >Go back
-    </NuxtLink>
-  </div>
-  <div
-    class="fixed hidden sm:top-0 lg:top-130 lg:bottom-12 lg:right-6 z-40 flex gap-4"
-  >
-    <NuxtLink
-      class="flex items-center font-melodrama text-black text-lg md:text-2xl"
-      href="/"
-      >Go back
-    </NuxtLink>
-  </div>
   <div class="min-h-screen flex items-center justify-center">
     <div
       class="px-16 py-20 flex flex-col border-groove border-black border-0.5 rounded-sm"
