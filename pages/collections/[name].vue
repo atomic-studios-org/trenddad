@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { useCartStore } from "../../stores/cart-store";
-const store = useCartStore();
+
 
 definePageMeta({
   layout: "default",
@@ -17,9 +16,7 @@ const { data, error, refresh } = await useAsyncData(
     })
 );
 const products = data.value?.data;
-const handleAddToCart = (id: number) => {
-  store.addToCart(id);
-};
+
 </script>
 
 <template>
@@ -45,11 +42,7 @@ const handleAddToCart = (id: number) => {
           :key="i"
           v-for="(item, i) in products"
         >
-        <img class="relative absolute h-80 w-80 object-cover" :src="`/${item.image}.png`" alt="image" />
-          <div class="absolute bottom-4 bg-black p-2 rounded-lg left-4 flex flex-col text-white">
-            <span class="font-melodrama font-bold text-lg">{{ item.name }}</span>
-            <button class="py-1.5 hover:bg-white hover:text-black hover:border-black transition px-4 border-white border-groove bg-black text-white cursor-pointer" @click="handleAddToCart(item.id)">Add to cart</button>
-          </div>
+        <product-block :name="(item?.name as string)" :image="(item?.image as string)" :id="item?.id"/>
         </div>
       </div>
     </div>

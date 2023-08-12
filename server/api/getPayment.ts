@@ -10,10 +10,10 @@ export default defineEventHandler(async (event) => {
   const response = await calculatePayment(orderId);
 
   if (response.client_reference_id === referenceId._value) {
-    console.log("true");
+   
     return { payment: response };
   } else {
-    console.log("false");
+    
     return { payment: false };
   }
 });

@@ -27,11 +27,9 @@ totalToPay.value = total.value + totalShippingCosts.value
 const removeCartItem = async (index: number) => {
   store.removeFromCart(index);
   cartItems.value = [...store.cart];
-  await refresh();
   reloadNuxtApp()
 };
 
-console.log(cartItems.value.length === 0)
 </script>
 
 <template>

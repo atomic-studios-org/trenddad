@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
     try {
       await updateUser( email, zipcode,street,number, country );
     } catch (error) {
-      console.log(error)
+    
     }
   
     return {data: true}

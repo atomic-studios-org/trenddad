@@ -22,7 +22,6 @@ const createPayment = async (email: string, allitems: number[]) => {
   const allItems = cartItemsAll?.data.map((item) => {
     return item[0]
   })
-  console.log(allItems)
  
   const items = []
   for(let i = 0; i < allItems.length; i++){

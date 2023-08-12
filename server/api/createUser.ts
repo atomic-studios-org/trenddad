@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     try {
       await createUser( name, email,password, zipcode,street,number, country );
     } catch (error) {
-      console.log(error)
+   
     }
   
     return {data: true}

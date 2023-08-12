@@ -7,7 +7,7 @@ const stripe = new Stripe(
 
 export default defineEventHandler(async (event) => {
   const { referenceId, email } = await readBody(event);
-  console.log(referenceId, email)
+ 
   const { userList, response } = await calculatePayments(referenceId);
 
   return { users: userList, response: response.data };
