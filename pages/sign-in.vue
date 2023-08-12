@@ -4,14 +4,14 @@ const { status, data, signIn, signOut } = useAuth();
 
 const email = ref()
 const password = ref()
-
+const isLoading = ref(false)
 
 const handleSignInGoogle = async () => {
   await signIn("google");
 };
 
-const handleSigninCredentials = async () =>{
-
+const handleSigninCredentials = async () => {
+  isLoading.value = true
   const user = await $fetch("/api/getUser", {
           method: "POST",
           body: {
@@ -20,10 +20,12 @@ const handleSigninCredentials = async () =>{
         });
 
         if(!user.data[0]){
-         
+          isLoading.value = false
           navigateTo("/sign-up")
         }else{
-          await signIn("credentials", {email: email.value, password: password.value})
+         const status = await signIn("credentials", {email: email.value, password: password.value})
+         console.log(status) 
+         isLoading.value = false
         }
 
 }
@@ -85,11 +87,12 @@ const handleSigninCredentials = async () =>{
         <NuxtLink class="text-sm mt-4" to="/sign-up">I don't have an account.</NuxtLink>
         <NuxtLink class="text-sm " to="/forgot-password">Forgot my password?</NuxtLink>
         <button
+        :disabled="isLoading"
         type="submit"
           class="bg-black text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer hover:bg-gray-900"
          
         >
-          Sign in
+          {{isLoading ? "Signing in..": "Sign in"}}
         </button>
       </form>
     </div>
