@@ -2,9 +2,6 @@
 const isOpenCollections = ref(false);
 
 const { status, data, signIn, signOut } = useAuth();
-const handleSignIn = async () => {
-  await signIn("discord");
-};
 const handleSignOut = async () => {
   await signOut();
 };
@@ -22,7 +19,7 @@ const handleSignOut = async () => {
         <button
           class="bg-white md:text-md lg:text-xl text-sm text-black border-none cursor-pointer group-hover:text-gray-600"
         >
-          Collections
+          Top Collections
         </button>
         <i class="-ml-2 cursor-pointer i-mdi-chevron-down group-hover:text-gray-600" />
       </div>
@@ -98,13 +95,14 @@ const handleSignOut = async () => {
         >
           Sign Out
         </button>
-        <button
+        <NuxtLink
+        to="/sign-in"
           class="cursor-pointer md:text-lg text-xs bg-black text-white md:px-5 px-3 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
-          @click="handleSignIn"
+         
           v-if="!data?.user?.email"
         >
           Sign In
-        </button>
+      </NuxtLink>
       </div>
     </div>
   </div>

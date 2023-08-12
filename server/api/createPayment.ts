@@ -7,7 +7,7 @@ const stripe = new Stripe(
 export default defineEventHandler(async (event) => {
   const { referenceId, email, allitems } = await readBody(event);
   const response = await createPayment(referenceId, email, allitems);
-  return { data: response.url };
+  return { data: response };
 });
 
 const createPayment = async (referenceId: string, email: string, allitems: number[]) => {
@@ -19,20 +19,21 @@ const createPayment = async (referenceId: string, email: string, allitems: numbe
         },
       })
 
-  const allPrices = cartItemsAll?.data.map((item) => {
-    return item[0].price
+  const allItems = cartItemsAll?.data.map((item) => {
+    return item[0]
   })
+  console.log(allItems)
  
   const items = []
-  for(let i = 0; i < allPrices.length; i++){
+  for(let i = 0; i < allItems.length; i++){
     items.push(
       {
         price_data: {
           currency: "eur",
           product_data: {
-            name: "item",
+            name: allItems[i].name,
           },
-          unit_amount: allPrices[i] * 100,
+          unit_amount: allItems[i].price * 100,
         },
         quantity: 1,
       })
@@ -64,8 +65,8 @@ const createPayment = async (referenceId: string, email: string, allitems: numbe
     client_reference_id: referenceId,
     customer_email: email,
     line_items: items,
-    success_url: `https://drizzleorm.vercel.app/success`,
-    cancel_url: `https://drizzleorm.vercel.app/cancel`,
+    success_url: `https://trenddad.com/success`,
+    cancel_url: `https://trenddad.com/cancel`,
   });
-  return response;
+  return response.url;
 };

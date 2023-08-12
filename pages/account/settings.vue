@@ -2,7 +2,7 @@
 const { data } = useAuth();
 const user = data.value?.user;
 if (!user) {
-  navigateTo("/");
+  navigateTo("/sign-in");
 }
 const isLoading = ref(false);
 const { data: userData } = await useAsyncData("getUser", () =>
