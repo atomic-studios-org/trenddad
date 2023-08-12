@@ -10,8 +10,8 @@ definePageMeta({
       class="relative lg:h-60 h-40 w-screen bg-black flex items-center justify-center"
     >
       <img
-        class="lg:h-60 h-40 object-fill md:w-10/12 w-full"
-        src="/banner1.jpg"
+        class="lg:h-60 h-40 object-cover md:w-10/12 w-full"
+        src="/collection.jpg"
         alt="banner"
       />
       <div
@@ -20,10 +20,10 @@ definePageMeta({
     </div>
     <div class="flex flex-col items-center">
       <div class="grid md:grid-cols-2 grid-cols-1 mt-0.5 md:gap-6 md:mt-6">
-        <collection-block name="fans" image="/collection.jpg" />
-        <collection-block name="hats" image="/du.png" />
+        <collection-block name="Kitchen" image="/kitchenban.jpg" />
+        <!-- <collection-block name="hats" image="/du.png" />
         <collection-block name="effects" image="/renais.png" />
-        <collection-block name="bearfans" image="/dalle.png" />
+        <collection-block name="bearfans" image="/dalle.png" /> -->
       </div>
     </div>
   </div>

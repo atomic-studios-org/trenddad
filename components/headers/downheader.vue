@@ -27,16 +27,16 @@ const handleSignOut = async () => {
       <div
    
         v-if="isOpenCollections"
-        class="absolute z-30 p-2 top-21 font-normal bg-white divide-y divide-gray-100  shadow w-44"
+        class="absolute z-30 p-2 top-27 font-normal bg-white divide-y divide-gray-100  shadow w-44"
       >
         <NuxtLink
           @click="isOpenCollections = false"
-          href="/collections/fans"
+          href="/collections/Kitchen"
           class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
-          >Fans</NuxtLink
+          >Kitchen</NuxtLink
         >
 
-        <NuxtLink
+        <!-- <NuxtLink
           @click="isOpenCollections = false"
           href="/collections/hats"
           class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
@@ -55,7 +55,7 @@ const handleSignOut = async () => {
           href="/collections/bearfans"
           class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
           >Bearfans</NuxtLink
-        >
+        > -->
       </div>
 
       <div>

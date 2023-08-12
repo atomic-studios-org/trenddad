@@ -18,7 +18,7 @@ defineProps<Props>();
           alt=""
         />
         <span
-          class="absolute md:bottom-6 left-6 bottom-2 font-melodrama md:group-hover:scale-110 md:transition md:duration-400 uppercase text-white font-bold text-2xl z-10"
+          class="absolute md:bottom-6 left-6 bottom-2 font-melodrama md:group-hover:scale-110 md:transition md:duration-400 uppercase text-black font-bold text-2xl z-10"
           >{{ name }}</span
         >
       </NuxtLink>

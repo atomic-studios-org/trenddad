@@ -50,7 +50,7 @@ const removeCartItem = async (index: number) => {
           >
             <span class="absolute top-2 right-2">€ {{ it.price.toFixed(2) }},-</span>
             <div class="p-8">
-              <img class="h-20" :src="`/${it.image}.png`" alt="" />
+              <img class="h-20" :src="`/productimages/${it.image}.webp`" alt="" />
             </div>
             <div class="flex flex-col py-8">
               <span>{{ it.collection }}</span>
