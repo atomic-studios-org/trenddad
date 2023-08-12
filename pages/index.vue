@@ -7,7 +7,7 @@ definePageMeta({
 <template>
   <div>
     <div
-      class="relative lg:h-60 h-40 w-screen bg-black flex items-center justify-center"
+      class="relative lg:h-60 h-40 w-screen min-h-screen bg-black flex items-center justify-center"
     >
       <img
         class="lg:h-60 h-40 object-cover md:w-10/12 w-full"
