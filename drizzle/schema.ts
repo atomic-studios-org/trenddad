@@ -1,4 +1,4 @@
-import { integer, pgEnum, pgTable, serial, uniqueIndex, varchar } from 'drizzle-orm/pg-core';
+import { boolean, integer, pgEnum, pgTable, serial, uniqueIndex, varchar } from 'drizzle-orm/pg-core';
 
 export const products = pgTable("products", {
   id: serial("id").primaryKey(),
@@ -10,14 +10,23 @@ export const products = pgTable("products", {
 });
 
 export const user = pgTable("user", {
-  _id: serial("id").primaryKey(),
-  id: varchar("id", { length: 256 }),
+  id: serial("id").primaryKey().unique(),
   name: varchar("name", { length: 256 }),
   email: varchar("email", {length: 256}),
+  password: varchar("password", {length: 256}),
   zipcode: varchar("zipcode", {length: 256}),
    street: varchar("street", {length: 256}),
    number: varchar("number", {length: 256}),
    country: varchar("country", {length: 256}),
+});
+
+export const emailconfirmation = pgTable("emailconfirmation", {
+  id: serial("id").primaryKey().unique(),
+  name: varchar("name", { length: 256 }),
+  email: varchar("email", {length: 256}),
+  password: varchar("password", {length: 256}),
+  confirmed: boolean("confirmed"),
+  code: varchar("code", {length: 256})
 });
 
 export const orders = pgTable("orders", {

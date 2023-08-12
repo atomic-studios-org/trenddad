@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-const { data } = useAuth();
+const { data, signOut } = useAuth();
 const user = data.value?.user;
 
 
 if (!user) {
-  navigateTo("/account/settings");
+  navigateTo("/sign-in");
 }
 
 const { data: userData } = await useAsyncData("getUser", () =>
@@ -17,13 +17,10 @@ const { data: userData } = await useAsyncData("getUser", () =>
   })
 );
 
-if(!userData.value?.data[0]){
-  navigateTo("/account/settings")
-}
 </script>
 
 <template>
-  <div v-if="user && userData" class="flex md:w-4/6 w-full mx-auto h-screen mt-10">
+  <div v-if="user && userData" class="flex md:w-4/6 w-full mx-auto min-h-screen mb-20 mt-10">
     <sidebar />
     <div class="md:ml-20 ml-2">
       <h1>Your Account</h1>
@@ -42,20 +39,20 @@ if(!userData.value?.data[0]){
           <div>
             <span class="font-bold text-md">This is you</span>
             <div class="gap-1 flex flex-col mt-2">
-              <span>{{ user.name }}</span>
+              <span>{{ user?.name }}</span>
               <div>
-                <span>{{ userData?.data[0].street }}</span>
-                <span>{{ userData?.data[0].number }}</span>
+                <span>{{ userData?.data[0]?.street }}</span>
+                <span>{{ userData?.data[0]?.number }}</span>
               </div>
               <div class="flex gap-1">
-                <span>{{ userData?.data[0].zipcode }}</span>
-                <span>{{ userData?.data[0].country }}</span>
+                <span>{{ userData?.data[0]?.zipcode }}</span>
+                <span>{{ userData?.data[0]?.country }}</span>
               </div>
               <div class="flex gap-1">
                 <span>Customer-id:</span>
-                <span>{{ userData?.data[0].id?.split("-")[0] }}</span>
+                <span>{{ userData?.data[0]?.id }}</span>
               </div>
-              <span class="mt-4">{{ userData?.data[0].email }}</span>
+              <span class="mt-4">{{ userData?.data[0]?.email }}</span>
             </div>
           </div>
           <div>
@@ -78,6 +75,9 @@ if(!userData.value?.data[0]){
           
         </div>
         <NuxtLink to="/account/vouchers">Check the overview</NuxtLink>
+      </div>
+      <div class="mt-4">
+        <span class="underline cursor-pointer text-purple-500" @click="signOut()">Sign out</span>
       </div>
     </div>
   </div>

@@ -1,2 +1,0 @@
-ALTER TABLE `user` DROP PRIMARY KEY
-ALTER TABLE `user` MODIFY COLUMN `id` varchar(256);

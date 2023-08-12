@@ -5,12 +5,12 @@ const stripe = new Stripe(
 );
 
 export default defineEventHandler(async (event) => {
-  const { referenceId, email, allitems } = await readBody(event);
-  const response = await createPayment(referenceId, email, allitems);
+  const { email, allitems } = await readBody(event);
+  const response = await createPayment(email, allitems);
   return { data: response };
 });
 
-const createPayment = async (referenceId: string, email: string, allitems: number[]) => {
+const createPayment = async (email: string, allitems: number[]) => {
  
     const cartItemsAll = await $fetch("/api/getCartItems", {
         method: "POST",
@@ -62,7 +62,7 @@ const createPayment = async (referenceId: string, email: string, allitems: numbe
       },
     ],
     mode: "payment",
-    client_reference_id: referenceId,
+    client_reference_id: email,
     customer_email: email,
     line_items: items,
     success_url: `https://trenddad.com/success`,

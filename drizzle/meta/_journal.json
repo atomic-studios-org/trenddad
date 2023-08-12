@@ -1,75 +1,12 @@
 {
   "version": "5",
-  "dialect": "mysql",
+  "dialect": "pg",
   "entries": [
     {
       "idx": 0,
       "version": "5",
-      "when": 1686045355572,
-      "tag": "0000_complete_the_liberteens",
-      "breakpoints": false
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1686048306639,
-      "tag": "0001_good_scarecrow",
-      "breakpoints": false
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1686246738328,
-      "tag": "0002_mute_red_hulk",
-      "breakpoints": false
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1686246943990,
-      "tag": "0003_square_miek",
-      "breakpoints": false
-    },
-    {
-      "idx": 4,
-      "version": "5",
-      "when": 1686246998278,
-      "tag": "0004_simple_ben_urich",
-      "breakpoints": false
-    },
-    {
-      "idx": 5,
-      "version": "5",
-      "when": 1691410047295,
-      "tag": "0005_awesome_demogoblin",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "5",
-      "when": 1691411508033,
-      "tag": "0006_plain_magneto",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "5",
-      "when": 1691412720658,
-      "tag": "0007_concerned_onslaught",
-      "breakpoints": true
-    },
-    {
-      "idx": 8,
-      "version": "5",
-      "when": 1691413607848,
-      "tag": "0008_damp_night_nurse",
-      "breakpoints": true
-    },
-    {
-      "idx": 9,
-      "version": "5",
-      "when": 1691414591966,
-      "tag": "0009_boring_silver_centurion",
+      "when": 1691837101045,
+      "tag": "0000_foamy_blue_shield",
       "breakpoints": true
     }
   ]

@@ -1,32 +1,33 @@
 <script lang="ts" setup>
-
 const { status, data, signIn, signOut } = useAuth();
 
 const email = ref()
 const password = ref()
-
+const name = ref()
+const isRequested = ref(false)
 
 const handleSignInGoogle = async () => {
   await signIn("google");
 };
 
-const handleSigninCredentials = async () =>{
-
-  const user = await $fetch("/api/getUser", {
-          method: "POST",
-          body: {
-            email: email.value,
-          },
-        });
-
-        if(!user.data[0]){
-         
-          navigateTo("/sign-up")
-        }else{
-          await signIn("credentials", {email: email.value, password: password.value})
-        }
-
+const handleSigninCredentials = async () => {
+     //create the user in the database with hashed password
+     await $fetch("/api/confirmEmail", {
+              method: "POST",
+              body: {
+                name: name.value,
+                email: email.value,
+                password: password.value,
+              },
+            });
+            isRequested.value = true
+           setTimeout(() => {
+            isRequested.value = false
+           }, 4000);
+        
 }
+
+
 
 
   if (data.value?.user?.email) {
@@ -58,8 +59,7 @@ const handleSigninCredentials = async () =>{
     <div
       class="px-16 py-20 flex flex-col border-groove border-black border-0.5 rounded-sm"
     >
-      <span class="font-bold font-melodrama text-xl">Sign in to continue</span>
-     
+      <span class="font-bold font-melodrama text-xl">Sign up to continue</span>
       <div class="mt-4">
         <button
           @click="() => handleSignInGoogle()"
@@ -83,9 +83,17 @@ const handleSigninCredentials = async () =>{
         </button>
       </div>
       <form @submit.prevent="handleSigninCredentials" class="flex flex-col gap-2 mt-2">
-      
+        <label>Name:</label>
+        <input
+        required
+        v-model="name"
+          placeholder="Your name"
+          type="text"
+          class="py-1.5 px-4 w-46 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
+        />
         <label>Email:</label>
         <input
+        required
         v-model="email"
           placeholder="Your email"
           type="text"
@@ -93,19 +101,19 @@ const handleSigninCredentials = async () =>{
         />
         <label>Password:</label>
         <input
+        required
         v-model="password"
           placeholder="Your password"
           type="password"
           class="py-1.5 px-4 w-46 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
-        <NuxtLink class="text-sm mt-4" to="/sign-up">I don't have an account.</NuxtLink>
-        <NuxtLink class="text-sm " to="/forgot-password">Forgot my password?</NuxtLink>
+        <span class="text-sm" v-if="isRequested">Please check your inbox</span>
         <button
         type="submit"
           class="bg-black text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer hover:bg-gray-900"
          
         >
-          Sign in
+          Sign up
         </button>
       </form>
     </div>
