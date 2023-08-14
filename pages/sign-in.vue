@@ -12,14 +12,14 @@ const handleSignInGoogle = async () => {
 
 const handleSigninCredentials = async () => {
   isLoading.value = true
-  const user = await $fetch("/api/getUser", {
+  const {data} = await useFetch("/api/getUser", {
           method: "POST",
           body: {
             email: email.value,
           },
         });
 
-        if(!user.data[0]){
+        if(!data?.value?.data[0]){
           isLoading.value = false
           navigateTo("/sign-up")
         }else{
