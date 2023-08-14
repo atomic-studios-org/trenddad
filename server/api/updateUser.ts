@@ -5,6 +5,7 @@ import * as bcrypt from "bcrypt"
 
 const updateUser = async ( email: string, zipcode: string, street: string, number: string, country: string) => {
     const isAlreadyInDb = await db.select().from(user).where(eq(user.email, email))
+    
      
     if(isAlreadyInDb){
        await db.update(user).set({ zipcode: zipcode, street:street, number: number, country: country }).where(eq(user.email, email));
