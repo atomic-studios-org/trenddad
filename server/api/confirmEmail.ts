@@ -21,7 +21,7 @@ const confirmEmail = async (
       statusMessage: "User does already exists",
     });
   }
-  else if(!user.data[0]){
+  else{
     if (code) {
       await checkCode(code, email, password);
     } else {
