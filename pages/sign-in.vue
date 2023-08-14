@@ -72,6 +72,7 @@ const handleSigninCredentials = async () => {
       
         <label>Email:</label>
         <input
+        required
         v-model="email"
           placeholder="Your email"
           type="text"
@@ -79,6 +80,7 @@ const handleSigninCredentials = async () => {
         />
         <label>Password:</label>
         <input
+        required
         v-model="password"
           placeholder="Your password"
           type="password"
