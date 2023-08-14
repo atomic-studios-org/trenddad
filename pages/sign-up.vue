@@ -8,12 +8,14 @@ const password = ref()
 const name = ref()
 const isRequested = ref(false)
 const isError = ref()
+const isLoading = ref(false)
 
 const handleSignInGoogle = async () => {
   await signIn("google");
 };
 
 const handleSigninCredentials = async () => {
+  isLoading.value = true
      //create the user in the database with hashed password
      const {data, error} = await useFetch("/api/confirmEmail", {
               method: "POST",
@@ -23,12 +25,13 @@ const handleSigninCredentials = async () => {
                 password: password.value,
               },
             });
+            isLoading.value = false
             isError.value = error.value
             setTimeout(() => {
               isError.value = ""
             }, 3000);
-           
-            if(data.value?.data ){
+           console.log(error.value)
+            if(!error.value ){
               isRequested.value = true
            setTimeout(() => {
             isRequested.value = false
@@ -101,13 +104,14 @@ const handleSigninCredentials = async () => {
           class="py-1.5 px-4 w-46 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
         <span class="w-60 text-sm text-red-500" v-if="isError">User does already exists.</span>
-        <span class="text-sm text-blue-300" v-if="isRequested">Please check your inbox</span>
+        <span class="text-sm text-blue-600" v-if="isRequested">Please check your inbox</span>
         <button
+        :disabled="isLoading"
         type="submit"
           class="bg-black text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer hover:bg-gray-900"
          
         >
-          Sign up
+        {{isLoading ? "Signing up..": "Sign up"}}
         </button>
       </form>
     </div>

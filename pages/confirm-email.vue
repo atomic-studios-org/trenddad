@@ -58,7 +58,7 @@ if (data.value?.user?.email) {
         <input
           v-model="password"
           placeholder="Enter your password"
-          type="text"
+          type="password"
           class="py-1.5 px-4 w-40  rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
 
