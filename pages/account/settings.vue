@@ -50,8 +50,8 @@ const createUser = async () => {
 <template>
   <div v-if="user" class="flex md:w-4/6 w-full mx-auto h-screen mt-10">
     <sidebar />
-    <div class="md:ml-20 md:max-w-full max-w-76 mr-4">
-      <h1>Your Shipping Data</h1>
+    <div class="md:ml-20 ml-4 md:max-w-full max-w-76 mr-4">
+      <h1>Your Settings</h1>
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Zipcode</label>
         <input

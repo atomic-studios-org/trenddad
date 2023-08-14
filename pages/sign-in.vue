@@ -5,6 +5,7 @@ const { status, data, signIn, signOut } = useAuth();
 const email = ref()
 const password = ref()
 const isLoading = ref(false)
+const isFalseCredentials = ref(false)
 
 const handleSignInGoogle = async () => {
   await signIn("google");
@@ -21,7 +22,10 @@ const handleSigninCredentials = async () => {
 
         if(!data?.value?.data[0]){
           isLoading.value = false
-          navigateTo("/sign-up")
+          isFalseCredentials.value = true
+        setTimeout(() => {
+          isFalseCredentials.value = false
+        }, 4000);
         }else{
          const status = await signIn("credentials", {email: email.value, password: password.value})
          console.log(status) 
@@ -46,6 +50,7 @@ const handleSigninCredentials = async () => {
     >
       <span class="font-bold font-melodrama text-xl">Sign in to continue</span>
      
+     
       <div class="mt-4">
         <button
           @click="() => handleSignInGoogle()"
@@ -69,7 +74,7 @@ const handleSigninCredentials = async () => {
         </button>
       </div>
       <form @submit.prevent="handleSigninCredentials" class="flex flex-col gap-2 mt-2">
-      
+       
         <label>Email:</label>
         <input
         required
@@ -86,6 +91,7 @@ const handleSigninCredentials = async () => {
           type="password"
           class="py-1.5 px-4 w-46 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
+        <span class="text-red-500" v-if="isFalseCredentials">Incorrect credentials</span>
         <NuxtLink class="text-sm mt-4" to="/sign-up">I don't have an account.</NuxtLink>
         <NuxtLink class="text-sm " to="/forgot-password">Forgot my password?</NuxtLink>
         <button
