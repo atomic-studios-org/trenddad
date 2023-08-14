@@ -1,10 +1,13 @@
 <script lang="ts" setup>
+
+
 const { status, data, signIn, signOut } = useAuth();
 
 const email = ref()
 const password = ref()
 const name = ref()
 const isRequested = ref(false)
+const isError = ref()
 
 const handleSignInGoogle = async () => {
   await signIn("google");
@@ -12,7 +15,7 @@ const handleSignInGoogle = async () => {
 
 const handleSigninCredentials = async () => {
      //create the user in the database with hashed password
-     await $fetch("/api/confirmEmail", {
+     const {data, error} = await useFetch("/api/confirmEmail", {
               method: "POST",
               body: {
                 name: name.value,
@@ -20,15 +23,19 @@ const handleSigninCredentials = async () => {
                 password: password.value,
               },
             });
-            isRequested.value = true
+            isError.value = error.value
+            setTimeout(() => {
+              isError.value = ""
+            }, 3000);
+            if(!data.value?.data){
+              isRequested.value = true
            setTimeout(() => {
             isRequested.value = false
            }, 4000);
+            }
+           
         
 }
-
-
-
 
   if (data.value?.user?.email) {
     navigateTo("/account/settings");
@@ -44,6 +51,7 @@ const handleSigninCredentials = async () => {
       class="px-16 py-20 flex flex-col border-groove border-black border-0.5 rounded-sm"
     >
       <span class="font-bold font-melodrama text-xl">Sign up to continue</span>
+     
       <div class="mt-4">
         <button
           @click="() => handleSignInGoogle()"
@@ -91,7 +99,8 @@ const handleSigninCredentials = async () => {
           type="password"
           class="py-1.5 px-4 w-46 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
-        <span class="text-sm" v-if="isRequested">Please check your inbox</span>
+        <span class="w-60 text-sm text-red-500" v-if="isError">User does already exists.</span>
+        <span class="text-sm text-blue-300" v-if="isRequested">Please check your inbox</span>
         <button
         type="submit"
           class="bg-black text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer hover:bg-gray-900"

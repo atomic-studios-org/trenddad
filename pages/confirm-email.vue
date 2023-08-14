@@ -46,7 +46,7 @@ if (data.value?.user?.email) {
         @submit.prevent="handleConfirmEmail"
         class="flex flex-col gap-2 mt-2"
       >
-        Please enter the 4 digit code you received from the email.
+        Please enter the 4 digit code.
         <label>Code:</label>
         <input
           v-model="code"

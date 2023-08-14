@@ -13,22 +13,31 @@ const handleSignInGoogle = async () => {
 
 const handleSigninCredentials = async () => {
   isLoading.value = true
-  const {data} = await useFetch("/api/getUser", {
+  if(!password.value || !email.value){
+    isFalseCredentials.value = true
+    setTimeout(() => {
+      isFalseCredentials.value = false
+    }, 3000);
+  }
+  const {data} = await useFetch("/api/checkUserCredentials", {
           method: "POST",
           body: {
             email: email.value,
+            password: password.value
           },
         });
-
-        if(!data?.value?.data[0]){
+        if(!data?.value?.data){
           isLoading.value = false
           isFalseCredentials.value = true
         setTimeout(() => {
           isFalseCredentials.value = false
         }, 4000);
-        }else{
-         const status = await signIn("credentials", {email: email.value, password: password.value})
-         console.log(status) 
+        console.log("the user does password did not match, or does not exist")
+        }
+        else{
+        console.log("the user does password did match")
+         await signIn("credentials", {email: email.value, password: password.value})
+       
          isLoading.value = false
         }
 
