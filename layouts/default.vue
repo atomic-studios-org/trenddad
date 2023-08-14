@@ -19,5 +19,6 @@ useHead({
     <slot />
     <Footer />
     <Tsxbar />
+    <ClientOnly><Cookie /></ClientOnly>
   </div>
 </template>

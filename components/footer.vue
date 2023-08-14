@@ -10,30 +10,23 @@
         >
           <li>
             <NuxtLink
-              href="#"
+              href="/help"
               class="mr-4 hover:underline md:mr-6 decoration-none text-black"
-              >About</NuxtLink
+              >FAQ</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              href="#"
+              href="/privacy-policy"
               class="mr-4 hover:underline md:mr-6 decoration-none text-black"
               >Privacy Policy</NuxtLink
             >
           </li>
           <li>
             <NuxtLink
-              href="#"
+              href="/terms"
               class="mr-4 hover:underline md:mr-6 decoration-none text-black"
-              >Licensing</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              href="#"
-              class="hover:underline decoration-none text-black"
-              >Contact</NuxtLink
+              >Terms </NuxtLink
             >
           </li>
         </ul>

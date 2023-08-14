@@ -30,7 +30,7 @@ const user = data.value?.user;
             ><div class="i-mdi-account-outline text-2xl text-black"
           /></NuxtLink>
           <!-- <div class="i-mdi-cards-heart-outline text-2xl text-black" /> -->
-          <NuxtLink href="/actions"
+          <NuxtLink href="/terms"
             ><div class="i-mdi-ruler-square-compass text-2xl text-black"
           /></NuxtLink>
           <NuxtLink href="/cart" class="flex pl-4 items-center"
