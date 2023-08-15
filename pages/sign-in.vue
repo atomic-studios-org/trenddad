@@ -82,7 +82,7 @@ const handleSigninCredentials = async () => {
           Sign in with Google
         </button>
       </div>
-      <form @submit.prevent="handleSigninCredentials" class="flex flex-col gap-2 mt-2">
+      <form @submit.prevent="handleSigninCredentials" autosave="on" autocomplete="on" class="flex flex-col gap-2 mt-2">
        
         <label>Email:</label>
         <input

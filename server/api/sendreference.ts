@@ -24,7 +24,7 @@ const createReference = async (email: string) => {
     to: email, // list of receivers
     subject: `Your 10% offer code is ' ${code} '`, // Subject line
     text: `${code} `, // plain text body
-    html: generateTemplateReference(BASE_URI as string, code, email as string), // html body
+    html: generateTemplateReference(code, email as string), // html body
   });
 };
 
