@@ -1,11 +1,19 @@
 import Stripe from "stripe";
+import { getServerSession } from '#auth'
 
 const stripe = new Stripe(
-  "sk_test_51L34nrJ0Tu9paWkW9sF0gCPGB55l3fncgRlFJmF2Lcr4xEUdCMuUtQnYang1GsxdZAmw9AaTC6vHgJHPhNMAsDDA000WqYNd73",
+  process.env.STRIPE_TEST_KEY!,
   { apiVersion: "2022-11-15" }
 );
 
 export default defineEventHandler(async (event) => {
+  const session = await getServerSession(event)
+  if(!session?.user?.email){
+    throw createError({
+      statusCode: 403,
+      statusMessage: "User is not authenticated, please sign in",
+    });
+  }
   const { orderId, referenceId } = await readBody(event);
   const response = await calculatePayment(orderId);
 

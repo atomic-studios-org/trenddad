@@ -14,7 +14,7 @@ isPayd.value = route.query.success === "true";
 const { data: payments } = await useAsyncData("getPayments", async () => {
   return await $fetch("/api/getPayments", {
     method: "POST",
-    body: { email: email.value, referenceId: referenceId.value },
+    body: { email: email.value },
   });
 });
 </script>

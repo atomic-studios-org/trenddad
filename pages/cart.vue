@@ -27,7 +27,7 @@ totalToPay.value = total.value + totalShippingCosts.value
 const removeCartItem = async (index: number) => {
   store.removeFromCart(index);
   cartItems.value = [...store.cart];
-  reloadNuxtApp()
+  await refresh()
 };
 
 </script>
@@ -48,13 +48,13 @@ const removeCartItem = async (index: number) => {
             :key="ind"
             v-for="(it, ind) in item"
           >
-            <span class="absolute top-2 right-2">€ {{ it.price.toFixed(2) }},-</span>
+            <span class="absolute top-2 right-2">€ {{ it?.price.toFixed(2) }},-</span>
             <div class="p-8">
-              <img class="h-20" :src="`/productimages/${it.image}.webp`" alt="" />
+              <img class="h-20" :src="`/productimages/${it?.image}.webp`" alt="" />
             </div>
             <div class="flex flex-col py-8">
-              <span>{{ it.collection }}</span>
-              <span class="font-bold mt-1">{{ it.name }}</span>
+              <span>{{ it?.collection }}</span>
+              <span class="font-bold mt-1">{{ it?.name }}</span>
               <div class="flex">
                 <div class="i-mdi-star text-xl text-yellow" />
                 <div class="i-mdi-star text-xl text-yellow" />
@@ -84,12 +84,12 @@ const removeCartItem = async (index: number) => {
        <div class="p-4 flex flex-col gap-1">
         <span class="font-bold">Overview</span>
         <div class="flex justify-between">
-          <span class="text-sm text-gray-700">Articles ({{ cartItems.length }})</span>
-          <span>€ {{ total.toFixed(2) }},-</span>
+          <span class="text-sm text-gray-700">Articles ({{ cartItems?.length }})</span>
+          <span>€ {{ total?.toFixed(2) }},-</span>
         </div>
         <div class="flex justify-between">
           <span class="text-sm text-gray-700">Shippingcosts</span>
-          <span>€ {{ totalShippingCosts.toFixed(2) }},-</span>
+          <span>€ {{ totalShippingCosts?.toFixed(2) }},-</span>
         </div>
        <div class="py-2">
         <div class="h-0.2  bg-black w-full"></div>
@@ -97,15 +97,15 @@ const removeCartItem = async (index: number) => {
        <NuxtLink class="text-sm" to="/account/voucher">Add vouchercode</NuxtLink>
        <div class="mt-6 py-4 px-2 bg-gray-200 font-bold flex justify-between">
           <span class="text-sm ">Total to pay</span>
-          <span>€ {{ totalToPay.toFixed(2) }},-</span>
+          <span>€ {{ totalToPay?.toFixed(2) }},-</span>
         </div>
         <NuxtLink to="/shipping">
         <button 
-        :disabled="cartItems.length === 0"
+        :disabled="cartItems?.length === 0"
         class="bg-black no-underline w-full py-4 text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer disabled:cursor-default hover:bg-gray-900"
         
       >
-       {{ cartItems.length === 0 ? "No items in cart": "Continue with payment" }}
+       {{ cartItems?.length === 0 ? "No items in cart": "Continue with payment" }}
       </button>
     </NuxtLink>
        </div>
