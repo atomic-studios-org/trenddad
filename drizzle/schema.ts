@@ -29,7 +29,7 @@ export const emailconfirmation = pgTable("emailconfirmation", {
   code: varchar("code", {length: 256})
 });
 
-export const orders = pgTable("orders", {
+export const emailReferences = pgTable("emaileferences", {
   id: serial("id").primaryKey(),
   email: varchar("email", { length: 256 }),
 });
