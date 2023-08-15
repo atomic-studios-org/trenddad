@@ -1,9 +1,10 @@
 import { user } from "../../drizzle/schema";
 import db from "../../drizzle/db";
 import {eq, and} from "drizzle-orm"
-import * as bcrypt from "bcrypt"
+import { getServerSession } from '#auth'
 
 const updateUser = async ( email: string, zipcode: string, street: string, number: string, country: string) => {
+ 
     const isAlreadyInDb = await db.select().from(user).where(eq(user.email, email))
     
      
@@ -16,6 +17,13 @@ const updateUser = async ( email: string, zipcode: string, street: string, numbe
 };
 
 export default defineEventHandler(async (event) => {
+  const session = await getServerSession(event)
+  if(!session?.user?.email){
+    throw createError({
+      statusCode: 403,
+      statusMessage: "User is not authenticated, please sign in",
+    });
+  }
     const { email, zipcode,street,number, country } = await readBody(event);
     try {
       await updateUser( email, zipcode,street,number, country );
