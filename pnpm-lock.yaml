@@ -23,6 +23,7 @@ specifiers:
   eslint-config-prettier: ^8.10.0
   eslint-plugin-vue: ^9.16.1
   jsdom: ^21.1.2
+  limiter: ^2.1.0
   next-auth: 4.22.3
   nodemailer: ^6.9.4
   normalize.css: ^8.0.1
@@ -50,6 +51,7 @@ dependencies:
   drizzle-orm: 0.27.2_yhwexgo3a6uixuuk73jgihroue
   drizzle-zod: 0.4.4_syz26ykhf4e5uflqhyjp5qhm4i
   eslint-config-prettier: 8.10.0_eslint@8.46.0
+  limiter: 2.1.0
   nodemailer: 6.9.4
   pg: 8.11.2
   pinia: 2.1.6
@@ -4278,6 +4280,10 @@ packages:
       graceful-fs: 4.2.11
     dev: true
 
+  /just-performance/4.3.0:
+    resolution: {integrity: sha512-L7RjvtJsL0QO8xFs5wEoDDzzJwoiowRw6Rn/GnvldlchS2JQr9wFYPiwZcDfrbbujEKqKN0tvENdbjXdYhDp5Q==}
+    dev: false
+
   /kleur/3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
@@ -4313,6 +4319,12 @@ packages:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
     engines: {node: '>=10'}
     dev: true
+
+  /limiter/2.1.0:
+    resolution: {integrity: sha512-361TYz6iay6n+9KvUUImqdLuFigK+K79qrUtBsXhJTLdH4rIt/r1y8r1iozwh8KbZNpujbFTSh74mJ7bwbAMOw==}
+    dependencies:
+      just-performance: 4.3.0
+    dev: false
 
   /listhen/1.2.2:
     resolution: {integrity: sha512-fQaXe+DAQ5QiYP1B4uXfAgwqIwNS+0WMIwRd5l2a3npQAEhlCJ1pN11d41yHtbeReE7oRtfL+h6Nzxq+Wc4vIg==}
