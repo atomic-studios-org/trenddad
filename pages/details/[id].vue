@@ -95,7 +95,9 @@ const handleAddToCart = (id: number) => {
             <span>Collection: </span><span>{{ data?.data.collection }}</span>
           </div>
           <span class="mt-1 text-4xl">{{ data?.data?.name }}</span>
-          <span class="mt-4 text-lg">{{ data?.data?.descriptiontitle }}</span>
+          <span class="mt-4 text-lg font-bold">{{
+            data?.data?.descriptiontitle
+          }}</span>
           <span class="">{{ data?.data?.description }}</span>
           <div class="flex gap-2 items-end">
             <div
