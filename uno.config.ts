@@ -29,71 +29,11 @@ export default defineConfig({
     presetTypography(),
     presetWebFonts({
       fonts: {
-        //Chose between top tier fonts. roboto, spacegrotesk, worksans, dmsons, opensans, satoshi, rupreme, inter, switzer, alpino, boska
-        roboto: "Roboto",
-        spacegrotesk: "Space Grotesk",
-        worksans: "Work Sans",
-        dmsans: "DM Sans",
-        opensans: "Open Sans",
-        satoshi: [
-          {
-            name: "Satoshi",
-            weights: ["200", "500"],
-            provider: "fontshare",
-          },
-        ],
-        supreme: [
-          {
-            name: "Supreme",
-            weights: ["200", "500"],
-            provider: "fontshare",
-          },
-        ],
-
         inter: "Inter",
-        switzer: [
-          {
-            name: "Switzer",
-            weights: ["200", "500"],
-            provider: "fontshare",
-          },
-        ],
-        alpino: {
-          name: "Alpino",
-          weights: ["400", "700"],
-          provider: "fontshare",
-        },
-        boska: [
-          {
-            name: "Boska",
 
-            provider: "fontshare",
-          },
-        ],
-        bespokestencil: [
-          {
-            name: "Bespoke Stencil",
-
-            provider: "fontshare",
-          },
-        ],
         melodrama: [
           {
             name: "Melodrama",
-
-            provider: "fontshare",
-          },
-        ],
-        montserrat: [
-          {
-            name: "Montserrat",
-
-            provider: "fontshare",
-          },
-        ],
-        stardom: [
-          {
-            name: "Stardom",
 
             provider: "fontshare",
           },
