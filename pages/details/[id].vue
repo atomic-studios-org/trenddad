@@ -30,8 +30,7 @@ const handleAddToCart = (id: number) => {
 </script>
 
 <template>
-  <div>font</div>
-  <!-- <div
+  <div
     class="relative h-20 mt-10 mb-0 md:mb-10 bg-sky-700 flex items-center justify-center"
   >
     <div>Banner foto</div>
@@ -50,8 +49,8 @@ const handleAddToCart = (id: number) => {
         >Activate your discount now.</span
       >
     </div>
-  </div> -->
-  <!-- <div class="w-screen flex justify-center items-center min-h-screen">
+  </div>
+  <div class="w-screen flex justify-center items-center min-h-screen">
     <div
       class="w-11/12 md:flex md:mb-10 mb-40 grid md:mt-0 mt-20 grid-cols-1 gap-20 md:gap-0"
     >
@@ -155,5 +154,5 @@ const handleAddToCart = (id: number) => {
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
