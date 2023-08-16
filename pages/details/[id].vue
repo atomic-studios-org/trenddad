@@ -45,7 +45,7 @@ const handleAddToCart = (id: number) => {
       class="absolute h-20 z-10 flex items-center justify-center w-screen bg-gradient-to-t from-white/90 to-transparent"
     >
       <span
-        class="font-melodrama text-center font-bold text-lg md:text-3xl tracking-2 text-black text-shadow"
+        class="text-center font-bold text-lg md:text-3xl tracking-2 text-black text-shadow"
         >Activate your discount now.</span
       >
     </div>
