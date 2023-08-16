@@ -61,7 +61,7 @@ const sendReference = async () => {
           >Email is not correct</span
         >
         <span class="text-blue-500" v-if="isSendEmail"
-          >Please check your inbox</span
+          >Please check your inbox.</span
         >
         <button
           @click="sendReference"
