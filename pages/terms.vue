@@ -70,7 +70,7 @@
         your financial information remains confidential and protected.
       </p>
       <p>
-        <strong>4.3 Shipping Costs: </strong>A flat shipping fee of €4.50 
+        <strong>4.3 Shipping Costs: </strong>A flat shipping fee of €4.50
         applies to all orders. This ensures a transparent and consistent
         shipping cost for your convenience.
       </p>

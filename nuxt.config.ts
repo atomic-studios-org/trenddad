@@ -1,13 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@unocss/nuxt", "@sidebase/nuxt-auth", "@pinia/nuxt", '@nuxt/image'],
-  routeRules:{
-    "/": {isr: true},
-    "/trending": {isr: true},
-    "/collections/Kitchen": {isr: true},
-    "/details/**": {isr: true},
-    "/cart": {ssr: false},
-    "/shipping": {ssr: false}
+  modules: [
+    "@unocss/nuxt",
+    "@sidebase/nuxt-auth",
+    "@pinia/nuxt",
+    "@nuxt/image",
+  ],
+  routeRules: {
+    "/": { isr: true },
+    "/trending": { isr: true },
+    "/collections/Kitchen": { isr: true },
+    "/details/**": { isr: true },
+    "/cart": { ssr: false },
+    "/shipping": { ssr: false },
   },
   components: {
     dirs: ["~/components"],

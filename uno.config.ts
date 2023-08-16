@@ -5,9 +5,8 @@ import {
   presetTypography,
   presetUno,
   presetWebFonts,
-  presetIcons
+  presetIcons,
 } from "unocss";
-
 
 type WebFontsProviders = "google" | "bunny" | "fontshare" | "none";
 interface WebFontMeta {

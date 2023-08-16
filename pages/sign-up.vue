@@ -9,17 +9,18 @@ const isLoading = ref(false);
 const isWrongEmail = ref(false);
 const isRequested = ref(false);
 const confirmPassword = ref("");
-const isWrongPasswordsMatch = ref(false)
-const isWrongPasswordMatch = ref(false)
+const isWrongPasswordsMatch = ref(false);
+const isWrongPasswordMatch = ref(false);
 
 const handleSignInGoogle = async () => {
   await signIn("google");
 };
 
 const handleSigninCredentials = async () => {
-  const isMatchPasswords = password.value === confirmPassword.value
-  const regexPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
-  const isMatchPassword = password.value.match(regexPassword)
+  const isMatchPasswords = password.value === confirmPassword.value;
+  const regexPassword =
+    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+  const isMatchPassword = password.value.match(regexPassword);
   const regexEmail =
     /^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$/;
   const isMatchEmail = email.value.match(regexEmail);
@@ -28,54 +29,46 @@ const handleSigninCredentials = async () => {
     setTimeout(() => {
       isWrongEmail.value = false;
     }, 3000);
-    
-  }
-  else if (!isMatchPassword) {
+  } else if (!isMatchPassword) {
     isWrongPasswordMatch.value = true;
     setTimeout(() => {
       isWrongPasswordMatch.value = false;
     }, 10000);
-    
-  }
-  else if (!isMatchPasswords) {
+  } else if (!isMatchPasswords) {
     isWrongPasswordsMatch.value = true;
     confirmPassword.value = "";
     setTimeout(() => {
       isWrongPasswordsMatch.value = false;
     }, 3000);
-    
-  }else{
+  } else {
     isLoading.value = true;
-  //create the user in the database with hashed password
-  const { data, error } = await useFetch("/api/confirmEmail", {
-    method: "POST",
-    body: {
-      name: name.value,
-      email: email.value,
-      password: password.value,
-    },
-  });
-  isLoading.value = false;
-  isError.value = error.value;
-  setTimeout(() => {
-    isError.value = "";
-  }, 3000);
-  console.log(error.value);
-  if (!error.value) {
-    isRequested.value = true;
+    //create the user in the database with hashed password
+    const { data, error } = await useFetch("/api/confirmEmail", {
+      method: "POST",
+      body: {
+        name: name.value,
+        email: email.value,
+        password: password.value,
+      },
+    });
+    isLoading.value = false;
+    isError.value = error.value;
     setTimeout(() => {
-      isRequested.value = false;
-    }, 4000);
+      isError.value = "";
+    }, 3000);
+    console.log(error.value);
+    if (!error.value) {
+      isRequested.value = true;
+      setTimeout(() => {
+        isRequested.value = false;
+      }, 4000);
+    }
   }
-  }
-  
 };
 
 if (data.value?.user?.email) {
   navigateTo("/account/settings");
 }
-
-
 </script>
 
 <template>
@@ -147,12 +140,16 @@ if (data.value?.user?.email) {
           >User does already exists.</span
         >
         <span class="w-60 text-sm text-red-500" v-if="isWrongPasswordMatch"
-          >Password must have minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character</span
+          >Password must have minimum eight characters, at least one upper case
+          English letter, one lower case English letter, one number and one
+          special character</span
         >
         <span class="w-60 text-sm text-red-500" v-if="isWrongPasswordsMatch"
           >Passwords do not match.</span
         >
-        <span class="text-red-500" v-if="isWrongEmail">Email is not correct</span>
+        <span class="text-red-500" v-if="isWrongEmail"
+          >Email is not correct</span
+        >
         <span class="text-sm text-blue-600" v-if="isRequested"
           >Please check your inbox</span
         >

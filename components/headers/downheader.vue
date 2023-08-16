@@ -21,18 +21,19 @@ const handleSignOut = async () => {
         >
           Top Collections
         </button>
-        <i class="-ml-2 cursor-pointer i-mdi-chevron-down group-hover:text-gray-600" />
+        <i
+          class="-ml-2 cursor-pointer i-mdi-chevron-down group-hover:text-gray-600"
+        />
       </div>
       <!-- Dropdown menu -->
       <div
-   
         v-if="isOpenCollections"
-        class="absolute z-30 p-2 top-27 font-normal bg-white divide-y divide-gray-100  shadow w-44"
+        class="absolute z-30 p-2 top-27 font-normal bg-white divide-y divide-gray-100 shadow w-44"
       >
         <NuxtLink
           @click="isOpenCollections = false"
           href="/collections/Kitchen"
-          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
+          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
           >Kitchen</NuxtLink
         >
 
@@ -96,13 +97,12 @@ const handleSignOut = async () => {
           Sign Out
         </button>
         <NuxtLink
-        to="/sign-in"
+          to="/sign-in"
           class="cursor-pointer md:text-lg text-xs bg-black text-white md:px-5 px-3 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
-         
           v-if="!data?.user?.email"
         >
           Sign In
-      </NuxtLink>
+        </NuxtLink>
       </div>
     </div>
   </div>

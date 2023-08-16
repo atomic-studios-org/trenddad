@@ -1,15 +1,13 @@
 import Stripe from "stripe";
-import { getServerSession } from '#auth'
+import { getServerSession } from "#auth";
 
-const stripe = new Stripe(
-  process.env.STRIPE_TEST_KEY!,
-  { apiVersion: "2022-11-15" }
-);
-
+const stripe = new Stripe(process.env.STRIPE_TEST_KEY!, {
+  apiVersion: "2022-11-15",
+});
 
 export default defineEventHandler(async (event) => {
-  const session = await getServerSession(event)
-  if(!session?.user?.email){
+  const session = await getServerSession(event);
+  if (!session?.user?.email) {
     throw createError({
       statusCode: 403,
       statusMessage: "User is not authenticated, please sign in",
@@ -21,31 +19,29 @@ export default defineEventHandler(async (event) => {
 });
 
 const createPayment = async (email: string, allitems: number[]) => {
- 
-    const cartItemsAll = await $fetch("/api/getCartItems", {
-        method: "POST",
-        body: {
-          cartItems: allitems,
-        },
-      })
+  const cartItemsAll = await $fetch("/api/getCartItems", {
+    method: "POST",
+    body: {
+      cartItems: allitems,
+    },
+  });
 
   const allItems = cartItemsAll?.data.map((item) => {
-    return item[0]
-  })
- 
-  const items = []
-  for(let i = 0; i < allItems.length; i++){
-    items.push(
-      {
-        price_data: {
-          currency: "eur",
-          product_data: {
-            name: allItems[i].name,
-          },
-          unit_amount: allItems[i].price * 100,
+    return item[0];
+  });
+
+  const items = [];
+  for (let i = 0; i < allItems.length; i++) {
+    items.push({
+      price_data: {
+        currency: "eur",
+        product_data: {
+          name: allItems[i].name,
         },
-        quantity: 1,
-      })
+        unit_amount: allItems[i].price * 100,
+      },
+      quantity: 1,
+    });
   }
   const response = await stripe.checkout.sessions.create({
     shipping_options: [
@@ -53,7 +49,7 @@ const createPayment = async (email: string, allitems: number[]) => {
         shipping_rate_data: {
           type: "fixed_amount",
           fixed_amount: {
-            amount: 4.50 * 100,
+            amount: 4.5 * 100,
             currency: "eur",
           },
           display_name: "Estimated delivery",

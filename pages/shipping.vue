@@ -2,30 +2,33 @@
 import { useCartStore } from "../stores/cart-store";
 const store = useCartStore();
 const cartItems: Ref<number[]> = ref([]);
-const total = ref(500)
-const totalShippingCosts = ref(4.50)
-const totalToPay = ref(0)
+const total = ref(500);
+const totalShippingCosts = ref(4.5);
+const totalToPay = ref(0);
 
 cartItems.value.push(...store.cart);
 
-const { data:cartItemsAll, pending, error, refresh } = await useAsyncData(
-  "getProducts",
-  () =>
-    $fetch("/api/getCartItems", {
-      method: "POST",
-      body: {
-        cartItems: cartItems.value,
-      },
-    })
+const {
+  data: cartItemsAll,
+  pending,
+  error,
+  refresh,
+} = await useAsyncData("getProducts", () =>
+  $fetch("/api/getCartItems", {
+    method: "POST",
+    body: {
+      cartItems: cartItems.value,
+    },
+  })
 );
 
 const allPrices = cartItemsAll.value?.data.map((item) => {
-  return item[0].price
-})
+  return item[0].price;
+});
 
-total.value = allPrices?.reduce((a:number,b:number) => a+b, 0)
+total.value = allPrices?.reduce((a: number, b: number) => a + b, 0);
 
-totalToPay.value = total.value + totalShippingCosts.value
+totalToPay.value = total.value + totalShippingCosts.value;
 
 const email = ref();
 const { data } = useAuth();
@@ -44,7 +47,7 @@ const createPaymentGeneratedContent = async () => {
       method: "POST",
       body: {
         email: user?.email,
-        allitems: cartItems.value
+        allitems: cartItems.value,
       },
     });
   });
@@ -96,7 +99,10 @@ const createUser = async () => {
 };
 </script>
 <template>
-  <form @submit.prevent="createUser" class="w-screen min-h-screen flex flex-col items-center justify-center">
+  <form
+    @submit.prevent="createUser"
+    class="w-screen min-h-screen flex flex-col items-center justify-center"
+  >
     <h1>Shipping</h1>
     <span class="text-gray-600 px-6"
       >Please check your credentials carefully before you continue.</span
@@ -111,7 +117,7 @@ const createUser = async () => {
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Zipcode:</label>
         <input
-        required
+          required
           placeholder="Your zipcode"
           v-model="zipcodeInput"
           type="text"
@@ -122,14 +128,14 @@ const createUser = async () => {
         <label>Street + housenumber:</label>
         <div class="flex gap-2 w-full">
           <input
-          required
+            required
             placeholder="Your street"
             v-model="streetInput"
             type="text"
             class="py-1.5 px-4 rounded-md hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
           />
           <input
-          required
+            required
             placeholder="Your housenumber"
             v-model="numberInput"
             type="text"
@@ -141,7 +147,7 @@ const createUser = async () => {
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Country</label>
         <input
-        required
+          required
           placeholder="Your country"
           v-model="countryInput"
           type="text"

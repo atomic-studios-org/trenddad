@@ -2,7 +2,6 @@
 const { data, signOut } = useAuth();
 const user = data.value?.user;
 
-
 if (!user) {
   navigateTo("/sign-in");
 }
@@ -16,11 +15,13 @@ const { data: userData } = await useAsyncData("getUser", () =>
     },
   })
 );
-
 </script>
 
 <template>
-  <div v-if="user && userData" class="flex md:w-4/6 w-full mx-auto min-h-screen mb-20 mt-10">
+  <div
+    v-if="user && userData"
+    class="flex md:w-4/6 w-full mx-auto min-h-screen mb-20 mt-10"
+  >
     <sidebar />
     <div class="md:ml-20 ml-2">
       <h1>Your Account</h1>
@@ -70,14 +71,19 @@ const { data: userData } = await useAsyncData("getUser", () =>
         <div class="border border-groove border-1 border-black py-6 pb-16 px-2">
           <div class="flex flex-col">
             <span class="font-bold text-md">Received voucher?</span>
-            <span class="mt-2">Check the amount and add it into your account.</span>
+            <span class="mt-2"
+              >Check the amount and add it into your account.</span
+            >
           </div>
-          
         </div>
         <NuxtLink to="/account/vouchers">Check the overview</NuxtLink>
       </div>
       <div class="mt-4">
-        <span class="underline cursor-pointer text-purple-500" @click="signOut()">Sign out</span>
+        <span
+          class="underline cursor-pointer text-purple-500"
+          @click="signOut()"
+          >Sign out</span
+        >
       </div>
     </div>
   </div>

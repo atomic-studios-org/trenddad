@@ -2,7 +2,7 @@
 const { data } = useAuth();
 const user = data.value?.user;
 const voucherInput = ref("");
-const correctVoucher = "DADDY10"
+const correctVoucher = "DADDY10";
 const isCorrectVoucher = ref("unknown");
 const isLoading = ref(false);
 if (!user) {
@@ -10,20 +10,17 @@ if (!user) {
 }
 
 const checkVoucher = () => {
-
   isLoading.value = true;
   setTimeout(() => {
     isLoading.value = false;
-    if(voucherInput.value === correctVoucher){
+    if (voucherInput.value === correctVoucher) {
       isCorrectVoucher.value = "correct";
+    } else {
+      isCorrectVoucher.value = "incorrect";
+      setTimeout(() => {
+        isCorrectVoucher.value = "unknown";
+      }, 3000);
     }
-   else{
-    isCorrectVoucher.value = "incorrect";
-    setTimeout(() => {
-      isCorrectVoucher.value = "unknown";
-    }, 3000);
-   }
-    
   }, 1000);
 };
 
@@ -41,21 +38,16 @@ const { data: userData } = await useAsyncData("getUser", () =>
 <template>
   <div v-if="user" class="flex md:w-4/6 w-full mx-auto h-screen mt-10">
     <sidebar />
-    <form  @submit.prevent="checkVoucher"  class="md:ml-20 ml-2">
+    <form @submit.prevent="checkVoucher" class="md:ml-20 ml-2">
       <h1>Vouchers & credits</h1>
-      <div
-       
-        class="space-y-2 mt-4 flex flex-col"
-      >
+      <div class="space-y-2 mt-4 flex flex-col">
         <label>Voucher-code</label>
         <span v-if="isCorrectVoucher === 'incorrect'" class="text-red-400">
           Your code was incorrect.
-          </span
-        >
+        </span>
         <span v-if="isCorrectVoucher === 'correct'" class="text-purple-400">
-         Well done, you've actived the discount for 24 hours.
-          </span
-        >
+          Well done, you've actived the discount for 24 hours.
+        </span>
         <input
           required
           placeholder="Your code"

@@ -1,5 +1,9 @@
-export const generateTemplate = (BASE_URI: string, code: string, email: string) => {
-    return ` <!doctype html>
+export const generateTemplate = (
+  BASE_URI: string,
+  code: string,
+  email: string
+) => {
+  return ` <!doctype html>
     <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     
     <head>
@@ -210,5 +214,5 @@ export const generateTemplate = (BASE_URI: string, code: string, email: string) 
       </div>
     </body>
     
-    </html>`
-}
+    </html>`;
+};

@@ -3,7 +3,7 @@
 import { NuxtAuthHandler } from "#auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-import * as bcrypt from "bcrypt"
+import * as bcrypt from "bcrypt";
 
 export default NuxtAuthHandler({
   secret: "2389u234jfn49i38rh234n28734rhngf93e8u19ew12bn80dyghb23",
@@ -23,7 +23,7 @@ export default NuxtAuthHandler({
           email: string;
           password: string;
         };
-       
+
         const user = await $fetch("/api/getUser", {
           method: "POST",
           body: {
@@ -31,17 +31,18 @@ export default NuxtAuthHandler({
           },
         });
 
-        const passwordDb = user.data[0].password?.toString()
+        const passwordDb = user.data[0].password?.toString();
 
-        const hashed = await bcrypt.compare(password, passwordDb as string)
-       
+        const hashed = await bcrypt.compare(password, passwordDb as string);
 
         if (hashed) {
-
           return user.data[0];
         } else {
-        // wrong password
-        throw createError({ statusCode: 404, statusMessage: 'Password is incorrect' })
+          // wrong password
+          throw createError({
+            statusCode: 404,
+            statusMessage: "Password is incorrect",
+          });
         }
       },
     }),

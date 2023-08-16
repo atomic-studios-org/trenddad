@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-
-
 definePageMeta({
   layout: "default",
 });
@@ -16,7 +14,6 @@ const { data, error, refresh } = await useAsyncData(
     })
 );
 const products = data.value?.data;
-
 </script>
 
 <template>
@@ -24,14 +21,18 @@ const products = data.value?.data;
     <div class="relative h-80 bg-purple-400 flex items-center justify-center">
       <div>Banner foto</div>
       <img
-      :src="`/collectionimages/${params.name}.jpg`"
-      alt="dalle"
+        :src="`/collectionimages/${params.name}.jpg`"
+        alt="dalle"
         class="object-cover object-center absolute h-80 z-10 w-screen bg-gradient-to-t from-white to-transparent"
       />
       <div
         class="absolute h-80 z-10 flex items-center justify-center w-screen bg-gradient-to-t from-white/90 to-transparent"
-      ><span class="font-melodrama text-5xl uppercase tracking-6 text-black  text-shadow  ">{{params.name}}</span></div>
-    
+      >
+        <span
+          class="font-melodrama text-5xl uppercase tracking-6 text-black text-shadow"
+          >{{ params.name }}</span
+        >
+      </div>
     </div>
     <div class="flex flex-col p-2 mt-6 items-center">
       <div
@@ -42,7 +43,11 @@ const products = data.value?.data;
           :key="i"
           v-for="(item, i) in products"
         >
-        <product-block :name="(item?.name as string)" :image="(item?.image as string)" :id="item?.id"/>
+          <product-block
+            :name="(item?.name as string)"
+            :image="(item?.image as string)"
+            :id="item?.id"
+          />
         </div>
       </div>
     </div>

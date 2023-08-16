@@ -20,15 +20,13 @@ const confirmEmail = async (
       statusCode: 404,
       statusMessage: "User does already exists",
     });
-  }
-  else{
+  } else {
     if (code) {
       await checkCode(code, email, password);
     } else {
       await sendEmail(name, email, password);
     }
   }
- 
 };
 
 export default defineEventHandler(async (event) => {
@@ -44,15 +42,13 @@ const sendEmail = async (name?: string, email?: string, password?: string) => {
 
   const code = Math.floor(1000 + Math.random() * 9000).toString();
 
-  await db
-    .insert(emailconfirmation)
-    .values({
-      name: name,
-      email: email,
-      password: hashed,
-      confirmed: false,
-      code: code,
-    });
+  await db.insert(emailconfirmation).values({
+    name: name,
+    email: email,
+    password: hashed,
+    confirmed: false,
+    code: code,
+  });
 
   const transporter = nodemailer.createTransport({
     host: "mail.zxcs.nl",

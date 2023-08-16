@@ -3,28 +3,27 @@ const { status, data, signIn, signOut } = useAuth();
 
 const code = ref();
 const password = ref();
-const route = useRoute()
-const email = route.query.email
-const codequery = route.query.code
+const route = useRoute();
+const email = route.query.email;
+const codequery = route.query.code;
 
 onMounted(() => {
-  code.value = codequery
-})
+  code.value = codequery;
+});
 
 const handleConfirmEmail = async () => {
- const {data, error} = useAsyncData("confirmEmail", async () => {
-  return await $fetch("/api/confirmEmail", {
-              method: "POST",
-              body: {
-                code: code.value,
-                email: email,
-                password: password.value
-              },
-            });
- })
+  const { data, error } = useAsyncData("confirmEmail", async () => {
+    return await $fetch("/api/confirmEmail", {
+      method: "POST",
+      body: {
+        code: code.value,
+        email: email,
+        password: password.value,
+      },
+    });
+  });
 
-navigateTo("/sign-in")
-
+  navigateTo("/sign-in");
 };
 
 if (data.value?.user?.email) {
@@ -33,14 +32,11 @@ if (data.value?.user?.email) {
 </script>
 
 <template>
-  
   <div class="min-h-screen flex items-center justify-center">
     <div
       class="px-16 py-20 flex flex-col border-groove border-black border-0.5 rounded-sm"
     >
-      <span class="font-bold font-melodrama text-xl"
-        >Confirm your email</span
-      >
+      <span class="font-bold font-melodrama text-xl">Confirm your email</span>
 
       <form
         @submit.prevent="handleConfirmEmail"
@@ -59,9 +55,8 @@ if (data.value?.user?.email) {
           v-model="password"
           placeholder="Enter your password"
           type="password"
-          class="py-1.5 px-4 w-40  rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
+          class="py-1.5 px-4 w-40 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
-
 
         <button
           type="submit"
