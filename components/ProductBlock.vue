@@ -6,6 +6,7 @@ interface Props {
   name: string;
   image: string;
   id: number;
+  price: number;
 }
 defineProps<Props>();
 </script>
@@ -17,15 +18,10 @@ defineProps<Props>();
       :src="`/productimages/${image}.webp`"
       alt="image"
     />
-    <div
-      class="absolute bottom-4 bg-white p-2 rounded-sm left-4 flex flex-col text-black"
-    >
-      <span class="font-inter font-bold text-lg">{{ name }}</span>
-      <button
-        class="py-1.5 hover:bg-black hover:text-white hover:border-white transition px-4 border-black text-sm border-groove bg-white text-black cursor-pointer"
+    <div class="absolute bottom-4 right-4 flex flex-col">
+      <span class="text-2xl px-4 py-3 bg-gray-900 text-white font-bold mt-2"
+        >€ {{ price?.toFixed(2) }}</span
       >
-        View product
-      </button>
     </div>
   </NuxtLink>
 </template>
