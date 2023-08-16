@@ -39,7 +39,7 @@ const handleAddToCart = (id: number) => {
           v-if="data?.data?.image"
           :height="500"
           :width="500"
-          class="w-80 h-80 mx-auto p-5 border bg-black border-groove transition hover:scale-102 duration-700"
+          class="w-80 h-80 mx-auto p-0.5 border bg-gray-100 border-groove transition hover:scale-102 duration-700"
           :src="`/productimages/${(data?.data?.image as string)}.webp`"
           :alt="(data?.data?.name as string)"
         />
@@ -56,8 +56,8 @@ const handleAddToCart = (id: number) => {
           <span class="font-bold mt-1 text-4xl font-inter">{{
             data?.data?.name
           }}</span>
-
-          <span class="mt-4">{{ data?.data?.description }}</span>
+          <span class="mt-4 text-lg">{{ data?.data?.descriptiontitle }}</span>
+          <span class="">{{ data?.data?.description }}</span>
           <div class="flex gap-2 items-end">
             <div
               class="text-2xl px-4 py-3 bg-gray-900 text-white font-bold mt-2"
@@ -71,6 +71,43 @@ const handleAddToCart = (id: number) => {
               >
                 Add to cart
               </button>
+            </div>
+          </div>
+          <div class="mt-10 flex flex-col">
+            <span class="text-lg font-bold mt">Product properties</span>
+            <div class="grid grid-cols-2 w-full gap-1">
+              <span>Name:</span>
+              <span v-if="data?.data.spec1 !== 'null'">{{
+                data?.data?.spec1
+              }}</span>
+              <span>Type</span>
+              <span v-if="data?.data.spec2 !== 'null'">{{
+                data?.data?.spec2
+              }}</span>
+              <span>Slogan</span>
+              <span v-if="data?.data.spec3 !== 'null'">{{
+                data?.data?.spec3
+              }}</span>
+              <span>Characteristics</span>
+              <span v-if="data?.data.spec4 !== 'null'">{{
+                data?.data?.spec4
+              }}</span>
+              <span>Color</span>
+              <span v-if="data?.data.spec5 !== 'null'">{{
+                data?.data?.spec5
+              }}</span>
+              <span>Packaging</span>
+              <span v-if="data?.data.spec6 !== 'null'">{{
+                data?.data?.spec6
+              }}</span>
+              <span>Dimensions</span>
+              <span v-if="data?.data.spec7 !== 'null'">{{
+                data?.data?.spec7
+              }}</span>
+              <span>Weight</span>
+              <span v-if="data?.data.spec8 !== 'null'">{{
+                data?.data?.spec8
+              }}</span>
             </div>
           </div>
         </div>
