@@ -20,10 +20,10 @@ definePageMeta({
     </div>
     <div class="flex flex-col items-center min-h-screen">
       <div class="grid md:grid-cols-2 grid-cols-1 mt-0.5 md:gap-6 md:mt-6">
-        <!-- <collection-block
+        <collection-block
           name="kitchen"
           image="/collectionimages/kitchen.jpg"
-        /> -->
+        />
         <collection-block name="cars" image="/collectionimages/cars.jpg" />
         <collection-block
           name="bathroom"
