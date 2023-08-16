@@ -26,12 +26,16 @@ console.log(data.value?.data);
 
 const handleAddToCart = (id: number) => {
   store.addToCart(id);
+  const input = document.getElementById("first_name");
+  setTimeout(() => {
+    input?.blur();
+  }, 1500);
 };
 </script>
 
 <template>
   <div
-    class="relative h-20 mt-10 mb-0 md:mb-10 bg-sky-700 flex items-center justify-center"
+    class="relative h-20 mt-20 mb-0 bg-sky-700 flex items-center justify-center"
   >
     <div>Banner foto</div>
 
@@ -107,8 +111,9 @@ const handleAddToCart = (id: number) => {
             </div>
             <div>
               <button
+                id="first_name"
                 @click="handleAddToCart(data?.data?.id as number)"
-                class="bg-black no-underline py-4 text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer disabled:cursor-default hover:bg-gray-900"
+                class="focus:animate-flip bg-black no-underline py-4 text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer disabled:cursor-default hover:bg-gray-900"
               >
                 Add to cart
               </button>
