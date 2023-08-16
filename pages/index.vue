@@ -22,7 +22,7 @@ definePageMeta({
       <div class="grid md:grid-cols-2 grid-cols-1 mt-0.5 md:gap-6 md:mt-6">
         <collection-block
           name="kitchen"
-          image="/collectionimages/kitchen.jpg"
+          image="/collectionimages/kitchenimage.jpg"
         />
         <collection-block name="cars" image="/collectionimages/cars.jpg" />
         <collection-block
