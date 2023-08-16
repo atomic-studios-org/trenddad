@@ -30,6 +30,7 @@ const handleAddToCart = (id: number) => {
 </script>
 
 <template>
+  <div>font</div>
   <!-- <div
     class="relative h-20 mt-10 mb-0 md:mb-10 bg-sky-700 flex items-center justify-center"
   >
