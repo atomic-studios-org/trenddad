@@ -31,7 +31,7 @@ const handleAddToCart = (id: number) => {
 
 <template>
   <div
-    class="relative h-20 mt-10 mb-10 bg-sky-700 flex items-center justify-center"
+    class="relative h-20 mt-10 mb-0 md:mb-10 bg-sky-700 flex items-center justify-center"
   >
     <div>Banner foto</div>
 
@@ -45,7 +45,7 @@ const handleAddToCart = (id: number) => {
       class="absolute h-20 z-10 flex items-center justify-center w-screen bg-gradient-to-t from-white/90 to-transparent"
     >
       <span
-        class="font-melodrama font-bold text-3xl tracking-2 text-black text-shadow"
+        class="font-melodrama text-center font-bold text-lg md:text-3xl tracking-2 text-black text-shadow"
         >Activate your discount now.</span
       >
     </div>
