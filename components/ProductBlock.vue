@@ -10,7 +10,7 @@ interface Props {
 defineProps<Props>();
 </script>
 <template>
-  <NuxtLink :to="`/details/${id}`">
+  <NuxtLink :to="`/details/${name}?id=${id}`">
     <nuxt-img
       :height="500"
       class="relative absolute h-80 w-80 object-cover"

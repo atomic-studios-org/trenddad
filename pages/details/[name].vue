@@ -1,24 +1,23 @@
 <script lang="ts" setup>
 import { useCartStore } from "@/stores/cart-store";
 
-interface Product {
-  data: {
-    id: number;
-    name: string | null;
-    collection: string | null;
-    image: string | null;
-    price: number | null;
-    description: string | null;
-  };
-}
+const { params, query } = useRoute();
+
+useHead({
+  title: `Trend Dad, ${params.name}`,
+  meta: [
+    {
+      name: "description",
+      content: `Get ${params.name} with your trend dad, buy products and stay trending.`,
+    },
+  ],
+});
 const store = useCartStore();
-const { params } = useRoute();
-const details = ref();
 
 const { data } = useAsyncData("getproduct", async () => {
   return await $fetch("/api/getProduct", {
     method: "POST",
-    body: { id: params.id },
+    body: { id: query.id },
   });
 });
 
@@ -35,7 +34,7 @@ const handleAddToCart = (id: number) => {
 
 <template>
   <div
-    class="relative h-20 mt-20 mb-0 bg-sky-700 flex items-center justify-center"
+    class="relative h-20 mt-20 mb-10 bg-sky-700 flex items-center justify-center"
   >
     <div>Banner foto</div>
 
@@ -96,18 +95,26 @@ const handleAddToCart = (id: number) => {
             >Item id .{{ data?.data?.id }}</span
           >
           <div class="flex gap-1">
-            <span>Collection: </span><span>{{ data?.data.collection }}</span>
+            <span>Collection: </span><span>{{ data?.data?.collection }}</span>
           </div>
           <span class="mt-1 text-4xl">{{ data?.data?.name }}</span>
           <span class="mt-4 text-lg font-bold">{{
             data?.data?.descriptiontitle
           }}</span>
           <span class="">{{ data?.data?.description }}</span>
+          <span
+            v-if="data?.data?.descriptiontitle2 !== 'null'"
+            class="mt-4 text-lg font-bold"
+            >{{ data?.data?.descriptiontitle2 }}</span
+          >
+          <span v-if="data?.data?.description2 !== 'null'" class="">{{
+            data?.data?.description2
+          }}</span>
           <div class="flex gap-2 items-end">
             <div
               class="text-2xl px-4 py-3 bg-gray-900 text-white font-bold mt-2"
             >
-              <span>€ {{ data?.data.price?.toFixed(2) }},-</span>
+              <span>€ {{ data?.data?.price?.toFixed(2) }},-</span>
             </div>
             <div>
               <button
@@ -122,36 +129,36 @@ const handleAddToCart = (id: number) => {
           <div class="mt-10 flex flex-col">
             <span class="text-lg font-bold mt">Product properties</span>
             <div class="grid grid-cols-2 w-full gap-1">
-              <span>Name:</span>
-              <span v-if="data?.data.spec1 !== 'null'">{{
+              <span v-if="data?.data?.spec1 !== 'null'">Name:</span>
+              <span v-if="data?.data?.spec1 !== 'null'">{{
                 data?.data?.spec1
               }}</span>
-              <span>Type</span>
-              <span v-if="data?.data.spec2 !== 'null'">{{
+              <span v-if="data?.data?.spec2 !== 'null'">Type</span>
+              <span v-if="data?.data?.spec2 !== 'null'">{{
                 data?.data?.spec2
               }}</span>
-              <span>Slogan</span>
-              <span v-if="data?.data.spec3 !== 'null'">{{
+              <span v-if="data?.data?.spec3 !== 'null'">Slogan</span>
+              <span v-if="data?.data?.spec3 !== 'null'">{{
                 data?.data?.spec3
               }}</span>
-              <span>Characteristics</span>
-              <span v-if="data?.data.spec4 !== 'null'">{{
+              <span v-if="data?.data?.spec4 !== 'null'">Characteristics</span>
+              <span v-if="data?.data?.spec4 !== 'null'">{{
                 data?.data?.spec4
               }}</span>
-              <span>Color</span>
-              <span v-if="data?.data.spec5 !== 'null'">{{
+              <span v-if="data?.data?.spec5 !== 'null'">Color</span>
+              <span v-if="data?.data?.spec5 !== 'null'">{{
                 data?.data?.spec5
               }}</span>
-              <span>Packaging</span>
-              <span v-if="data?.data.spec6 !== 'null'">{{
+              <span v-if="data?.data?.spec6 !== 'null'">Packaging</span>
+              <span v-if="data?.data?.spec6 !== 'null'">{{
                 data?.data?.spec6
               }}</span>
-              <span>Dimensions</span>
-              <span v-if="data?.data.spec7 !== 'null'">{{
+              <span v-if="data?.data?.spec7 !== 'null'">Dimensions</span>
+              <span v-if="data?.data?.spec7 !== 'null'">{{
                 data?.data?.spec7
               }}</span>
-              <span>Weight</span>
-              <span v-if="data?.data.spec8 !== 'null'">{{
+              <span v-if="data?.data?.spec8 !== 'null'">Weight</span>
+              <span v-if="data?.data?.spec8 !== 'null'">{{
                 data?.data?.spec8
               }}</span>
             </div>
