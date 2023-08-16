@@ -21,12 +21,22 @@ definePageMeta({
     <div class="flex flex-col items-center min-h-screen">
       <div class="grid md:grid-cols-2 grid-cols-1 mt-0.5 md:gap-6 md:mt-6">
         <collection-block
-          name="Kitchen"
-          image="/collectionimages/Kitchen.jpg"
+          name="kitchen"
+          image="/collectionimages/kitchen.jpg"
         />
-        <!-- <collection-block name="hats" image="/du.png" />
-        <collection-block name="effects" image="/renais.png" />
-        <collection-block name="bearfans" image="/dalle.png" /> -->
+        <collection-block name="cars" image="/collectionimages/cars.jpg" />
+        <collection-block
+          name="bathroom"
+          image="/collectionimages/bathroom.jpg"
+        />
+        <collection-block
+          name="cleaning"
+          image="/collectionimages/cleaning.jpg"
+        />
+        <collection-block
+          name="children"
+          image="/collectionimages/children.jpg"
+        />
       </div>
     </div>
   </div>

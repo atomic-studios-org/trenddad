@@ -11,7 +11,8 @@ defineProps<Props>();
 </script>
 <template>
   <NuxtLink :to="`/details/${id}`">
-    <img
+    <nuxt-img
+      :height="500"
       class="relative absolute h-80 w-80 object-cover"
       :src="`/productimages/${image}.webp`"
       alt="image"

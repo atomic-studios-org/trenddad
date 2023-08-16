@@ -32,31 +32,34 @@ const handleSignOut = async () => {
       >
         <NuxtLink
           @click="isOpenCollections = false"
-          href="/collections/Kitchen"
+          href="/collections/kitchen"
           class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
-          >Kitchen</NuxtLink
+          >kitchen</NuxtLink
         >
-
-        <!-- <NuxtLink
-          @click="isOpenCollections = false"
-          href="/collections/hats"
-          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
-          >Hats</NuxtLink
-        >
-
         <NuxtLink
           @click="isOpenCollections = false"
-          href="/collections/effects"
-          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
-          >Effects</NuxtLink
+          href="/collections/cars"
+          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
+          >cars</NuxtLink
         >
-
         <NuxtLink
           @click="isOpenCollections = false"
-          href="/collections/bearfans"
-          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2  cursor-pointer"
-          >Bearfans</NuxtLink
-        > -->
+          href="/collections/cleaning"
+          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
+          >cleaning</NuxtLink
+        >
+        <NuxtLink
+          @click="isOpenCollections = false"
+          href="/collections/bathroom"
+          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
+          >bathroom</NuxtLink
+        >
+        <NuxtLink
+          @click="isOpenCollections = false"
+          href="/collections/children"
+          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
+          >chilren</NuxtLink
+        >
       </div>
 
       <div>

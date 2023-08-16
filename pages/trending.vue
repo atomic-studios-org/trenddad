@@ -22,7 +22,8 @@ const products = data.value?.data;
     <div class="relative h-80 bg-sky-700 flex items-center justify-center">
       <div>Banner foto</div>
 
-      <img
+      <nuxt-img
+        :height="500"
         src="/collection.jpg"
         alt="dalle"
         class="object-cover object-center absolute h-80 z-10 w-screen bg-gradient-to-t from-white to-transparent"

@@ -84,7 +84,11 @@ const sendReference = async () => {
   <NuxtLink
     href="/"
     class="absolute top-8 md:top-4 md:left-8 lg:left-16 lef-2 decoration-none ml-4"
-    ><img class="md:h-16 h-10 w-auto" src="/trend-dad.png" alt=""
+    ><nuxt-img
+      :height="500"
+      class="md:h-16 h-10 w-auto"
+      src="/trend-dad.png"
+      alt=""
   /></NuxtLink>
   <div
     class="h-10 mt-6 flex bg-white md:w-4/6 w-full mx-auto justify-between items-center text-black"

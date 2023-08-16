@@ -20,7 +20,8 @@ const products = data.value?.data;
   <div v-if="products">
     <div class="relative h-80 bg-purple-400 flex items-center justify-center">
       <div>Banner foto</div>
-      <img
+      <nuxt-img
+        :height="500"
         :src="`/collectionimages/${params.name}.jpg`"
         alt="dalle"
         class="object-cover object-center absolute h-80 z-10 w-screen bg-gradient-to-t from-white to-transparent"

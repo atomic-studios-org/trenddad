@@ -11,7 +11,12 @@ const { data } = useAsyncData("get-data", async () => {
     <span class="text-white font-inter text-xs">{{
       data?.orders[0].year
     }}</span>
-    <img class="h-6 invert" :src="data?.orders[0].image" alt="tsxtech" />
+    <nuxt-img
+      :height="500"
+      class="h-6 invert"
+      :src="data?.orders[0].image"
+      alt="tsxtech"
+    />
     <span class="text-white font-inter text-xs"
       >Software. All Rights Reserved</span
     >
