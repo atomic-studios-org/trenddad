@@ -30,20 +30,61 @@ const handleAddToCart = (id: number) => {
 </script>
 
 <template>
+  <div
+    class="relative h-20 mt-10 mb-10 bg-sky-700 flex items-center justify-center"
+  >
+    <div>Banner foto</div>
+
+    <nuxt-img
+      :height="500"
+      src="/dalle.png"
+      alt="dalle"
+      class="object-cover object-center absolute h-20 z-10 w-screen bg-gradient-to-t from-white to-transparent"
+    />
+    <div
+      class="absolute h-20 z-10 flex items-center justify-center w-screen bg-gradient-to-t from-white/90 to-transparent"
+    >
+      <span
+        class="font-melodrama font-bold text-3xl tracking-2 text-black text-shadow"
+        >Activate your discount now.</span
+      >
+    </div>
+  </div>
   <div class="w-screen flex justify-center items-center min-h-screen">
     <div
       class="w-11/12 md:flex md:mb-10 mb-40 grid md:mt-0 mt-20 grid-cols-1 gap-20 md:gap-0"
     >
       <div class="">
-        <nuxt-img
-          v-if="data?.data?.image"
-          :height="500"
-          :width="500"
-          class="w-80 h-80 mx-auto p-0.5 border bg-gray-100 border-groove transition hover:scale-102 duration-700"
-          :src="`/productimages/${(data?.data?.image as string)}.webp`"
-          :alt="(data?.data?.name as string)"
-        />
-        <div v-else class="h-80 w-80 border-1 border-groove border-black"></div>
+        <div class="">
+          <nuxt-img
+            v-if="data?.data?.image"
+            :height="500"
+            :width="500"
+            class="w-80 h-80 mx-auto p-0.5 border bg-gray-100 border-groove transition hover:scale-102 duration-700"
+            :src="`/productimages/${(data?.data?.image as string)}.webp`"
+            :alt="(data?.data?.name as string)"
+          />
+          <div
+            v-else
+            class="h-80 w-80 border-1 border-groove border-black"
+          ></div>
+          <div class="flex gap-2">
+            <nuxt-img
+              v-if="data?.data?.image"
+              :height="500"
+              class="w-20 h-20 p-0.5 border bg-gray-100 border-groove transition hover:scale-102 duration-700"
+              :src="`/productimages/${(data?.data?.image as string)}2.webp`"
+              :alt="(data?.data?.name as string)"
+            />
+            <nuxt-img
+              v-if="data?.data?.image"
+              :height="500"
+              class="w-20 h-20 p-0.5 border bg-gray-100 border-groove transition hover:scale-102 duration-700"
+              :src="`/productimages/${(data?.data?.image as string)}3.webp`"
+              :alt="(data?.data?.name as string)"
+            />
+          </div>
+        </div>
       </div>
       <div class="6/12">
         <div class="md:px-16 px-2 flex flex-col">
