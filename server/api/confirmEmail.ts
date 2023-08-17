@@ -11,10 +11,12 @@ const confirmEmail = async (
   password?: string,
   code?: string
 ) => {
+
   const user = await $fetch("/api/getUser", {
     method: "POST",
     body: { email: email },
   });
+  
   if (user.data[0]) {
     throw createError({
       statusCode: 404,
@@ -22,7 +24,7 @@ const confirmEmail = async (
     });
   } else {
     if (code) {
-      await checkCode(code, email, password);
+      await checkCode(name, code, email, password);
     } else {
       await sendEmail(name, email, password);
     }
@@ -63,7 +65,7 @@ const sendEmail = async (name?: string, email?: string, password?: string) => {
   const BASE_URI = process.env.AUTH_ORIGIN;
 
   await transporter.sendMail({
-    from: "TREND DAD <mark@rubyfinance.nl>", // sender address
+    from: "VETA NETWORK <mark@rubyfinance.nl>", // sender address
     to: email, // list of receivers
     subject: `Your code is [${code}]`, // Subject line
     text: `${code} `, // plain text body
@@ -71,8 +73,31 @@ const sendEmail = async (name?: string, email?: string, password?: string) => {
   });
 };
 
-const checkCode = async (code?: string, email?: string, password?: string) => {
+const checkCode = async (
+  name?: string,
+  code?: string,
+  email?: string,
+  password?: string
+) => {
   // handle the logic to check the code in the database
+
+  const userData = await db
+  .select()
+  .from(emailconfirmation)
+  .where(eq(emailconfirmation.email, email as string));
+const passwordDb = userData[0].password?.toString();
+
+const isValid = await bcrypt.compare(
+  password as string,
+  passwordDb as string
+);
+
+if (!isValid) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Password is incorrect",
+  });
+}
 
   await db
     .update(emailconfirmation)
@@ -80,7 +105,7 @@ const checkCode = async (code?: string, email?: string, password?: string) => {
     .where(
       and(
         eq(emailconfirmation.code, code as string),
-        eq(emailconfirmation.email, email as string)
+        eq(emailconfirmation.email, email as string),
       )
     );
 
@@ -94,13 +119,19 @@ const checkCode = async (code?: string, email?: string, password?: string) => {
         eq(emailconfirmation.confirmed, true)
       )
     );
-
-  await $fetch("/api/createUser", {
-    method: "POST",
-    body: {
-      name: user[0].name,
-      email: user[0].email,
-      password: password,
-    },
-  });
+  if (!user[0]) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: "Code was not correct",
+    });
+  } else {
+    await $fetch("/api/createUser", {
+      method: "POST",
+      body: {
+        name: user[0]?.name,
+        email: user[0]?.email,
+        password: password,
+      },
+    });
+  }
 };

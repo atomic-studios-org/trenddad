@@ -2,13 +2,20 @@
 import dayJs from "dayjs";
 const { data } = useAuth();
 const user = data.value?.user;
+
 if (!user) {
   navigateTo("/sign-in");
 }
+
+definePageMeta({
+  middleware: "auth",
+});
+
 const email = ref(data.value?.user?.email);
 const referenceId = ref(`${data.value?.user?.email}${data.value?.user?.name}`);
 const isPayd = ref(false);
 const route = useRoute();
+
 isPayd.value = route.query.success === "true";
 
 const { data: payments } = await useAsyncData("getPayments", async () => {

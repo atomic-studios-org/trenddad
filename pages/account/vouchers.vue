@@ -9,6 +9,10 @@ if (!user) {
   navigateTo("/");
 }
 
+definePageMeta({
+  middleware: "auth",
+});
+
 const checkVoucher = () => {
   isLoading.value = true;
   setTimeout(() => {

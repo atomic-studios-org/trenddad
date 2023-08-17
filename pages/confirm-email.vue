@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-const { status, data, signIn, signOut } = useAuth();
+const errmsg = ref();
+
+definePageMeta({
+  middleware: "signedin",
+});
 
 const code = ref();
 const password = ref();
@@ -12,8 +16,8 @@ onMounted(() => {
 });
 
 const handleConfirmEmail = async () => {
-  const { data, error } = useAsyncData("confirmEmail", async () => {
-    return await $fetch("/api/confirmEmail", {
+  try {
+    await $fetch("/api/confirmEmail", {
       method: "POST",
       body: {
         code: code.value,
@@ -21,14 +25,12 @@ const handleConfirmEmail = async () => {
         password: password.value,
       },
     });
-  });
-
-  navigateTo("/sign-in");
+    errmsg.value = "";
+    navigateTo("/");
+  } catch (err) {
+    errmsg.value = err;
+  }
 };
-
-if (data.value?.user?.email) {
-  navigateTo("/account/settings");
-}
 </script>
 
 <template>
@@ -40,24 +42,33 @@ if (data.value?.user?.email) {
 
       <form
         @submit.prevent="handleConfirmEmail"
+        autocomplete="off"
         class="flex flex-col gap-2 mt-2"
       >
         Please enter the 4 digit code.
-        <label>Code:</label>
+        <label for="code">Code:</label>
         <input
+          name="code"
+          id="code"
+          required
           v-model="code"
           placeholder="...."
           type="text"
           class="py-1.5 px-4 w-10 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
-        <label>Password:</label>
+        <label for="password">Password:</label>
         <input
+          name="password"
+          id="password"
+          required
           v-model="password"
           placeholder="Enter your password"
           type="password"
           class="py-1.5 px-4 w-40 rounded-lg hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
-
+        <span class="w-60 text-red-500 text-sm" v-if="errmsg">{{
+          errmsg
+        }}</span>
         <button
           type="submit"
           class="bg-black text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer hover:bg-gray-900"
