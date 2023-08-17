@@ -69,10 +69,6 @@ const handleSigninCredentials = async () => {
     }
   }
 };
-
-if (data.value?.user?.email) {
-  navigateTo("/account/settings");
-}
 </script>
 
 <template>
