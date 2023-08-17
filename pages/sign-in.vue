@@ -46,6 +46,10 @@ const handleSigninCredentials = async () => {
     isLoading.value = false;
   }
 };
+
+if (data.value?.user?.email) {
+  navigateTo("/");
+}
 </script>
 
 <template>
