@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 const isOpenCollections = ref(false);
 
-const { status, data, signIn, signOut } = useAuth();
+const { data, signOut } = useAuth();
 const handleSignOut = async () => {
   await signOut();
+  navigateTo("/sign-in");
 };
 </script>
 
