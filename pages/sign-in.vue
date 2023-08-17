@@ -42,14 +42,10 @@ const handleSigninCredentials = async () => {
       email: email.value,
       password: password.value,
     });
-
+    navigateTo("/");
     isLoading.value = false;
   }
 };
-
-if (data.value?.user?.email) {
-  navigateTo("/account/settings");
-}
 </script>
 
 <template>
