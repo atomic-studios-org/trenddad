@@ -6,6 +6,10 @@ if (!user) {
   navigateTo("/sign-in");
 }
 
+definePageMeta({
+  middleware: "auth",
+});
+
 const { data: userData } = await useAsyncData("getUser", () =>
   $fetch("/api/getUser", {
     method: "POST",
