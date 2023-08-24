@@ -12,10 +12,6 @@ const confirmPassword = ref("");
 const isWrongPasswordsMatch = ref(false);
 const isWrongPasswordMatch = ref(false);
 
-definePageMeta({
-  middleware: "signedin",
-});
-
 const handleSignInGoogle = async () => {
   await signIn("google");
 };
@@ -60,7 +56,6 @@ const handleSigninCredentials = async () => {
     setTimeout(() => {
       isError.value = "";
     }, 3000);
-    console.log(error.value);
     if (!error.value) {
       isRequested.value = true;
       setTimeout(() => {
@@ -69,6 +64,9 @@ const handleSigninCredentials = async () => {
     }
   }
 };
+if (data.value?.user?.email) {
+  navigateTo("/");
+}
 </script>
 
 <template>

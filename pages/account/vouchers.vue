@@ -5,13 +5,6 @@ const voucherInput = ref("");
 const correctVoucher = "DADDY10";
 const isCorrectVoucher = ref("unknown");
 const isLoading = ref(false);
-if (!user) {
-  navigateTo("/");
-}
-
-definePageMeta({
-  middleware: "auth",
-});
 
 const checkVoucher = () => {
   isLoading.value = true;
@@ -37,6 +30,9 @@ const { data: userData } = await useAsyncData("getUser", () =>
     },
   })
 );
+if (!user?.email) {
+  navigateTo("/");
+}
 </script>
 
 <template>

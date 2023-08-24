@@ -1,14 +1,8 @@
 <script lang="ts" setup>
 const { data } = useAuth();
 const user = data.value?.user;
-if (!user) {
-  navigateTo("/sign-in");
-}
-const isLoading = ref(false);
 
-definePageMeta({
-  middleware: "auth",
-});
+const isLoading = ref(false);
 
 const { data: userData } = await useAsyncData("getUser", () =>
   $fetch("/api/getUser", {
@@ -50,6 +44,10 @@ const createUser = async () => {
   isLoading.value = false;
   await navigateTo("/");
 };
+
+if (!user?.email) {
+  navigateTo("/sign-in");
+}
 </script>
 
 <template>

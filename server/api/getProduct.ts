@@ -4,7 +4,6 @@ import { eq, and } from "drizzle-orm";
 
 const fetchProduct = async (id: number) => {
   const product = await db.select().from(products).where(eq(products.id, id));
-  console.log(product[0]);
   return product[0];
 };
 

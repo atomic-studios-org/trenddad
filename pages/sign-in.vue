@@ -6,10 +6,6 @@ const password = ref();
 const isLoading = ref(false);
 const isFalseCredentials = ref(false);
 
-definePageMeta({
-  middleware: "signedin",
-});
-
 const handleSignInGoogle = async () => {
   await signIn("google");
 };
@@ -35,9 +31,7 @@ const handleSigninCredentials = async () => {
     setTimeout(() => {
       isFalseCredentials.value = false;
     }, 4000);
-    console.log("the user does password did not match, or does not exist");
   } else {
-    console.log("the user does password did match");
     await signIn("credentials", {
       email: email.value,
       password: password.value,

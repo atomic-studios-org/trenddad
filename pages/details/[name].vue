@@ -21,8 +21,6 @@ const { data } = useAsyncData("getproduct", async () => {
   });
 });
 
-console.log(data.value?.data);
-
 const handleAddToCart = (id: number) => {
   store.addToCart(id);
   const input = document.getElementById("first_name");

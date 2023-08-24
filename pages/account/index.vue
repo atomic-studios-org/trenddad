@@ -2,14 +2,6 @@
 const { data, signOut } = useAuth();
 const user = data.value?.user;
 
-if (!user) {
-  navigateTo("/sign-in");
-}
-
-definePageMeta({
-  middleware: "auth",
-});
-
 const { data: userData } = await useAsyncData("getUser", () =>
   $fetch("/api/getUser", {
     method: "POST",
@@ -19,6 +11,10 @@ const { data: userData } = await useAsyncData("getUser", () =>
     },
   })
 );
+
+if (!user?.email) {
+  navigateTo("/sign-in");
+}
 </script>
 
 <template>
