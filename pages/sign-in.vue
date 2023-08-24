@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const { status, data, signIn, signOut } = useAuth();
 
-const email = ref();
+const email = ref("");
 const password = ref();
 const isLoading = ref(false);
 const isFalseCredentials = ref(false);
@@ -21,7 +21,7 @@ const handleSigninCredentials = async () => {
   const { data } = await useFetch("/api/checkUserCredentials", {
     method: "POST",
     body: {
-      email: email.value,
+      email: email.value.toLowerCase(),
       password: password.value,
     },
   });
@@ -31,9 +31,11 @@ const handleSigninCredentials = async () => {
     setTimeout(() => {
       isFalseCredentials.value = false;
     }, 4000);
+    console.log("the user does password did not match, or does not exist");
   } else {
+    console.log("the user does password did match");
     await signIn("credentials", {
-      email: email.value,
+      email: email.value.toLowerCase(),
       password: password.value,
     });
     navigateTo("/");

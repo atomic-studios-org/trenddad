@@ -3,7 +3,7 @@ import { useCartStore } from "../stores/cart-store";
 const store = useCartStore();
 const cartItems: Ref<number[]> = ref([]);
 const total = ref(500);
-const totalShippingCosts = ref(4.5);
+const totalShippingCosts = ref(0);
 const totalToPay = ref(0);
 
 cartItems.value.push(...store.cart);
@@ -34,9 +34,10 @@ const email = ref();
 const { data } = useAuth();
 const user = data.value?.user;
 
-if (!user) {
+if (!user?.email) {
   navigateTo("/sign-in");
 }
+
 if (cartItems.value.length === 0) {
   navigateTo("/");
 }
@@ -72,10 +73,10 @@ const streetInput = ref("");
 
 onMounted(() => {
   if (userData) {
-    zipcodeInput.value = userData.value?.data[0].zipcode!;
-    countryInput.value = userData.value?.data[0].country!;
-    numberInput.value = userData.value?.data[0].number!;
-    streetInput.value = userData.value?.data[0].street!;
+    zipcodeInput.value = userData.value?.data[0].zipcode ?? "";
+    countryInput.value = userData.value?.data[0].country ?? "";
+    numberInput.value = userData.value?.data[0].number ?? "";
+    streetInput.value = userData.value?.data[0].street ?? "";
   }
 });
 
@@ -103,19 +104,19 @@ const createUser = async () => {
     @submit.prevent="createUser"
     class="w-screen min-h-screen flex flex-col items-center justify-center"
   >
-    <h1>Shipping</h1>
+    <h1>Shipping / Email</h1>
     <span class="text-gray-600 px-6"
       >Please check your credentials carefully before you continue.</span
     >
     <div class="md:w-3/12 w-5/6 mt-20">
       <div class="flex flex-col gap-2">
-        <label>Name:</label>
+        <label class="font-bold">Name:</label>
         <span>{{ user?.name }}</span>
-        <label>Email:</label>
+        <label class="font-bold">Email:</label>
         <span>{{ user?.email }}</span>
       </div>
       <div class="space-y-2 mt-4 flex flex-col">
-        <label>Zipcode:</label>
+        <label class="font-bold">Zipcode:</label>
         <input
           required
           placeholder="Your zipcode"
@@ -125,7 +126,7 @@ const createUser = async () => {
         />
       </div>
       <div class="space-y-2 mt-4 flex flex-col">
-        <label>Street + housenumber:</label>
+        <label class="font-bold">Street + housenumber:</label>
         <div class="flex gap-2 w-full">
           <input
             required
@@ -136,7 +137,7 @@ const createUser = async () => {
           />
           <input
             required
-            placeholder="Your housenumber"
+            placeholder="Nr."
             v-model="numberInput"
             type="text"
             class="py-1.5 px-4 w-10 rounded-md hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
@@ -145,7 +146,7 @@ const createUser = async () => {
       </div>
 
       <div class="space-y-2 mt-4 flex flex-col">
-        <label>Country</label>
+        <label class="font-bold">Country</label>
         <input
           required
           placeholder="Your country"
