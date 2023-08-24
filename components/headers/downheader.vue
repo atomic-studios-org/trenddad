@@ -4,7 +4,6 @@ const isOpenCollections = ref(false);
 const { data, signOut } = useAuth();
 const handleSignOut = async () => {
   await signOut();
-  navigateTo("/sign-in");
 };
 </script>
 
