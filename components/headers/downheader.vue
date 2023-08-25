@@ -69,11 +69,11 @@ const { data, signOut } = useAuth();
         >
       </div>
       <div>
-        <NuxtLink @click="isOpenCollections = false" href="/account/orders"
+        <NuxtLink @click="isOpenCollections = false" href="/account"
           ><button
             class="bg-white border-none md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
           >
-            Orders
+            Account
           </button></NuxtLink
         >
       </div>
