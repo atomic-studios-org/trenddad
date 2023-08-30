@@ -33,10 +33,6 @@ definePageMeta({
           name="cleaning"
           image="/collectionimages/cleaning.jpg"
         />
-        <collection-block
-          name="children"
-          image="/collectionimages/children.jpg"
-        />
       </div>
     </div>
   </div>

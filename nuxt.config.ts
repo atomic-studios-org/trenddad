@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     "/trending": { isr: true },
     "/collections/kitchen": { isr: true },
     "/collections/cars": { isr: true },
-    "/collections/children": { isr: true },
     "/collections/cleaning": { isr: true },
     "/collections/bathroom": { isr: true },
     "/details/**": { isr: true },
