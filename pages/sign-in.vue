@@ -105,9 +105,7 @@ if (status.value === "authenticated") {
         <NuxtLink class="text-sm mt-4" to="/sign-up"
           >I don't have an account.</NuxtLink
         >
-        <NuxtLink class="text-sm" to="/forgot-password"
-          >Forgot my password?</NuxtLink
-        >
+
         <button
           :disabled="isLoading"
           type="submit"

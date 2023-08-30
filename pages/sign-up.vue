@@ -167,7 +167,9 @@ if (status.value === "authenticated") {
         <span class="text-red-500" v-if="isWrongEmail"
           >Email is not correct</span
         >
-
+        <NuxtLink class="text-sm mt-4" to="/sign-in"
+          >I already have an account.</NuxtLink
+        >
         <button
           :disabled="isLoading"
           type="submit"
