@@ -19,6 +19,7 @@ export default defineEventHandler(async (event) => {
 });
 
 const createPayment = async (email: string, allitems: number[]) => {
+ 
   const cartItemsAll = await $fetch("/api/getCartItems", {
     method: "POST",
     body: {
@@ -43,6 +44,8 @@ const createPayment = async (email: string, allitems: number[]) => {
       quantity: 1,
     });
   }
+
+
   const response = await stripe.checkout.sessions.create({
     shipping_options: [
       {

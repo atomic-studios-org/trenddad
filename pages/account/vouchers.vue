@@ -2,23 +2,21 @@
 const { data } = useAuth();
 const user = data.value?.user;
 const voucherInput = ref("");
-const correctVoucher = "DADDY10";
 const isCorrectVoucher = ref("unknown");
 const isLoading = ref(false);
 
-const checkVoucher = () => {
+const checkVoucher = async () => {
   isLoading.value = true;
-  setTimeout(() => {
-    isLoading.value = false;
-    if (voucherInput.value === correctVoucher) {
-      isCorrectVoucher.value = "correct";
-    } else {
-      isCorrectVoucher.value = "incorrect";
-      setTimeout(() => {
-        isCorrectVoucher.value = "unknown";
-      }, 3000);
-    }
-  }, 1000);
+  try {
+    await $fetch("/api/activate-voucher", {
+      method: "POST",
+      body: { input: voucherInput.value },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  isLoading.value = false;
+  voucherInput.value = "";
 };
 
 const { data: userData } = await useAsyncData("getUser", () =>

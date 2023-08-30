@@ -49,6 +49,12 @@ export const softwareProducts = pgTable("softwareproducts", {
   spec8: varchar("spec8", { length: 256 }),
 });
 
+export const voucher =  pgTable("voucher", {
+id: serial("id"). primaryKey().unique(),
+email: varchar("email", {length: 256} ),
+isactivated: boolean("isactivated").default(false)
+})
+
 export const reviews = pgTable("reviews", {
   id: serial("id").primaryKey().unique(),
   productid: integer("productid"),
