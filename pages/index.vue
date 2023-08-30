@@ -11,9 +11,13 @@ definePageMeta({
     >
       <img
         class="lg:h-60 h-40 object-cover md:w-10/12 w-full"
-        src="/collection.jpg"
+        src="/banner.gif"
         alt="banner"
       />
+      <span
+        class="absolute z-20 bottom-0 lg:right-40 right-20 text-white font-bold font-melodrama text-xl md:text-3xl"
+        >Welcome at trenddad.com</span
+      >
       <div
         class="absolute lg:h-60 h-40 z-10 w-full bg-gradient-to-t from-white/30 opacity-100 to-transparent"
       ></div>
