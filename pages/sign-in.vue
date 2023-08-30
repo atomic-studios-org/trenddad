@@ -18,14 +18,14 @@ const handleSigninCredentials = async () => {
       isFalseCredentials.value = false;
     }, 3000);
   }
-  const { data } = await useFetch("/api/checkUserCredentials", {
+  const data = await $fetch("/api/checkUserCredentials", {
     method: "POST",
     body: {
       email: email.value.toLowerCase(),
       password: password.value,
     },
   });
-  if (!data?.value?.data) {
+  if (!data?.data) {
     isLoading.value = false;
     isFalseCredentials.value = true;
     setTimeout(() => {
@@ -38,13 +38,13 @@ const handleSigninCredentials = async () => {
       email: email.value.toLowerCase(),
       password: password.value,
     });
-    navigateTo("/");
+    navigateTo("/account");
     isLoading.value = false;
   }
 };
 
-if (data.value?.user?.email) {
-  navigateTo("/");
+if (status.value === "authenticated") {
+  navigateTo("/account");
 }
 </script>
 
