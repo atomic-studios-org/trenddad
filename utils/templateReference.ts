@@ -3,7 +3,7 @@ export const generateTemplateReference = (code: string, email: string) => {
     <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     
     <head>
-      <title> Your 10% offer code is ' ${code} ' </title>
+      <title> Try this code now: ' ${code} ' </title>
      
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -80,7 +80,7 @@ export const generateTemplateReference = (code: string, email: string) => {
        
       <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;"> 
         <img style="width: 100px; height: auto;" src="https://trenddad.com/trend-dad.png" alt="trend dad" />
-        <span>Your 10% offer code is ' ${code} '</span> </div>
+        <span>Try this code now: ' ${code} '</span> </div>
       <div style="background-color:#f3f3f5;">
        
         <div style="margin:0px auto;max-width:600px;">
@@ -133,7 +133,7 @@ export const generateTemplateReference = (code: string, email: string) => {
                         <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                           <div style="font-family:Poppins, Helvetica, Arial, sans-serif;font-size:20px;font-weight:300;line-height:30px;text-align:left;color:#003366;">
                             <img style="width: 100px; height: auto;" src="https://trenddad.com/trend-dad.png" alt="trend dad" />
-                            <h1 style="margin: 0; font-size: 32px; line-height: 50px; font-weight: 400;"> Your 10% offer code is ' ${code} '</h1>
+                            <h1 style="margin: 0; font-size: 32px; line-height: 50px; font-weight: 400;"> Try this code now: ' ${code} '</h1>
                           </div>
                         </td>
                       </tr>

@@ -76,7 +76,7 @@ const sendReference = async () => {
   <div
     class="absolute z-20 gap-1 flex top-0 h-6 w-screen items-center justify-center bg-purple-400 text-xs text-white"
   >
-    <span>Get 10% off, to get the code</span
+    <span>Get a chance to receive 10% discount</span
     ><span class="underline cursor-pointer" @click="openPopup = true"
       >click here</span
     ><span>!</span>

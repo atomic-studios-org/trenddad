@@ -31,26 +31,7 @@ const handleAddToCart = (id: number) => {
 </script>
 
 <template>
-  <div
-    class="relative h-20 mt-20 mb-10 bg-sky-700 flex items-center justify-center"
-  >
-    <div>Banner foto</div>
-
-    <nuxt-img
-      :height="500"
-      src="/dalle.png"
-      alt="dalle"
-      class="object-cover object-center absolute h-20 z-10 w-screen bg-gradient-to-t from-white to-transparent"
-    />
-    <div
-      class="absolute h-20 z-10 flex items-center justify-center w-screen bg-gradient-to-t from-white/90 to-transparent"
-    >
-      <span
-        class="text-center font-bold text-lg md:text-3xl tracking-2 text-black text-shadow"
-        >Activate your discount now.</span
-      >
-    </div>
-  </div>
+  <div class="relative h-20 mt-20 mb-10 flex items-center justify-center"></div>
   <div class="w-screen flex justify-center items-center min-h-screen">
     <div
       class="w-11/12 md:flex md:mb-10 mb-40 grid md:mt-0 mt-20 grid-cols-1 gap-20 md:gap-0"
@@ -89,9 +70,6 @@ const handleAddToCart = (id: number) => {
       </div>
       <div class="6/12">
         <div class="md:px-16 px-2 flex flex-col">
-          <span class="uppercase text-sm text-purple-700 font-bold"
-            >Item id .{{ data?.data?.id }}</span
-          >
           <div class="flex gap-1">
             <span>Collection: </span><span>{{ data?.data?.collection }}</span>
           </div>
@@ -108,7 +86,7 @@ const handleAddToCart = (id: number) => {
           <span v-if="data?.data?.description2 !== 'null'" class="">{{
             data?.data?.description2
           }}</span>
-          <div class="flex gap-2 items-end">
+          <div class="flex gap-2 mt-10 items-end">
             <div
               class="text-2xl px-4 py-3 bg-gray-900 text-white font-bold mt-2"
             >
@@ -135,7 +113,7 @@ const handleAddToCart = (id: number) => {
               <span v-if="data?.data?.spec2 !== 'null'">{{
                 data?.data?.spec2
               }}</span>
-              <span v-if="data?.data?.spec3 !== 'null'">Slogan</span>
+              <span v-if="data?.data?.spec3 !== 'null'">Properties</span>
               <span v-if="data?.data?.spec3 !== 'null'">{{
                 data?.data?.spec3
               }}</span>
@@ -161,6 +139,9 @@ const handleAddToCart = (id: number) => {
               }}</span>
             </div>
           </div>
+          <section class="mt-6">
+            <product-review :product-id="Number(query.id)" />
+          </section>
         </div>
       </div>
     </div>

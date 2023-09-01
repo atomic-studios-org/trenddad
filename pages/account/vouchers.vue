@@ -41,10 +41,10 @@ if (!user?.email) {
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Voucher-code</label>
         <span v-if="isCorrectVoucher === 'incorrect'" class="text-red-400">
-          Your code was incorrect.
+          No discount this time, try next time.
         </span>
         <span v-if="isCorrectVoucher === 'correct'" class="text-purple-400">
-          Well done, you've actived the discount for 24 hours.
+          No discount this time, try next time.
         </span>
         <input
           required

@@ -16,13 +16,12 @@ const createReference = async (email: string) => {
     },
   });
 
-  const BASE_URI = process.env.AUTH_ORIGIN;
   const code = "DADDY10";
 
   await transporter.sendMail({
     from: "TRENDDAD <mark@rubyfinance.nl>", // sender address
     to: email, // list of receivers
-    subject: `Your 10% offer code is ' ${code} '`, // Subject line
+    subject: `Try this code now: ' ${code} '`, // Subject line
     text: `${code} `, // plain text body
     html: generateTemplateReference(code, email as string), // html body
   });
