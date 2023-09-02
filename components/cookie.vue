@@ -34,7 +34,7 @@ const declineCookies = () => {
       </p>
       <NuxtLink
         class="mt-3 inline-flex justify-center items-center gap-2 font-semibold text-white/[.8] hover:text-white text-sm"
-        to="/provacy-policy"
+        to="/privacy-policy"
       >
         Learn more
         <svg
