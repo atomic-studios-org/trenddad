@@ -78,7 +78,6 @@ const { data, signOut } = useAuth();
         <NuxtLink
           to="/account"
           class="cursor-pointer md:text-lg text-xs bg-black text-white md:px-5 px-3 flex-shrink-0 py-1.5 hover:bg-gray-900 border-none"
-          v-if="!data?.user?.email"
         >
           Sign In / Sign Up
         </NuxtLink>
