@@ -12,7 +12,8 @@ const { data } = useAsyncData("get-data", async () => {
       data?.orders[0].year
     }}</span>
     <nuxt-img
-      :height="500"
+      :height="200"
+      :width="200"
       class="h-6 invert"
       :src="data?.orders[0].image"
       alt="tsxtech"

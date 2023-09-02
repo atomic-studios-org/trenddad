@@ -5,7 +5,8 @@
     <div class="w-full max-w-screen-xl mx-auto md:py-8">
       <div class="sm:flex sm:items-center sm:justify-between">
         <nuxt-img
-          :height="500"
+          :height="200"
+          :width="700"
           class="md:h-16 h-10 w-auto"
           src="/trend-dad.png"
           alt=""
