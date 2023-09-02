@@ -85,20 +85,20 @@ const sendReference = async () => {
     href="/"
     class="absolute flex gap-1 items-center top-10 md:top-8 md:left-8 lg:left-16 lef-2 decoration-none ml-4"
     ><nuxt-img
-      :height="300"
-      :width="300"
+      :height="200"
+      :width="700"
       class="md:h-6 h-4 w-auto"
       src="/trend.png"
       alt="" />
     <nuxt-img
-      :height="300"
-      :width="300"
+      :height="200"
+      :width="600"
       class="md:h-6 h-4 w-auto animate-flip"
       src="/snor.png"
       alt="" />
     <nuxt-img
-      :height="300"
-      :width="300"
+      :height="200"
+      :width="500"
       class="md:h-6 h-4 w-auto"
       src="/dad.png"
       alt=""

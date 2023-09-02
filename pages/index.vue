@@ -28,11 +28,11 @@ const products = data.value?.data;
         alt="dadbanner"
       />
       <div
-        class="absolute md:bottom-3 bottom-1 z-20 lg:left-40 left-2 right-20"
+        class="absolute md:bottom-3 bottom-2 z-20 lg:left-40 left-2 right-20"
       >
         <NuxtLink
           to="/trending"
-          class="md:py-2 py-1 md:px-4 px-2 bg-purple-400 text-black transition font-melodrama cursor-pointer text-sm md:text-2xl hover:bg-purple-500 font-bold"
+          class="md:py-2 py-2 md:px-4 px-3 bg-purple-400 text-black transition font-melodrama cursor-pointer text-md md:text-2xl hover:bg-purple-500 font-bold"
         >
           Go To Trending »
         </NuxtLink>
