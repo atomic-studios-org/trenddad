@@ -2,7 +2,19 @@
 definePageMeta({
   layout: "default",
 });
+
 const { params } = useRoute();
+
+useHead({
+  title: `Trend Dad, ${params.name}`,
+  meta: [
+    {
+      name: "description",
+      content: `The ${params.name} collection of Trend Dad, buy trending tiktok products and stay trending.`,
+    },
+  ],
+});
+
 const { data, error, refresh } = await useAsyncData(
   "getCollectionProducts",
   () =>
