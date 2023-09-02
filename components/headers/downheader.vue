@@ -56,7 +56,7 @@ const { data, signOut } = useAuth();
       <div>
         <NuxtLink @click="isOpenCollections = false" href="/trending"
           ><button
-            class="bg-white border-none md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
+            class="bg-white border-none text-black md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
           >
             Trending
           </button></NuxtLink
@@ -65,7 +65,7 @@ const { data, signOut } = useAuth();
       <div>
         <NuxtLink @click="isOpenCollections = false" href="/account"
           ><button
-            class="bg-white border-none md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
+            class="bg-white border-none text-black md:text-md lg:text-xl text-sm hover:text-gray-600 cursor-pointer"
           >
             Account
           </button></NuxtLink
