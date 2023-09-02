@@ -32,10 +32,6 @@ const handleSigninCredentials = async () => {
       isFalseCredentials.value = false;
     }, 4000);
   } else {
-    isFalseCredentials.value = true;
-    setTimeout(() => {
-      isFalseCredentials.value = false;
-    }, 4000);
     await signIn("credentials", {
       email: email.value.toLowerCase(),
       password: password.value,

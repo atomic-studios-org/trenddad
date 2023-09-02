@@ -19,7 +19,8 @@ const products = data.value?.data;
     <div
       class="relative lg:h-60 h-40 w-screen bg-black flex items-center justify-center"
     >
-      <img
+      <nuxt-img
+        :height="500"
         class="lg:h-60 h-40 object-cover md:w-10/12 w-full"
         src="/banner.gif"
         alt="banner"

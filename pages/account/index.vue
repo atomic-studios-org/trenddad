@@ -57,7 +57,8 @@ if (!user?.email) {
             </div>
           </div>
           <div>
-            <img
+            <nuxt-img
+              :height="400"
               v-if="user?.image"
               :src="user?.image"
               class="h-20 w-20 rounded-full"
