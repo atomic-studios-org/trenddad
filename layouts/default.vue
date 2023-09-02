@@ -24,6 +24,6 @@ useHead({
     <Footer />
     <Tsxbar />
     <ClientOnly><Cookie /></ClientOnly>
-    <ClientOnly><Popupcookie /></ClientOnly>
+    <!-- <ClientOnly><Popupcookie /></ClientOnly> -->
   </div>
 </template>
