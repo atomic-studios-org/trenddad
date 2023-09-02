@@ -102,6 +102,9 @@ if (status.value === "authenticated") {
         <span class="text-red-500" v-if="isFalseCredentials"
           >Incorrect credentials</span
         >
+        <NuxtLink class="text-sm mt-4" to="/forgot-password"
+          >Forgot your password?</NuxtLink
+        >
         <NuxtLink class="text-sm mt-4" to="/sign-up"
           >I don't have an account.</NuxtLink
         >
