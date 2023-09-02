@@ -12,10 +12,15 @@ const checkVoucher = async () => {
       method: "POST",
       body: { input: voucherInput.value },
     });
+    isCorrectVoucher.value = "correct";
+    isLoading.value = true;
+    voucherInput.value = "";
   } catch (error) {
     console.log(error);
+    isCorrectVoucher.value = "incorrect";
+    isLoading.value = true;
+    voucherInput.value = "";
   }
-  isLoading.value = false;
   voucherInput.value = "";
 };
 
@@ -41,7 +46,7 @@ if (!user?.email) {
       <div class="space-y-2 mt-4 flex flex-col">
         <label>Voucher-code</label>
         <span v-if="isCorrectVoucher === 'incorrect'" class="text-red-400">
-          No discount this time, try next time.
+          No luck today, try again later.
         </span>
         <span v-if="isCorrectVoucher === 'correct'" class="text-purple-400">
           No discount this time, try next time.
@@ -56,10 +61,10 @@ if (!user?.email) {
 
         <button
           :disabled="isLoading"
-          class="bg-black text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer hover:bg-gray-900"
+          class="bg-black text-white disabled:bg-gray-300 disabled:cursor-auto disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer hover:bg-gray-900"
           type="submit"
         >
-          {{ isLoading ? "Checking" : "Check" }}
+          {{ isLoading ? "Checked" : "Check" }}
         </button>
       </div>
     </form>

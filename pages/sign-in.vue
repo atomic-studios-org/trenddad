@@ -31,9 +31,11 @@ const handleSigninCredentials = async () => {
     setTimeout(() => {
       isFalseCredentials.value = false;
     }, 4000);
-    console.log("the user does password did not match, or does not exist");
   } else {
-    console.log("the user does password did match");
+    isFalseCredentials.value = true;
+    setTimeout(() => {
+      isFalseCredentials.value = false;
+    }, 4000);
     await signIn("credentials", {
       email: email.value.toLowerCase(),
       password: password.value,
