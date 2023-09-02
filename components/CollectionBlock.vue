@@ -13,6 +13,7 @@ defineProps<Props>();
     <div class="flex flex-col">
       <NuxtLink :href="`/collections/${name}`">
         <nuxt-img
+          :width="500"
           :height="500"
           class="md:h-80 h-40 object-cover md:w-80 xl:w-150 w-screen object-top md:group-hover:scale-99 md:transition md:duration-400"
           :src="image"
