@@ -8,7 +8,7 @@ useHead({
   meta: [
     {
       name: "description",
-      content: `Get ${params.name} with your trend dad, buy products and stay trending.`,
+      content: `Get ${params.name} with trend dad, buy trending tiktok products and stay trending.`,
     },
   ],
 });
