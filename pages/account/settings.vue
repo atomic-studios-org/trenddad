@@ -2,6 +2,17 @@
 const { data } = useAuth();
 const user = data.value?.user;
 
+useHead({
+  title: "Trend Dad, settings page",
+  meta: [
+    {
+      name: "description",
+      content:
+        "This is the settings page, get the latest trends with your trend dad, buy products and stay trending. We sell products that are trending on tiktok and other social media platforms.",
+    },
+  ],
+});
+
 const isLoading = ref(false);
 
 const userData = await $fetch("/api/getUser", {

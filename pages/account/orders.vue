@@ -3,6 +3,17 @@ import dayJs from "dayjs";
 const { data } = useAuth();
 const user = data.value?.user;
 
+useHead({
+  title: "Trend Dad, Orders page",
+  meta: [
+    {
+      name: "description",
+      content:
+        "This is the orders page, get the latest trends with your trend dad, buy products and stay trending. We sell products that are trending on tiktok and other social media platforms.",
+    },
+  ],
+});
+
 const email = ref(data.value?.user?.email);
 const referenceId = ref(`${data.value?.user?.email}${data.value?.user?.name}`);
 const isPayd = ref(false);

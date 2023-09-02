@@ -2,6 +2,17 @@
 const { data, signOut } = useAuth();
 const user = data.value?.user;
 
+useHead({
+  title: "Trend Dad, Account page",
+  meta: [
+    {
+      name: "description",
+      content:
+        "This is the account page, get the latest trends with your trend dad, buy products and stay trending. We sell products that are trending on tiktok and other social media platforms.",
+    },
+  ],
+});
+
 const { data: userData } = await useAsyncData("getUser", () =>
   $fetch("/api/getUser", {
     method: "POST",
