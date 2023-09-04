@@ -27,20 +27,7 @@ const products = data.value?.data;
         src="/banner.gif"
         alt="dadbanner"
       />
-      <div
-        class="absolute md:bottom-3 bottom-2 z-20 lg:left-40 left-2 right-20"
-      >
-        <NuxtLink
-          to="/trending"
-          class="md:py-2 py-2 md:px-4 px-3 bg-purple-400 text-black transition font-melodrama cursor-pointer text-md md:text-2xl hover:bg-purple-500 font-bold"
-        >
-          Go To Trending »
-        </NuxtLink>
-      </div>
-      <span
-        class="absolute z-20 bottom-0 lg:right-40 right-2 text-white font-bold font-melodrama text-sm md:text-3xl"
-        >Welcome at trenddad.com</span
-      >
+
       <div
         class="absolute lg:h-60 h-40 z-10 w-full bg-gradient-to-t from-white/30 opacity-100 to-transparent"
       ></div>
