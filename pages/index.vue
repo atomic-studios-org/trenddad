@@ -54,7 +54,7 @@ const products = data.value?.data;
         class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6"
       >
         <div
-          class="flex relative items-center justify-center h-80 w-80"
+          class="flex relative justify-center w-80"
           :key="i"
           v-for="(item, i) in products"
         >
@@ -63,6 +63,7 @@ const products = data.value?.data;
             :image="(item.image as string)"
             :id="item.id"
             :price="(item.price as number)"
+            :descriptionTitle="(item.descriptiontitle as string)"
           />
         </div>
       </div>
