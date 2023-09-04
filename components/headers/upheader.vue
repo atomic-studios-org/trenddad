@@ -33,12 +33,6 @@ const sendReference = async () => {
     isLoading.value = false;
   }
 };
-
-onNuxtReady(() => {
-  setTimeout(() => {
-    openPopup.value = true;
-  }, 10000);
-});
 </script>
 
 <template>

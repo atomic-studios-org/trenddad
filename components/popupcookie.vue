@@ -9,9 +9,11 @@ const isLoading = ref(false);
 if (cookie.value === "Declined" || cookie.value === "Accepted") {
   openPopup.value = false;
 } else {
-  setTimeout(() => {
-    openPopup.value = true;
-  }, 5000);
+  onNuxtReady(() => {
+    setTimeout(() => {
+      openPopup.value = true;
+    }, 10000);
+  });
 }
 
 const acceptCookies = () => {

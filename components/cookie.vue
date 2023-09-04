@@ -12,12 +12,10 @@ if (cookie.value === "Declined" || cookie.value === "Accepted") {
 const acceptCookies = () => {
   cookie.value = "Accepted";
   openPopup.value = false;
-  // window.location.reload()
 };
 const declineCookies = () => {
   cookie.value = "Declined";
   openPopup.value = false;
-  // window.location.reload()
 };
 </script>
 
