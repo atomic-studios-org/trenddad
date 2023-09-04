@@ -72,7 +72,6 @@ const removeCartItem = async (index: number) => {
                   <div class="i-mdi-star text-xl text-yellow" />
                   <div class="i-mdi-star text-xl text-yellow" />
                   <div class="i-mdi-star-half text-xl text-yellow" />
-                  <span class="text-sm">(32)</span>
                 </div>
 
                 <div class="flex mt-2 gap-2">
