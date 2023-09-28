@@ -24,7 +24,7 @@ const products = data.value?.data;
 
       <nuxt-img
         :height="500"
-        src="/collection.jpg"
+        src="/collection.webp"
         alt="dalle"
         class="object-cover object-center absolute h-80 z-10 w-screen bg-gradient-to-t from-white to-transparent"
       />

@@ -34,7 +34,7 @@ const products = data.value?.data;
       <div>Banner foto</div>
       <nuxt-img
         :height="500"
-        :src="`/collectionimages/${params.name}.jpg`"
+        :src="`/collectionimages/${params.name}.webp`"
         alt="dalle"
         class="object-cover object-center absolute h-80 z-10 w-screen bg-gradient-to-t from-white to-transparent"
       />
