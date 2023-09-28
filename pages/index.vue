@@ -2,6 +2,7 @@
 definePageMeta({
   layout: "default",
 });
+const hoverImage = ref(false);
 const { data, error, refresh } = await useAsyncData("getProducts", () =>
   $fetch("/api/getProducts", {
     method: "POST",
@@ -16,9 +17,20 @@ const products = data.value?.data;
 <template>
   <div>
     <div
+      @mouseover="hoverImage = true"
       class="relative lg:h-60 h-40 w-screen bg-black flex items-center justify-center"
     >
       <nuxt-img
+        v-if="!hoverImage"
+        :height="400"
+        :width="400"
+        :quality="100"
+        class="lg:h-60 h-40 object-cover md:w-10/12 w-full"
+        src="/banner.webp"
+        alt="dadbanner"
+      />
+      <nuxt-img
+        v-else
         :height="400"
         :width="400"
         :quality="40"
