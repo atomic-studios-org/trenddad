@@ -33,19 +33,8 @@ const products = data.value?.data;
     </div>
     <div class="flex flex-col items-center min-h-screen">
       <div class="grid md:grid-cols-2 grid-cols-1 mt-0.5 md:gap-6 md:mt-6">
-        <collection-block
-          name="kitchen"
-          image="/collectionimages/kitchen.jpg"
-        />
+        <collection-block name="home" image="/collectionimages/kitchen.jpg" />
         <collection-block name="cars" image="/collectionimages/cars.jpg" />
-        <collection-block
-          name="bathroom"
-          image="/collectionimages/bathroom.jpg"
-        />
-        <collection-block
-          name="cleaning"
-          image="/collectionimages/cleaning.jpg"
-        />
       </div>
     </div>
     <div class="flex flex-col items-center mt-6">

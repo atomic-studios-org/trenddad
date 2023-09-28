@@ -9,10 +9,8 @@ export default defineNuxtConfig({
   routeRules: {
     "/": { isr: true },
     "/trending": { isr: true },
-    "/collections/kitchen": { isr: true },
+    "/collections/home": { isr: true },
     "/collections/cars": { isr: true },
-    "/collections/cleaning": { isr: true },
-    "/collections/bathroom": { isr: true },
     "/details/**": { isr: true },
     "/cart": { ssr: false },
     "/shipping": { ssr: false },

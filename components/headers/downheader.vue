@@ -29,27 +29,15 @@ const { data, signOut } = useAuth();
       >
         <NuxtLink
           @click="isOpenCollections = false"
-          href="/collections/kitchen"
+          href="/collections/home"
           class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
-          >kitchen</NuxtLink
+          >home</NuxtLink
         >
         <NuxtLink
           @click="isOpenCollections = false"
           href="/collections/cars"
           class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
           >cars</NuxtLink
-        >
-        <NuxtLink
-          @click="isOpenCollections = false"
-          href="/collections/cleaning"
-          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
-          >cleaning</NuxtLink
-        >
-        <NuxtLink
-          @click="isOpenCollections = false"
-          href="/collections/bathroom"
-          class="block text-black hover:text-white hover:bg-black decoration-none px-1 py-2 cursor-pointer"
-          >bathroom</NuxtLink
         >
       </div>
 
