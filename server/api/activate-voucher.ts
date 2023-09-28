@@ -13,12 +13,10 @@ export default defineEventHandler(async (event) => {
     });
   }
   const { input } = await readBody(event);
-  const isCorrectCode = await $fetch("/api/check-voucher", {
-    method: "POST",
-    body: { input: input },
-  });
+  const isCorrectCode = await checkCode(input)
   if (isCorrectCode) {
     await activateCode(session);
+    await sendRedirect(event, "/account")
     return true;
   } else {
     throw createError({

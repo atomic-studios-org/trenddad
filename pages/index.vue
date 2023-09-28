@@ -2,7 +2,6 @@
 definePageMeta({
   layout: "default",
 });
-
 const { data, error, refresh } = await useAsyncData("getProducts", () =>
   $fetch("/api/getProducts", {
     method: "POST",

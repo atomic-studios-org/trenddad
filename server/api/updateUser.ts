@@ -16,23 +16,22 @@ const updateUser = async (
     .from(user)
     .where(eq(user.email, email));
 
-  if (isAlreadyInDb) {
-    await db
-      .update(user)
-      .set({
-        zipcode: zipcode,
-        street: street,
-        number: number,
-        country: country,
-        city: city
-      })
-      .where(eq(user.email, email));
-  } else {
+  if (!isAlreadyInDb) {
     throw createError({
-      statusCode: 404,
+      statusCode: 407,
       statusMessage: "User is not found in the database",
     });
   }
+  await db
+    .update(user)
+    .set({
+      zipcode: zipcode,
+      street: street,
+      number: number,
+      country: country,
+      city: city,
+    })
+    .where(eq(user.email, email));
 };
 
 export default defineEventHandler(async (event) => {
@@ -43,7 +42,9 @@ export default defineEventHandler(async (event) => {
       statusMessage: "User is not authenticated, please sign in",
     });
   }
-  const { email, zipcode, street, number, country, city } = await readBody(event);
+  const { email, zipcode, street, number, country, city } = await readBody(
+    event
+  );
   try {
     await updateUser(email, zipcode, street, number, country, city);
   } catch (error) {}
