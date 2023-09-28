@@ -61,7 +61,7 @@ const products = data.value?.data;
             :name="(item.name as string)"
             :image="(item.image as string)"
             :id="item.id"
-            :price="(item.price as number)"
+            :price="Number(item.price)"
             :descriptionTitle="(item.descriptiontitle as string)"
           />
         </div>
