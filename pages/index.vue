@@ -43,7 +43,7 @@ const products = data.value?.data;
         class="absolute lg:h-60 h-40 z-10 w-full bg-gradient-to-t from-white/30 opacity-100 to-transparent"
       ></div>
     </div>
-    <div class="flex flex-col items-center min-h-screen">
+    <div class="flex flex-col items-center">
       <div class="grid md:grid-cols-2 grid-cols-1 mt-0.5 md:gap-6 md:mt-6">
         <collection-block name="home" image="/collectionimages/home.webp" />
         <collection-block name="cars" image="/collectionimages/cars.webp" />

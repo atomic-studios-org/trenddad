@@ -14,7 +14,7 @@ useHead({
 });
 const store = useCartStore();
 
-const { data } = useAsyncData("getproduct", async () => {
+const { data, refresh } = useAsyncData("getproduct", async () => {
   return await $fetch("/api/getProduct", {
     method: "POST",
     body: { id: query.id },
@@ -28,6 +28,12 @@ const handleAddToCart = (id: number) => {
     input?.blur();
   }, 1500);
 };
+
+await refresh();
+
+const chosenImage = ref(
+  `/productimages/${data?.value?.data?.image as string}.webp`
+);
 </script>
 
 <template>
@@ -43,7 +49,7 @@ const handleAddToCart = (id: number) => {
             :height="500"
             :width="500"
             class="w-80 h-80 mx-auto p-0.5 border bg-gray-100 border-groove transition hover:scale-102 duration-700"
-            :src="`/productimages/${(data?.data?.image as string)}.webp`"
+            :src="chosenImage"
             :alt="(data?.data?.name as string)"
           />
           <div
@@ -52,6 +58,23 @@ const handleAddToCart = (id: number) => {
           ></div>
           <div class="flex gap-2">
             <nuxt-img
+              @click="
+                chosenImage = `/productimages/${
+                  data?.data?.image as string
+                }.webp`
+              "
+              v-if="data?.data?.image"
+              :height="500"
+              class="w-20 h-20 p-0.5 border bg-gray-100 border-groove transition hover:scale-102 duration-700"
+              :src="`/productimages/${(data?.data?.image as string)}.webp`"
+              :alt="(data?.data?.name as string)"
+            />
+            <nuxt-img
+              @click="
+                chosenImage = `/productimages/${
+                  data?.data?.image as string
+                }2.webp`
+              "
               v-if="data?.data?.image"
               :height="500"
               class="w-20 h-20 p-0.5 border bg-gray-100 border-groove transition hover:scale-102 duration-700"
@@ -59,6 +82,11 @@ const handleAddToCart = (id: number) => {
               :alt="(data?.data?.name as string)"
             />
             <nuxt-img
+              @click="
+                chosenImage = `/productimages/${
+                  data?.data?.image as string
+                }3.webp`
+              "
               v-if="data?.data?.image"
               :height="500"
               class="w-20 h-20 p-0.5 border bg-gray-100 border-groove transition hover:scale-102 duration-700"
