@@ -7,13 +7,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
   ],
   routeRules: {
-    "/": { isr: true },
-    "/trending": { isr: true },
-    "/collections/home": { isr: true },
-    "/collections/cars": { isr: true },
-    "/details/**": { isr: true },
-    "/cart": { ssr: false },
-    "/shipping": { ssr: false },
+   
   },
   components: {
     dirs: ["~/components"],
