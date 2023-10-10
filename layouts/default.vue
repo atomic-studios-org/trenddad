@@ -22,7 +22,7 @@ useHead({
     <ClientOnly><Downheader /></ClientOnly>
     <slot />
     <Footer />
-    <Tsxbar />
+
     <ClientOnly><Cookie /></ClientOnly>
     <ClientOnly><Popupcookie /></ClientOnly>
   </div>

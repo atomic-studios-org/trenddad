@@ -53,7 +53,7 @@ const removeCartItem = async (index: number) => {
               v-for="(it, ind) in item"
             >
               <span class="absolute top-2 right-2"
-                >€ {{ it?.price?.toFixed(2) }},-</span
+                >€ {{ Number(it?.price)?.toFixed(2) }},-</span
               >
               <div class="p-8">
                 <nuxt-img
@@ -100,11 +100,11 @@ const removeCartItem = async (index: number) => {
               <span class="text-sm text-gray-700"
                 >Articles ({{ cartItems?.length }})</span
               >
-              <span>€ {{ total?.toFixed(2) }},-</span>
+              <span>€ {{ Number(total)?.toFixed(2) }},-</span>
             </div>
             <div class="flex justify-between">
               <span class="text-sm text-gray-700">Shippingcosts</span>
-              <span>€ {{ totalShippingCosts?.toFixed(2) }},-</span>
+              <span>€ {{ Number(totalShippingCosts)?.toFixed(2) }},-</span>
             </div>
             <div class="py-2">
               <div class="h-0.2 bg-black w-full"></div>
@@ -114,7 +114,7 @@ const removeCartItem = async (index: number) => {
               class="mt-6 py-4 px-2 bg-gray-200 font-bold flex justify-between"
             >
               <span class="text-sm">Total to pay</span>
-              <span>€ {{ totalToPay?.toFixed(2) }},-</span>
+              <span>€ {{ Number(totalToPay)?.toFixed(2) }},-</span>
             </div>
             <NuxtLink to="/shipping">
               <button
