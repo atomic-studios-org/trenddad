@@ -2,7 +2,6 @@
 import "normalize.css";
 import Upheader from "~/components/headers/upheader.vue";
 import Downheader from "~/components/headers/downheader.vue";
-import Tsxbar from "@/components/tsxbar.vue";
 import Popupcookie from "@/components/popupcookie.vue";
 useHead({
   title: "Trend Dad, Acquire the latest trends you're looking for.",

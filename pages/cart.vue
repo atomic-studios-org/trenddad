@@ -3,7 +3,7 @@ import { NuxtLayout } from "~/.nuxt/components";
 import { useCartStore } from "../stores/cart-store";
 const store = useCartStore();
 const cartItems: Ref<number[]> = ref([]);
-const total = ref(500);
+const total = ref<number | undefined>(500);
 const totalShippingCosts = ref(4.5);
 const totalToPay = ref(0);
 cartItems.value.push(...store.cart);
@@ -19,20 +19,20 @@ const { data, pending, error, refresh } = await useAsyncData(
     })
 );
 const allPrices = data.value?.data.map((item) => {
-  return item[0]?.price;
+  return Number(item[0]?.price);
 });
-total.value = allPrices?.reduce((a: any, b: any) => a + b, 0);
+total.value = allPrices?.reduce((a: number, b: number) => a + b, 0);
 
-totalToPay.value = total.value + totalShippingCosts.value;
+totalToPay.value = total.value! + totalShippingCosts.value;
 const removeCartItem = async (index: number) => {
   store.removeFromCart(index);
   cartItems.value = [...store.cart];
   await refresh();
   const allPrices = data.value?.data.map((item) => {
-    return item[0]?.price;
+    return Number(item[0]?.price);
   });
   total.value = allPrices?.reduce((a: any, b: any) => a + b, 0);
-  totalToPay.value = total.value + totalShippingCosts.value;
+  totalToPay.value = total.value! + totalShippingCosts.value;
 };
 </script>
 
