@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     "@nuxt/image",
   ],
   routeRules: {
-   
+   "/cart": {ssr: false},
+   "/shipping": {ssr: false}
   },
   components: {
     dirs: ["~/components"],
