@@ -40,9 +40,15 @@ const chosenImage = ref(
   <div class="relative h-20 mt-20 mb-10 flex items-center justify-center"></div>
   <div class="w-screen flex justify-center items-center min-h-screen">
     <div
-      class="w-11/12 md:flex md:mb-10 mb-40 grid md:mt-0 mt-20 grid-cols-1 gap-20 md:gap-0"
+      class="w-11/12 md:flex md:mb-10 mb-40 grid md:mt-0 grid-cols-1 gap-20 md:gap-0"
     >
       <div class="">
+        <div class="mb-6">
+          <div class="flex gap-1">
+            <span>Collection: </span><span>{{ data?.data?.collection }}</span>
+          </div>
+          <span class="mt-1 text-4xl">{{ data?.data?.name }}</span>
+        </div>
         <div class="">
           <nuxt-img
             v-if="data?.data?.image"
@@ -98,10 +104,6 @@ const chosenImage = ref(
       </div>
       <div class="6/12">
         <div class="md:px-16 px-2 flex flex-col">
-          <div class="flex gap-1">
-            <span>Collection: </span><span>{{ data?.data?.collection }}</span>
-          </div>
-          <span class="mt-1 text-4xl">{{ data?.data?.name }}</span>
           <span class="mt-4 text-lg font-bold">{{
             data?.data?.descriptiontitle
           }}</span>
