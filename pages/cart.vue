@@ -116,7 +116,7 @@ const removeCartItem = async (index: number) => {
               <span class="text-sm">Total to pay</span>
               <span>€ {{ Number(totalToPay)?.toFixed(2) }},-</span>
             </div>
-            <NuxtLink to="/shipping">
+            <NuxtLink to="/choose-payment-account">
               <button
                 :disabled="cartItems?.length === 0"
                 class="bg-black no-underline w-full py-4 text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer disabled:cursor-default hover:bg-gray-900"

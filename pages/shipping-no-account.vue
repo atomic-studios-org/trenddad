@@ -8,12 +8,7 @@ const totalToPay = ref(0);
 
 cartItems.value.push(...store.cart);
 
-const {
-  data: cartItemsAll,
-  pending,
-  error,
-  refresh,
-} = await useAsyncData("getProducts", () =>
+const { data: cartItemsAll } = await useAsyncData("getProducts", () =>
   $fetch("/api/getCartItems", {
     method: "POST",
     body: {
@@ -30,14 +25,6 @@ total.value = allPrices?.reduce((a: number, b: number) => a + b, 0);
 
 totalToPay.value = total.value + totalShippingCosts.value;
 
-const email = ref();
-const { data } = useAuth();
-const user = data.value?.user;
-
-if (!user?.email) {
-  navigateTo("/sign-in");
-}
-
 if (cartItems.value.length === 0) {
   navigateTo("/");
 }
@@ -47,7 +34,7 @@ const createPaymentGeneratedContent = async () => {
     return await $fetch("/api/createPayment", {
       method: "POST",
       body: {
-        email: user?.email,
+        email: emailInput.value,
         allitems: cartItems.value,
       },
     });
@@ -56,50 +43,22 @@ const createPaymentGeneratedContent = async () => {
 };
 
 const isLoading = ref(false);
-const userData = await $fetch("/api/getUser", {
-  method: "POST",
-  body: {
-    name: user?.name,
-    email: user?.email,
-  },
-});
-
+const nameInput = ref("");
+const emailInput = ref("");
 const zipcodeInput = ref("");
 const countryInput = ref("");
 const numberInput = ref("");
 const streetInput = ref("");
 const cityInput = ref("");
 
-onMounted(() => {
-  if (userData) {
-    zipcodeInput.value = userData?.data[0].zipcode ?? "";
-    countryInput.value = userData?.data[0].country ?? "";
-    numberInput.value = userData?.data[0].number ?? "";
-    streetInput.value = userData?.data[0].street ?? "";
-    cityInput.value = userData?.data[0].city ?? "";
-  }
-});
-
 const createUser = async () => {
   isLoading.value = true;
-  await useAsyncData("updateUser", () =>
-    $fetch("/api/updateUser", {
-      method: "POST",
-      body: {
-        email: user?.email,
-        zipcode: zipcodeInput.value,
-        street: streetInput.value,
-        number: numberInput.value,
-        country: countryInput.value,
-        city: cityInput.value,
-      },
-    })
-  );
+
   await $fetch("/api/create-order-data", {
     method: "POST",
     body: {
-      name: user?.name,
-      email: user?.email,
+      name: nameInput.value,
+      email: emailInput.value,
       zipcode: zipcodeInput.value,
       street: streetInput.value,
       number: numberInput.value,
@@ -117,16 +76,30 @@ const createUser = async () => {
     @submit.prevent="createUser"
     class="w-screen min-h-screen flex flex-col items-center justify-center"
   >
-    <h1>Shipping / Email</h1>
+    <h1>Shipping - Account</h1>
     <span class="text-gray-600 px-6"
       >Please check your credentials carefully before you continue.</span
     >
     <div class="md:w-3/12 w-5/6 mt-20">
-      <div class="flex flex-col gap-2">
-        <label class="font-bold">Name:</label>
-        <span>{{ user?.name }}</span>
+      <div class="space-y-2 mt-4 flex flex-col">
+        <label class="font-bold">Fullname:</label>
+        <input
+          required
+          placeholder="Your Fullname"
+          v-model="nameInput"
+          type="text"
+          class="py-1.5 px-4 rounded-md hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
+        />
+      </div>
+      <div class="space-y-2 mt-4 flex flex-col">
         <label class="font-bold">Email:</label>
-        <span>{{ user?.email }}</span>
+        <input
+          required
+          placeholder="Your Email"
+          v-model="emailInput"
+          type="text"
+          class="py-1.5 px-4 rounded-md hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
+        />
       </div>
       <div class="space-y-2 mt-4 flex flex-col">
         <label class="font-bold">Zipcode:</label>

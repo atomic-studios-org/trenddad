@@ -75,6 +75,18 @@ export const user = pgTable("user", {
   city: varchar("city", { length: 256 }),
 });
 
+export const orderUser = pgTable("orderUser", {
+  id: serial("id").primaryKey().unique(),
+  name: varchar("name", { length: 256 }),
+  email: varchar("email", { length: 256 }),
+  password: varchar("password", { length: 256 }),
+  zipcode: varchar("zipcode", { length: 256 }),
+  street: varchar("street", { length: 256 }),
+  number: varchar("number", { length: 256 }),
+  country: varchar("country", { length: 256 }),
+  city: varchar("city", { length: 256 }),
+});
+
 export const forgotpassword = pgTable("forgotpassword", {
   id: serial("id").primaryKey().unique(),
   email: varchar("email", { length: 256 }),

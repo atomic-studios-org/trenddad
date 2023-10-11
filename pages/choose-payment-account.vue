@@ -1,0 +1,50 @@
+<script lang="ts" setup>
+import { useCartStore } from "../stores/cart-store";
+const store = useCartStore();
+const cartItems: Ref<number[]> = ref([]);
+
+cartItems.value.push(...store.cart);
+
+if (cartItems.value.length === 0) {
+  navigateTo("/");
+}
+const isLoading = ref(false);
+
+const isAccount = ref(true);
+
+const choosePaymentAccountOption = () => {
+  isLoading.value = true;
+  if (isAccount) {
+    navigateTo("/shipping");
+    isLoading.value = false;
+  } else {
+    navigateTo("/shipping-no-account");
+  }
+
+  isLoading.value = false;
+};
+</script>
+<template>
+  <form
+    @submit.prevent="choosePaymentAccountOption"
+    class="w-screen min-h-screen flex flex-col items-center justify-center"
+  >
+    <h1>Account method</h1>
+    <span class="text-gray-600 px-6"
+      >Please select how you want to proceed</span
+    >
+    <div class="md:w-3/12 w-5/6 mt-20">
+      <select v-model="isAccount">
+        <option :value="true">I want to proceed by account sign-in</option>
+        <option :value="false">Continue without account</option>
+      </select>
+      <button
+        :disabled="isLoading"
+        class="bg-black text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer hover:bg-gray-900"
+        type="submit"
+      >
+        {{ isLoading ? "Loading.." : "Select option" }}
+      </button>
+    </div>
+  </form>
+</template>
