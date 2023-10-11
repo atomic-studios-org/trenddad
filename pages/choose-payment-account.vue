@@ -14,7 +14,7 @@ const isAccount = ref(true);
 
 const choosePaymentAccountOption = () => {
   isLoading.value = true;
-  if (isAccount) {
+  if (isAccount.value) {
     navigateTo("/shipping");
     isLoading.value = false;
   } else {
