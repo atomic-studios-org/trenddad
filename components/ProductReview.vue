@@ -78,7 +78,7 @@ const createReview = async () => {
         :disabled="true"
         class="bg-black text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-not-allowed hover:bg-gray-900"
       >
-        You need to sign in
+        Sign in
       </button>
     </div>
   </div>

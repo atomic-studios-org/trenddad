@@ -126,7 +126,7 @@ const chosenImage = ref(
               <button
                 id="first_name"
                 @click="handleAddToCart(data?.data?.id as number)"
-                class="focus:animate-flip bg-black no-underline py-4 text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer disabled:cursor-default hover:bg-gray-900"
+                class="focus:animate-fade-in bg-black no-underline py-4 text-white disabled:bg-gray-300 disabled:text-gray-400 py-2 px-4 border-none mt-4 cursor-pointer disabled:cursor-default hover:bg-gray-900"
               >
                 Add to cart
               </button>

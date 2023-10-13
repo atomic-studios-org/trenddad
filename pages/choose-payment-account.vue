@@ -27,15 +27,15 @@ const choosePaymentAccountOption = () => {
 <template>
   <form
     @submit.prevent="choosePaymentAccountOption"
-    class="w-screen min-h-screen flex flex-col items-center justify-center"
+    class="w-screen min-h-screen flex flex-col items-center mt-20"
   >
-    <h1>Account method</h1>
+    <h1>Choose method</h1>
     <span class="text-gray-600 px-6"
       >Please select how you want to proceed</span
     >
-    <div class="md:w-3/12 w-5/6 mt-20">
+    <div class="md:w-3/12 w-5/6 mt-20 flex flex-col">
       <select v-model="isAccount">
-        <option :value="true">I want to proceed by account sign-in</option>
+        <option :value="true">I want to proceed by account Sign-in</option>
         <option :value="false">Continue without account</option>
       </select>
       <button
