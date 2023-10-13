@@ -40,7 +40,7 @@ const products = data.value?.data;
       />
 
       <div
-        class="absolute lg:h-60 h-40 z-10 w-full bg-gradient-to-t from-white/30 opacity-100 to-transparent"
+        class="absolute lg:h-40 h-40 z-10 w-full bg-gradient-to-t from-white/30 opacity-100 to-transparent"
       ></div>
     </div>
     <div class="flex flex-col px-2 md:px-40 py-6">
@@ -59,7 +59,10 @@ const products = data.value?.data;
             >
               The number #1 stash store
             </h1>
-            <nuxt-img src="/gold.webp" alt="gold" :height="43" :width="30" />
+            <div class="flex flex-col items-center">
+              <nuxt-img src="/gold.webp" alt="gold" :height="43" :width="30" />
+              <span class="text-xs font-bold">2023</span>
+            </div>
           </div>
           <span class="text-xs md:text-xl text-black p-1.5"
             >Hide your valuable items now inside our products and be safe
