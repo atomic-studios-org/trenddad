@@ -38,6 +38,13 @@ export default defineConfig({
             provider: "fontshare",
           },
         ],
+        satoshi: [
+          {
+            name: "Satoshi",
+
+            provider: "fontshare",
+          },
+        ],
       },
     }),
   ],
