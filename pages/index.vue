@@ -65,8 +65,8 @@ const products = data.value?.data;
             </div>
           </div>
           <span class="text-xs md:text-xl text-black p-1.5"
-            >Hide your valuable items now inside our products and be safe
-            AF.</span
+            >Hide <span class="text-yellow-400 font-bold">valuable</span> items
+            inside our products and be safe AF.</span
           >
         </div>
         <div>

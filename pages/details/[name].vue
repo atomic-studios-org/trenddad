@@ -139,31 +139,31 @@ const chosenImage = ref(
               <span v-if="data?.data?.spec1 !== 'null'">{{
                 data?.data?.spec1
               }}</span>
-              <span v-if="data?.data?.spec2 !== 'null'">Type</span>
+              <span v-if="data?.data?.spec2 !== 'null'">Type:</span>
               <span v-if="data?.data?.spec2 !== 'null'">{{
                 data?.data?.spec2
               }}</span>
-              <span v-if="data?.data?.spec3 !== 'null'">Properties</span>
+              <span v-if="data?.data?.spec3 !== 'null'">Properties:</span>
               <span v-if="data?.data?.spec3 !== 'null'">{{
                 data?.data?.spec3
               }}</span>
-              <span v-if="data?.data?.spec4 !== 'null'">Characteristics</span>
+              <span v-if="data?.data?.spec4 !== 'null'">Characteristics:</span>
               <span v-if="data?.data?.spec4 !== 'null'">{{
                 data?.data?.spec4
               }}</span>
-              <span v-if="data?.data?.spec5 !== 'null'">Color</span>
+              <span v-if="data?.data?.spec5 !== 'null'">Color:</span>
               <span v-if="data?.data?.spec5 !== 'null'">{{
                 data?.data?.spec5
               }}</span>
-              <span v-if="data?.data?.spec6 !== 'null'">Packaging</span>
+              <span v-if="data?.data?.spec6 !== 'null'">Packaging:</span>
               <span v-if="data?.data?.spec6 !== 'null'">{{
                 data?.data?.spec6
               }}</span>
-              <span v-if="data?.data?.spec7 !== 'null'">Dimensions</span>
+              <span v-if="data?.data?.spec7 !== 'null'">Dimensions:</span>
               <span v-if="data?.data?.spec7 !== 'null'">{{
                 data?.data?.spec7
               }}</span>
-              <span v-if="data?.data?.spec8 !== 'null'">Weight</span>
+              <span v-if="data?.data?.spec8 !== 'null'">Weight:</span>
               <span v-if="data?.data?.spec8 !== 'null'">{{
                 data?.data?.spec8
               }}</span>
