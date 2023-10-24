@@ -6,7 +6,8 @@ import {
   serial,
   uniqueIndex,
   varchar,
-  numeric
+  numeric,
+  text
 } from "drizzle-orm/pg-core";
 
 export const products = pgTable("products", {
@@ -114,3 +115,22 @@ export const productCodes = pgTable("productcodes", {
   code: varchar("code", { length: 256 }),
   send: boolean("send")
 });
+
+export const blogs = pgTable("blogs",
+{
+  id: serial("id").primaryKey().unique(),
+  title: text("title"),
+  intro: text("intro"),
+  text1: text("text1"),
+  text2: text("text2"),
+  header1: text("header1"),
+  text3: text("text3"),
+  text4: text("text4"),
+  header2: text("header2"),
+  text5: text("text5"),
+  text6: text("text6"),
+  text7: text("text7"),
+  image: text("image"),
+  author: text("author"),
+  date: text("date")
+})

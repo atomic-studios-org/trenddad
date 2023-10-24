@@ -35,6 +35,13 @@
               >Terms
             </NuxtLink>
           </li>
+          <li>
+            <NuxtLink
+              href="/blogs"
+              class="mr-4 hover:underline md:mr-6 decoration-none text-black"
+              >Blogs
+            </NuxtLink>
+          </li>
         </ul>
       </div>
       <hr
