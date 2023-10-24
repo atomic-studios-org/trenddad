@@ -97,7 +97,7 @@ const createUser = async () => {
           required
           placeholder="Your Email"
           v-model="emailInput"
-          type="text"
+          type="email"
           class="py-1.5 px-4 rounded-md hover:border-2 hover:border-groove hover:border-sky-600 focus:border-sky-600"
         />
       </div>

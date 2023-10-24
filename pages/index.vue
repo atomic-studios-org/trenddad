@@ -45,13 +45,7 @@ const products = data.value?.data;
     </div>
     <div class="flex flex-col px-2 md:px-40 py-6">
       <div class="flex items-end md:gap-0 gap-10 justify-between">
-        <nuxt-img
-          class="md:h-40 md:w-40 h-20 w-20"
-          src="/meme.webp"
-          alt="meme"
-          :height="100"
-          :width="100"
-        />
+        <div class="w-40"></div>
         <div>
           <div class="flex">
             <h1
@@ -66,7 +60,7 @@ const products = data.value?.data;
           </div>
           <span class="text-xs md:text-xl text-black p-1.5"
             >Hide <span class="text-yellow-400 font-bold">valuable</span> items
-            inside our products and be safe AF.</span
+            inside our products and be safe.</span
           >
         </div>
         <div>
