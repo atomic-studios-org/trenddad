@@ -11,3 +11,4 @@ dist
 .idea
 bfg.jar
 ..bfg-report
+private.txt
