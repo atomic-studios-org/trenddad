@@ -66,8 +66,8 @@ const createPayment = async (email: string, allitems: number[]) => {
     client_reference_id: email,
     customer_email: email,
     line_items: items,
-    success_url: `https://trenddad.com/success`,
-    cancel_url: `https://trenddad.com/cancel`,
+    success_url: `https://trenddad-com.vercel.app/success`,
+    cancel_url: `https://trenddad-com.vercel.app/cancel`,
   });
   return response.url;
 };

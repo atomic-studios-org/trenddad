@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { useCartStore } from "../stores/cart-store";
 const store = useCartStore();
-const cartItems = ref();
-
+const cartItems = ref<any[]>([]);
+console.log(cartItems.value)
 cartItems.value.push(...store.cart);
 
 if (cartItems.value.length === 0) {
