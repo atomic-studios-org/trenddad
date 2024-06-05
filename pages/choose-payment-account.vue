@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useCartStore } from "../stores/cart-store";
 const store = useCartStore();
-const cartItems: Ref<number[]> = ref([]);
+const cartItems = ref();
 
 cartItems.value.push(...store.cart);
 
